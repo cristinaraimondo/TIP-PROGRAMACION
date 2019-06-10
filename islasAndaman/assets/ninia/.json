@@ -1,0 +1,10 @@
+<TextureAtlas imagePath=".png">
+{"frames": [
+@loop],
+"meta": {
+	"app": "ShoeBox",
+	"size": {"w":32,"h":64}
+
+}
+
+}</TextureAtlas>
