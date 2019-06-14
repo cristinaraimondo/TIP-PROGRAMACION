@@ -27,24 +27,44 @@ class Intro extends Phaser.Scene {
         container.add([this.contenedor, this.texto]);
         this.add.tween({
             targets: [container],
-            // ease: 'Bounce',
             y: 4
         });
         const avion = this.add.container(-10, -50);
         avion.add([this.avion]);
         this.add.tween({
             targets: [avion],
-            // ease: 'Bounce',
+            alpha: 0,
             y: 410,
             x: 500
         });
-        this.input.once(
-            'pointerup',
-            function() {
-                this.scene.start('Selva');
-            },
-            this
-        );
+        this.boton = this.add
+            .image(400, 550, 'boton')
+            .setScale(0.3)
+            .setInteractive();
+        this.boton.on(Phaser.Input.Events.POINTER_DOWN, () => {
+            this.add.tween({
+                targets: this.boton,
+                ease: 'Bounce.easeIn',
+                y: -200,
+                duration: 1000,
+                onComplete: () => {
+                    this.scene.start('Selva');
+                }
+            });
+        });
+
+        const pressButton = this.add
+            .dynamicBitmapText(400, 500, 'font', 'PRESIONA EL BOTON', 8)
+            .setOrigin(0.5);
+
+        this.add.tween({
+            targets: pressButton,
+            alpha: 0,
+            //ease: (x) => x < 0.5 ? 0 : 1,
+            duration: 500,
+            yoyo: true,
+            repeat: -1
+        });
     }
 
     update(time, delta) {}

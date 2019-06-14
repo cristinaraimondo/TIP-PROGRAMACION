@@ -14,11 +14,11 @@ class Bootloader extends Phaser.Scene {
         this.load.image('chica', 'ninia.png');
         this.load.image('cont', 'contenedor.png');
         this.load.image('font', 'font/font.png'),
-            this.load.json('font_json', 'font/font.json');
+            this.load.json('fontJSON', 'font/font.json');
         this.load.image('avion', 'avioneta.png');
         this.load.image('ninia', 'Run.png');
         this.load.image('ninio', 'ninio.png');
-        this.load.image('boton', 'start.png');
+        this.load.image('boton', 'Text.png');
         this.load.image('pelota', 'sel.jpg');
         this.load.spritesheet('ninio', 'atlas_name_PP3');
         this.load.spritesheet('moreno', 'moreno/2x.png', {
@@ -35,6 +35,12 @@ class Bootloader extends Phaser.Scene {
         });
 
         this.load.on('complete', () => {
+            const fontJSON = this.cache.json.get('fontJSON');
+            this.cache.bitmapFont.add(
+                'font',
+                Phaser.GameObjects.RetroFont.Parse(this, fontJSON)
+            );
+
             this.scene.start('Intro');
         });
     }
