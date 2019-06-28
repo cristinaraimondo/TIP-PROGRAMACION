@@ -1,0 +1,164 @@
+{
+    "frames": [
+        {
+            "filename": "marrrr_0",
+            "frame": {
+                "x": 1,
+                "y": 1,
+                "w": 15,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "marrrr_1",
+            "frame": {
+                "x": 18,
+                "y": 1,
+                "w": 15,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "marrrr_2",
+            "frame": {
+                "x": 35,
+                "y": 1,
+                "w": 15,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "marrrr_3",
+            "frame": {
+                "x": 52,
+                "y": 1,
+                "w": 15,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "marrrr_4",
+            "frame": {
+                "x": 1,
+                "y": 35,
+                "w": 15,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "marrrr_5",
+            "frame": {
+                "x": 18,
+                "y": 35,
+                "w": 15,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "marrrr_6",
+            "frame": {
+                "x": 35,
+                "y": 35,
+                "w": 15,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "marrrr_7",
+            "frame": {
+                "x": 52,
+                "y": 35,
+                "w": 15,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "marrrr_8",
+            "frame": {
+                "x": 1,
+                "y": 69,
+                "w": 15,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "marrrr_9",
+            "frame": {
+                "x": 18,
+                "y": 69,
+                "w": 15,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "marrrr_10",
+            "frame": {
+                "x": 35,
+                "y": 69,
+                "w": 15,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "marrrr_11",
+            "frame": {
+                "x": 52,
+                "y": 69,
+                "w": 15,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Phaser3",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

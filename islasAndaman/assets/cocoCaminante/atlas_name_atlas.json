@@ -1,0 +1,86 @@
+{
+    "frames": [
+        {
+            "filename": "cococamina3_0",
+            "frame": {
+                "x": 1,
+                "y": 1,
+                "w": 120,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "cococamina3_1",
+            "frame": {
+                "x": 1,
+                "y": 35,
+                "w": 120,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "cococamina3_2",
+            "frame": {
+                "x": 1,
+                "y": 69,
+                "w": 120,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "cococamina3_3",
+            "frame": {
+                "x": 1,
+                "y": 103,
+                "w": 120,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "cococamina3_4",
+            "frame": {
+                "x": 1,
+                "y": 137,
+                "w": 120,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "cococamina3_5",
+            "frame": {
+                "x": 1,
+                "y": 171,
+                "w": 120,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Phaser3",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

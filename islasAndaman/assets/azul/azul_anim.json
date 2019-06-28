@@ -1,0 +1,84 @@
+{
+    "anims": [
+        {
+            "key": "azul",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "azul",
+                    "frame": "sample_character_01_0"
+                },
+                {
+                    "key": "azul",
+                    "frame": "sample_character_01_4"
+                },
+                {
+                    "key": "azul",
+                    "frame": "sample_character_01_8"
+                }
+            ]
+        },
+        {
+            "key": "frente",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "azul",
+                    "frame": "sample_character_01_1"
+                },
+                {
+                    "key": "azul",
+                    "frame": "sample_character_01_5"
+                },
+                {
+                    "key": "azul",
+                    "frame": "sample_character_01_9"
+                }
+            ]
+        },
+        {
+            "key": "atras",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "azul",
+                    "frame": "sample_character_01_2"
+                },
+                {
+                    "key": "azul",
+                    "frame": "sample_character_01_6"
+                },
+                {
+                    "key": "azul",
+                    "frame": "sample_character_01_10"
+                }
+            ]
+        },
+        {
+            "key": "derecha",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "azul",
+                    "frame": "sample_character_01_3"
+                },
+                {
+                    "key": "azul",
+                    "frame": "sample_character_01_7"
+                },
+                {
+                    "key": "azul",
+                    "frame": "sample_character_01_11"
+                }
+            ]
+        }
+    ]
+}

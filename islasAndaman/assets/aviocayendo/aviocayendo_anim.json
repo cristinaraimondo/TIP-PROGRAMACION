@@ -1,0 +1,32 @@
+{
+    "anims": [
+        {
+            "key": "avionca",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "aviocayendo",
+                    "frame": "avion_00001_-_copy"
+                },
+                {
+                    "key": "aviocayendo",
+                    "frame": "avion_00001"
+                },
+                {
+                    "key": "aviocayendo",
+                    "frame": "avion_00014"
+                },
+                {
+                    "key": "aviocayendo",
+                    "frame": "avion_00018"
+                },
+                {
+                    "key": "aviocayendo",
+                    "frame": "avion_00024"
+                }
+            ]
+        }
+    ]
+}

@@ -4,6 +4,9 @@ import Intro from './scenes/Intro.js';
 import Volcanes from './scenes/Volcanes.js';
 import Selva from './scenes/Selva.js';
 import Game_over from './scenes/Game_over.js';
+import Anara from './scenes/Anara.js';
+import Ivan from './scenes/Ivan.js';
+import Kelen from './scenes/Kelen.js';
 
 const config = {
     title: 'Islas_andaman',
@@ -26,7 +29,17 @@ const config = {
             }
         }
     },
-    scene: [Bootloader, Intro, Game_over, Selva, Volcanes, Play]
+    scene: [
+        Bootloader,
+        Intro,
+        Game_over,
+        Selva,
+        Volcanes,
+        Play,
+        Anara,
+        Ivan,
+        Kelen
+    ]
 };
 
 new Phaser.Game(config);

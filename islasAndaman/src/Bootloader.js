@@ -20,7 +20,20 @@ class Bootloader extends Phaser.Scene {
         this.load.image('ninio', 'ninio.png');
         this.load.image('boton', 'Text.png');
         this.load.image('pelota', 'sel.jpg');
+        this.load.atlas(
+            'avion',
+            'aviocayendo/aviocayendo.png',
+            'aviocayendo/aviocayendo_atlas.json'
+        );
+        this.load.animation('avionAnim', 'aviocayendo/aviocayendo_anim.json');
+        this.load.atlas(
+            'marron',
+            'marron/marron.png',
+            'marron/marron_atlas.json'
+        );
         this.load.spritesheet('ninio', 'atlas_name_PP3');
+        this.load.animation('marronAnim', 'marron/marron_anim.json');
+
         this.load.spritesheet('moreno', 'moreno/2x.png', {
             frameWidth: 16,
             frameHeight: 21.33
