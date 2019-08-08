@@ -9,9 +9,9 @@ class Ivan extends Phaser.Scene {
     }
 
     create() {
-        this.fondo = this.add.image(400, 300, 'pelota').setScale(1);
+        this.fondo = this.add.image(400, 300, 'pelota').setScale();
 
-        this.moreno = this.add.sprite(200, 500, 'rubioidle', 1).setScale(2);
+        this.moreno = this.add.sprite(200, 500, 'rubioidle', 1).setScale(2.5);
         this.moreno.anims.play('idle');
     }
 
