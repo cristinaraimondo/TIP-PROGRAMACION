@@ -1,0 +1,20 @@
+{
+    "anims": [
+        {
+            "key": "quieto",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "chicoidle",
+                    "frame": "chicoidle_00005"
+                },
+                {
+                    "key": "chicoidle",
+                    "frame": "chicoidle_00006"
+                }
+            ]
+        }
+    ]
+}

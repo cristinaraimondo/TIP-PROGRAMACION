@@ -1,0 +1,20 @@
+{
+    "anims": [
+        {
+            "key": "idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "rubioidle",
+                    "frame": "untitled_00001"
+                },
+                {
+                    "key": "rubioidle",
+                    "frame": "untitled_00006"
+                }
+            ]
+        }
+    ]
+}

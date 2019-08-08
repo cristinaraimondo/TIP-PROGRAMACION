@@ -1,0 +1,168 @@
+{
+    "anims": [
+        {
+            "key": "rubioidle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_0"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_0"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_0"
+                }
+            ]
+        },
+        {
+            "key": "rubioizq",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_7"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_8"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_9"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_10"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_11"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_12"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_13"
+                }
+            ]
+        },
+        {
+            "key": "rubioder",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_14"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_15"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_16"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_17"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_18"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_19"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_20"
+                }
+            ]
+        },
+        {
+            "key": "rubiofrente",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_0"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_1"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_2"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_3"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_4"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_5"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_6"
+                }
+            ]
+        },
+        {
+            "key": "rubiotras",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_21"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_22"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_23"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_24"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_25"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_26"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "atlas_name_27"
+                }
+            ]
+        }
+    ]
+}

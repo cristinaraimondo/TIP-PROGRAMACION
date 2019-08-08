@@ -1,3 +1,5 @@
+import Rocas from '../Rocas/Rocas.js';
+
 class Intro extends Phaser.Scene {
     constructor() {
         super({ key: 'Intro' });
@@ -5,72 +7,181 @@ class Intro extends Phaser.Scene {
 
     init() {
         console.log('Scene: Intro');
+        this.camara = this.cameras.main;
+        this.audioAvion = this.sound.add('aircraft', {
+            loop: false
+        });
     }
 
     create() {
-        this.fondo = this.add.image(100, 200, 'fondo');
-        // const fuenteConfig=this.cache.json.get('font_json');
-        // this.cache.bitmapFont.add('nombreFuente', Phaser.GameObjects.RetroFont.Parse(this, fuenteConfig))
-        //  this.texto=this.add.bitmapText(100, 150, 'nombreFuente', 'UN AVION CON DESTINO A LA INDIA, SE ESTRELLO EN LAS ISLAS DE ANDAMAN',9)
-
-        // this.marron = this.add.sprite(500, 500, 'marron', 1).setScale(2);
-        // this.marron.anims.play('frente');
-
-        this.contenedor = this.add.image(200, 100, 'cont').setScale(2);
-        this.texto = this.add.text(
-            40,
-            70,
-            'UN AVION CON DESTINO A LA INDIA, SE ESTRELLO EN LAS ISLAS DE ANDAMAN \n SOBREVIVIERON TODOS LOS PASAJEROS PERO SOLO 3 VALIENTES\nEMPRENDIERON LA AVENTURA POR ESTAS ISLAS LLENAS DE PELIGROS,\nEN BUSCA DE UN BARCO QUE FUE LOCALIZADO POR EL RADAR DEL AVIÓN\nY DE ESTA MANERA SALVAR AL RESTO DE LOS PASAJEROS \nEN LA SIGUIENTE PANTALLA ELIGE UN JUGADOR PARA COMENZAR ESTA AVENTURA.',
-            { fontSize: 9 }
-        );
-
         this.avion = this.add.image(200, 100, 'avion').setScale(0.3);
 
-        const container = this.add.container(0, -400);
-        container.add([this.contenedor, this.texto]);
-        this.add.tween({
-            targets: [container],
-            y: 4
-        });
-        const avion = this.add.container(-10, -50);
+        const menuTextArray = [' '];
+
+        const menuText = this.add.bitmapText(10, -510, 'font', menuTextArray);
+
+        const cursor = this.input.keyboard.createCursorKeys();
+
+        const menuContainer = this.add.container(0, 0);
+        menuContainer.add([menuText]);
+
+        menuContainer.setAlpha(0);
+
+        const creditsTextArray = [
+            '2019 UNQ\n',
+            'CIU GRAL.BELGRANO .\n',
+            'LICENSED BY\n',
+            'CREATIVE COMMONS.\n',
+            'Y CREADO CON PHASER 3'
+        ];
+
+        const textArray = {
+            text: [
+                'UN AVION CON DESTINO,\n\nA LA INDIA',
+                'SE ESTRELLA.\n\nEN LAS ISLAS DE ANDAMAN',
+                'SOBREVIVIERON TODOS\n\nPERO SOLO UN VALIENTE.',
+                'SE LANZARA A LA AVENTURA,\n\nY ATRAVESARA TODOS ',
+                'LOS PELIGROS PARA ENCONTRAR\n\nEL BARCO QUE LOS SALVARA.'
+            ],
+            count: 0
+        };
+
+        // Créditos
+        const creditsText = this.add
+            .bitmapText(
+                this.scale.width / 2,
+                this.scale.height / 2,
+                'font',
+                creditsTextArray,
+                16,
+                1
+            )
+            .setOrigin(0.5)
+            .setDepth(2);
+
+        // Texto historia
+        const historyText = this.add
+            .bitmapText(0, 0, 'font', textArray.text[0])
+            .setCenterAlign()
+            .setDepth(2)
+            .setAlpha(0);
+
+        Phaser.Display.Align.In.BottomCenter(
+            historyText,
+            this.add.zone(0, -40, 580, 580).setOrigin(0)
+        );
+
+        const background_text = this.add
+            .image(0, this.scale.height, 'background_text')
+            .setOrigin(0, 0.7)
+            .setScrollFactor(0.7)
+
+            .setDepth(1);
+
+        // Fondo
+        const background = this.add
+            .image(0, -50, 'objects')
+            .setScale(1)
+            .setOrigin(0)
+            .setAlpha(0);
+        background.setScrollFactor(0, 0.7);
+
+        const rocas = new Rocas(this, 'objects', 7);
+        const avione = this.add
+            .sprite(560, -400, 'aviocayendo')
+            .setScale(2)
+            .setDepth(2)
+            .setAngle(-10)
+            .setScrollFactor(0.9);
+        avione.anims.play('avionca');
+
+        // rubio
+        const rubio = this.add
+            .sprite(700, -360, 'rubioidle')
+            .setScale(2)
+            .setDepth(2)
+            .setScrollFactor(0.9)
+            .setInteractive();
+        rubio.anims.play('idle');
+        rubio.on('pointerdown', () => this.eligeIvan());
+        //chico
+        const chico = this.add
+            .sprite(460, -375, 'chicoidle')
+            .setScale(0.7)
+            .setDepth(2)
+            .setScrollFactor(0.9)
+            .setAlpha(100)
+            .setInteractive();
+
+        chico.anims.play('quieto');
+
+        chico.on('pointerdown', () => this.chicoPulsado());
+
+        const avion = this.add.container(-300, -20);
         avion.add([this.avion]);
         this.add.tween({
             targets: [avion],
+            delay: 5000,
             alpha: 0,
-            y: 410,
-            x: 500
-        });
-        this.boton = this.add
-            .image(400, 550, 'boton')
-            .setScale(0.3)
-            .setInteractive();
-        this.boton.on(Phaser.Input.Events.POINTER_DOWN, () => {
-            this.add.tween({
-                targets: this.boton,
-                //ease: 'Bounce.easeIn',
-                y: -200,
-                duration: 1000,
-                onComplete: () => {
-                    this.scene.start('Selva');
-                }
-            });
+            y: 210,
+            x: 600
         });
 
-        const pressButton = this.add
-            .dynamicBitmapText(400, 500, 'font', 'PRESIONA EL BOTON', 8)
-            .setOrigin(0.5);
+        const timeLine = this.tweens.createTimeline();
 
-        this.add.tween({
-            targets: pressButton,
+        timeLine.add({
+            targets: creditsText,
             alpha: 0,
-            ease: x => (x < 0.5 ? 0 : 1),
+            delay: 3000,
             duration: 500,
-            yoyo: true,
-            repeat: -1
+            onComplete: () => {
+                this.cameras.main.flash(500);
+                this.audioAvion.play();
+            }
         });
-    }
 
-    update(time, delta) {}
+        timeLine.add({
+            targets: [background, ...rocas.getChildren()],
+            alpha: 1,
+            duration: 1000
+        });
+
+        timeLine.add({
+            targets: [historyText],
+            alpha: 1,
+            repeat: textArray.text.length - 1,
+            hold: 2900,
+            repeatDelay: 100,
+            yoyo: true,
+            onRepeat: () => {
+                textArray.count++;
+
+                historyText.setText(textArray.text[textArray.count]);
+                Phaser.Display.Align.In.BottomCenter(
+                    historyText,
+                    this.add.zone(0, -60, 800, 600).setOrigin(0)
+                );
+            },
+            onComplete: () => {
+                this.camara.pan(
+                    this.scale.width / 2,
+                    -500,
+                    10000,
+                    'Quad.easeIn'
+                );
+            }
+        });
+
+        timeLine.play();
+    }
+    chicoPulsado() {
+        alert('elegiste al mejor');
+        this.scene.start('Anara');
+    }
+    eligeIvan() {
+        alert('Ivan es muy veloz, elegiste al mejor');
+        this.scene.start('Ivan');
+    }
 }
 
 export default Intro;

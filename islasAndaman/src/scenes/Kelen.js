@@ -9,7 +9,13 @@ class Kelen extends Phaser.Scene {
     }
 
     create() {
-        this.rubio = this.add.sprite(400, 500, 'rubio', 1).setScale(2);
+        this.rubio = this.add.sprite(400, 500, 'rubioidle', 1).setScale(2);
+
+        this.input.keyboard.on('keydown_C', () => {
+            this.scene.sleep('Anara');
+            this.scene.sleep('ivan');
+        });
+        this.life = 3;
     }
 
     update(time, delta) {}

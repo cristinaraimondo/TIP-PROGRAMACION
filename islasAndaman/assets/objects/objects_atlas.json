@@ -1,0 +1,47 @@
+{
+    "frames": [
+        {
+            "filename": "objects",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 800,
+                "h": 517
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "mont",
+            "frame": {
+                "x": 0,
+                "y": 517,
+                "w": 65,
+                "h": 52
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "montpunta",
+            "frame": {
+                "x": 0,
+                "y": 569,
+                "w": 365,
+                "h": 78
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Phaser3",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

@@ -4,27 +4,27 @@
             "key": "avionca",
             "type": "frames",
             "repeat": -1,
-            "frameRate": 12,
+            "frameRate": 7,
             "frames": [
                 {
                     "key": "aviocayendo",
-                    "frame": "avion_00001_-_copy"
+                    "frame": "untitled_00026"
                 },
                 {
                     "key": "aviocayendo",
-                    "frame": "avion_00001"
+                    "frame": "untitled_00002"
                 },
                 {
                     "key": "aviocayendo",
-                    "frame": "avion_00014"
+                    "frame": "untitled_00024"
                 },
                 {
                     "key": "aviocayendo",
-                    "frame": "avion_00018"
+                    "frame": "untitled_00024"
                 },
                 {
                     "key": "aviocayendo",
-                    "frame": "avion_00024"
+                    "frame": "untitled_00026"
                 }
             ]
         }

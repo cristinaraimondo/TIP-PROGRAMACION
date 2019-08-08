@@ -1,0 +1,34 @@
+{
+    "frames": [
+        {
+            "filename": "chicoidle_00005",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 245,
+                "h": 137
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "chicoidle_00006",
+            "frame": {
+                "x": 0,
+                "y": 137,
+                "w": 245,
+                "h": 137
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Phaser3",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}
