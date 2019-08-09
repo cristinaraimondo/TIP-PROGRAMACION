@@ -55,7 +55,7 @@ class Bootloader extends Phaser.Scene {
                 'font',
                 Phaser.GameObjects.RetroFont.Parse(this, configFont)
             );
-            this.scene.start('Intro');
+            this.scene.start('Anara');
         });
     }
 }
