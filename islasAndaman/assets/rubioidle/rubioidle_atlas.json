@@ -1,11 +1,375 @@
 {
     "frames": [
         {
-            "filename": "untitled_00001",
+            "filename": "atlas_name_0",
             "frame": {
                 "x": 0,
                 "y": 0,
-                "w": 60,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_1",
+            "frame": {
+                "x": 51,
+                "y": 0,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_2",
+            "frame": {
+                "x": 102,
+                "y": 0,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_3",
+            "frame": {
+                "x": 153,
+                "y": 0,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_4",
+            "frame": {
+                "x": 204,
+                "y": 0,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_5",
+            "frame": {
+                "x": 255,
+                "y": 0,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_6",
+            "frame": {
+                "x": 306,
+                "y": 0,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_7",
+            "frame": {
+                "x": 0,
+                "y": 72,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_8",
+            "frame": {
+                "x": 51,
+                "y": 72,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_9",
+            "frame": {
+                "x": 102,
+                "y": 72,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_10",
+            "frame": {
+                "x": 153,
+                "y": 72,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_11",
+            "frame": {
+                "x": 204,
+                "y": 72,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_12",
+            "frame": {
+                "x": 255,
+                "y": 72,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_13",
+            "frame": {
+                "x": 306,
+                "y": 72,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_14",
+            "frame": {
+                "x": 0,
+                "y": 144,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_15",
+            "frame": {
+                "x": 51,
+                "y": 144,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_16",
+            "frame": {
+                "x": 102,
+                "y": 144,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_17",
+            "frame": {
+                "x": 153,
+                "y": 144,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_18",
+            "frame": {
+                "x": 204,
+                "y": 144,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_19",
+            "frame": {
+                "x": 255,
+                "y": 144,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_20",
+            "frame": {
+                "x": 306,
+                "y": 144,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_21",
+            "frame": {
+                "x": 0,
+                "y": 216,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_22",
+            "frame": {
+                "x": 51,
+                "y": 216,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_23",
+            "frame": {
+                "x": 102,
+                "y": 216,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_24",
+            "frame": {
+                "x": 153,
+                "y": 216,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_25",
+            "frame": {
+                "x": 204,
+                "y": 216,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_26",
+            "frame": {
+                "x": 255,
+                "y": 216,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "atlas_name_27",
+            "frame": {
+                "x": 306,
+                "y": 216,
+                "w": 51,
+                "h": 72
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "rubioidle_0",
+            "frame": {
+                "x": 0,
+                "y": 288,
+                "w": 45,
                 "h": 33
             },
             "anchor": {
@@ -14,11 +378,11 @@
             }
         },
         {
-            "filename": "untitled_00006",
+            "filename": "rubioidle_1",
             "frame": {
-                "x": 0,
-                "y": 33,
-                "w": 60,
+                "x": 45,
+                "y": 288,
+                "w": 45,
                 "h": 33
             },
             "anchor": {

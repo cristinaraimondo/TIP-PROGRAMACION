@@ -1,0 +1,164 @@
+{
+    "frames": [
+        {
+            "filename": "chico_0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 160,
+                "h": 138
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "chico_1",
+            "frame": {
+                "x": 160,
+                "y": 0,
+                "w": 160,
+                "h": 138
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "chico_2",
+            "frame": {
+                "x": 320,
+                "y": 0,
+                "w": 160,
+                "h": 138
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "chico_3",
+            "frame": {
+                "x": 0,
+                "y": 138,
+                "w": 160,
+                "h": 138
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "chico_4",
+            "frame": {
+                "x": 160,
+                "y": 138,
+                "w": 160,
+                "h": 138
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "chico_5",
+            "frame": {
+                "x": 320,
+                "y": 138,
+                "w": 160,
+                "h": 138
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "chico_6",
+            "frame": {
+                "x": 0,
+                "y": 276,
+                "w": 160,
+                "h": 138
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "chico_7",
+            "frame": {
+                "x": 160,
+                "y": 276,
+                "w": 160,
+                "h": 138
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "chico_8",
+            "frame": {
+                "x": 320,
+                "y": 276,
+                "w": 160,
+                "h": 138
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "chico_9",
+            "frame": {
+                "x": 0,
+                "y": 414,
+                "w": 160,
+                "h": 138
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "chico_10",
+            "frame": {
+                "x": 160,
+                "y": 414,
+                "w": 160,
+                "h": 138
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "chico_11",
+            "frame": {
+                "x": 320,
+                "y": 414,
+                "w": 160,
+                "h": 138
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Phaser3",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

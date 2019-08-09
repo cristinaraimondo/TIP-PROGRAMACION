@@ -1,0 +1,36 @@
+{
+    "anims": [
+        {
+            "key": "chuquider",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "chiqui",
+                    "frame": "chico_6"
+                },
+                {
+                    "key": "chiqui",
+                    "frame": "chico_7"
+                },
+                {
+                    "key": "chiqui",
+                    "frame": "chico_8"
+                }
+            ]
+        },
+        {
+            "key": "chuquidle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "chiqui",
+                    "frame": "chico_1"
+                }
+            ]
+        }
+    ]
+}

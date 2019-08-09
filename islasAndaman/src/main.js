@@ -25,21 +25,11 @@ const config = {
         default: 'arcade',
         arcade: {
             gravity: {
-                y: 0
+                y: 2000
             }
         }
     },
-    scene: [
-        Bootloader,
-        Intro,
-        Game_over,
-        Selva,
-        Volcanes,
-        Play,
-        Anara,
-        Ivan,
-        Kelen
-    ]
+    scene: [Bootloader, Intro, Game_over, Selva, Volcanes, Anara, Ivan, Kelen]
 };
 
 new Phaser.Game(config);

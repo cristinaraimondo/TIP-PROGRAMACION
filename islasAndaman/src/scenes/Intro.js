@@ -176,7 +176,7 @@ class Intro extends Phaser.Scene {
     }
     chicoPulsado() {
         alert('elegiste al mejor');
-        this.scene.start('Anara');
+        this.scene.start('Anara').add('rubioidle');
     }
     eligeIvan() {
         alert('Ivan es muy veloz, elegiste al mejor');

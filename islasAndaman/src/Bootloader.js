@@ -36,6 +36,13 @@ class Bootloader extends Phaser.Scene {
         this.load.animation('rubioidleANIM', 'rubioidle/rubioidle_anim.json');
 
         this.load.atlas(
+            'chiqui',
+            'chiqui/chiqui.png',
+            'chiqui/chiqui_atlas.json'
+        );
+        this.load.animation('chiquian', 'chiqui/chiqui_anim.json');
+
+        this.load.atlas(
             'chicoidle',
             'chicoidle/chicoidle.png',
             'chicoidle/chicoidle_atlas.json'

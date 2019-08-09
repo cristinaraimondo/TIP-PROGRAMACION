@@ -1,20 +1,20 @@
-class Personaje extends Phaser.GameObjects.Sprite {
+class PersonajeDos extends Phaser.GameObjects.Sprite {
     constructor(config) {
-        super(config.scene, config.x, config.y, 'personaje');
+        super(config.scene, config.x, config.y, 'personajeDos');
 
         this.scene = config.scene;
         this.scene.add.existing(this);
         this.scene.physics.world.enable(this);
 
         this.setScale(1.2);
-        this.body.setSize(14, 30);
-        this.body.setOffset(2, 5);
+        this.body.setSize(14, 20);
+        this.body.setOffset(3, 5);
         this.body.setBounce(0.2);
 
         this.jumping = false;
 
-        this.anims.play('idle');
-        this.prevMov = 'idle';
+        this.anims.play('chuquidle');
+        this.prevMov = 'chuquidle';
 
         this.hitDelay = false;
 
@@ -29,14 +29,14 @@ class Personaje extends Phaser.GameObjects.Sprite {
             this.flipX = true;
             if (this.prevMov !== 'left' && !this.jumping) {
                 this.prevMov = 'left';
-                this.anims.play('rubioder');
+                this.anims.play('chuquider');
             }
         } else if (this.cursor.right.isDown) {
             this.body.setVelocityX(200);
             this.flipX = false;
             if (this.prevMov !== 'right' && !this.jumping) {
                 this.prevMov = 'right';
-                this.anims.play('rubioder');
+                this.anims.play('chuquider');
             }
         } else if (this.cursor.down.isDown && !this.jumping) {
             this.body.setVelocityX(0);
@@ -44,15 +44,15 @@ class Personaje extends Phaser.GameObjects.Sprite {
             this.body.setOffset(2, 10);
             if (this.prevMov !== 'down' && !this.jumping) {
                 this.prevMov = 'down';
-                this.anims.play('idle');
+                this.anims.play('chuquidle');
             }
         } else {
             this.body.setVelocityX(0);
             this.body.setSize(14, 20);
             this.body.setOffset(2, 5);
-            if (this.prevMov !== 'idle' && !this.jumping) {
-                this.prevMov = 'idle';
-                this.anims.play('idle');
+            if (this.prevMov !== 'chuquidle' && !this.jumping) {
+                this.prevMov = 'chuquidle';
+                this.anims.play('chuquidle');
             }
         }
         if (Phaser.Input.Keyboard.JustDown(this.cursor.up) && !this.jumping) {
@@ -60,7 +60,7 @@ class Personaje extends Phaser.GameObjects.Sprite {
             this.body.setVelocityY(-800);
             if (this.prevMov !== 'jump') {
                 this.prevMov = 'jump';
-                this.anims.play('rubioder');
+                this.anims.play('chuquider');
             }
         } else if (this.body.blocked.down) {
             this.jumping = false;
@@ -73,4 +73,4 @@ class Personaje extends Phaser.GameObjects.Sprite {
     // }
 }
 
-export default Personaje;
+export default PersonajeDos;

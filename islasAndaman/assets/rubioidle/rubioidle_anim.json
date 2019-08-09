@@ -1,6 +1,42 @@
 {
     "anims": [
         {
+            "key": "rubioder",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "rubioidle",
+                    "frame": "atlas_name_14"
+                },
+                {
+                    "key": "rubioidle",
+                    "frame": "atlas_name_15"
+                },
+                {
+                    "key": "rubioidle",
+                    "frame": "atlas_name_16"
+                },
+                {
+                    "key": "rubioidle",
+                    "frame": "atlas_name_17"
+                },
+                {
+                    "key": "rubioidle",
+                    "frame": "atlas_name_18"
+                },
+                {
+                    "key": "rubioidle",
+                    "frame": "atlas_name_19"
+                },
+                {
+                    "key": "rubioidle",
+                    "frame": "atlas_name_20"
+                }
+            ]
+        },
+        {
             "key": "idle",
             "type": "frames",
             "repeat": -1,
@@ -8,11 +44,11 @@
             "frames": [
                 {
                     "key": "rubioidle",
-                    "frame": "untitled_00001"
+                    "frame": "atlas_name_0"
                 },
                 {
                     "key": "rubioidle",
-                    "frame": "untitled_00006"
+                    "frame": "atlas_name_0"
                 }
             ]
         }

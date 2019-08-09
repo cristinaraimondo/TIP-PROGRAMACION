@@ -1,27 +1,34 @@
+import PersonajeDos from '../Player/PersonajeDos.js';
 class Anara extends Phaser.Scene {
     constructor() {
         super('Anara');
-        this.ninia;
     }
 
-    preload() {
-        console.log('Scene: Anara');
+    init() {
+        console.log('Anara');
     }
 
     create() {
-        this.fondo = this.add.image(400, 300, 'pelota').setScale(1);
-        this.ninia = this.add.sprite(300, 500, 'chicoidle', 1).setScale();
-        this.ninia.anims.play('quieto');
-        // this.prevMov = 'frente';
-        // this.cursor = this.input.keyboard.createCursorKeys();
+        this.add.image(0, 0, 'sel').setOrigin(0);
+
+        this.wall_floor = this.physics.add.staticGroup();
+
+        this.wall_floor.create(0, 500, 'floor').setOrigin(0, 0);
+
+        //this.wall_floor.refresh();
+
+        // Personaje
+        this.personajedos = new PersonajeDos({
+            scene: this,
+            x: 200,
+            y: 200
+        });
+
+        this.physics.add.collider([this.personajedos], this.wall_floor);
     }
 
-    update(time, delta) {
-        // if (this.cursor.right.isDown) this.scene.sleep('Ivan');
-        // if (this.cursor.left.isDown) {
-        //     this.anims.play('cam');
-        //     this.body.setVelocityX(-200);
-        // }
+    update() {
+        this.personajedos.update();
     }
 }
 
