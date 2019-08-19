@@ -9,6 +9,9 @@ class Bootloader extends Phaser.Scene {
         this.load.image('avion', 'avioneta.png');
         this.load.image(['logo', 'background_text', 'selector']);
         this.load.image('SELVA', 'objects/objects.png');
+        this.load.audio('lalluvia', ['lalluvia.mp3']);
+        this.load.audio('thunder', ['thunder.mp3']);
+
         this.load.atlas(
             'objects',
             'objects/objects.png',
@@ -27,6 +30,13 @@ class Bootloader extends Phaser.Scene {
             'aviocayendo/aviocayendo_atlas.json'
         );
         this.load.animation('avioANIM', 'aviocayendo/aviocayendo_anim.json');
+
+        this.load.atlas(
+            'lluvia',
+            'lluvia/llluvia.png',
+            'lluvia/lluviaatlas.json'
+        );
+        this.load.animation('lluviaanim', 'lluvia/lluviaanim.json');
 
         this.load.atlas(
             'rubioidle',
@@ -55,7 +65,8 @@ class Bootloader extends Phaser.Scene {
                 'font',
                 Phaser.GameObjects.RetroFont.Parse(this, configFont)
             );
-            this.scene.start('Anara');
+            this.scene.start('Intro');
+            //this.scene.launch('Lluvia');
         });
     }
 }

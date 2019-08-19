@@ -7,6 +7,7 @@ import Game_over from './scenes/Game_over.js';
 import Anara from './scenes/Anara.js';
 import Ivan from './scenes/Ivan.js';
 import Kelen from './scenes/Kelen.js';
+import Lluvia from './scenes/Lluvia.js';
 
 const config = {
     title: 'Islas_andaman',
@@ -24,13 +25,23 @@ const config = {
     physics: {
         default: 'arcade',
         arcade: {
-            debug: true,
+            // debug: true,
             gravity: {
                 y: 2000
             }
         }
     },
-    scene: [Bootloader, Intro, Game_over, Selva, Volcanes, Anara, Ivan, Kelen]
+    scene: [
+        Bootloader,
+        Intro,
+        Game_over,
+        Selva,
+        Volcanes,
+        Anara,
+        Ivan,
+        Kelen,
+        Lluvia
+    ]
 };
 
 new Phaser.Game(config);

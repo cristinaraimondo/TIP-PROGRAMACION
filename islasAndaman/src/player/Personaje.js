@@ -9,7 +9,7 @@ class Personaje extends Phaser.GameObjects.Sprite {
         this.setScale(2);
         this.body.setSize(32, 32, true);
         this.body.setOffset(15, 44);
-        this.body.setBounce(0.5);
+        this.body.setBounce(0);
 
         this.jumping = false;
 
@@ -40,7 +40,7 @@ class Personaje extends Phaser.GameObjects.Sprite {
             }
         } else if (this.cursor.down.isDown && !this.jumping) {
             this.body.setVelocityX(0);
-            this.body.setSize(64, 64);
+            this.body.setSize(14, 15);
             this.body.setOffset(2, 10);
             if (this.prevMov !== 'down' && !this.jumping) {
                 this.prevMov = 'down';
@@ -49,7 +49,7 @@ class Personaje extends Phaser.GameObjects.Sprite {
         } else {
             this.body.setVelocityX(0);
             this.body.setSize(64, 64);
-            this.body.setOffset(30, 30);
+            this.body.setOffset(2, 5);
             if (this.prevMov !== 'idle' && !this.jumping) {
                 this.prevMov = 'idle';
                 this.anims.play('idle');

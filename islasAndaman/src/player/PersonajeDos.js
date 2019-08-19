@@ -49,7 +49,7 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
         } else {
             this.body.setVelocityX(0);
             this.body.setSize(64, 128);
-            this.body.setOffset(32, 32);
+            this.body.setOffset(32, 12);
             if (this.prevMov !== 'chuquidle' && !this.jumping) {
                 this.prevMov = 'chuquidle';
                 this.anims.play('chuquidle');

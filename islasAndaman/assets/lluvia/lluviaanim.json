@@ -1,0 +1,24 @@
+{
+    "anims": [
+        {
+            "key": "lluvia",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "atlas_name",
+                    "frame": "lluvia"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "lluvia"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "lluvia"
+                }
+            ]
+        }
+    ]
+}
