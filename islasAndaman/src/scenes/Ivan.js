@@ -1,7 +1,9 @@
 import Personaje from '../Player/Personaje.js';
+//import PajaroRojo from "../enemigos/PajaroRojo.js";
+
 class Ivan extends Phaser.Scene {
     constructor() {
-        super('Ivan');
+        super('ivan');
         this.moreno;
     }
 
@@ -23,6 +25,7 @@ class Ivan extends Phaser.Scene {
         this.scene.launch('Lluvia');
         this.cameras.main.setSize(960, 640);
 
+
         const lluvias = this.add.sprite(500, 10, 'lluvia').setScale(0.3);
         const scenesArray = { scenes: ['Lluvia'] };
 
@@ -32,6 +35,13 @@ class Ivan extends Phaser.Scene {
             x: 100,
             y: 400
         });
+        //enemigo 
+
+        // this.pajaroEnemigo = new PajaroRojo({
+        //     scene: this,
+        //     x: 600,
+        //     y: 10
+        // })
 
         this.wall_floor = this.physics.add.staticGroup();
 
@@ -48,13 +58,14 @@ class Ivan extends Phaser.Scene {
 
         timeLine.add({
             targets: scenesArray,
-            alpha: 0,
+            alpha: 1,
             paused: true,
+            hold: 2900,
             delay: 1000,
             repeatDelay: 100,
 
             onComplete: () => {
-                this.cameras.main.flash(500);
+                this.cameras.main.flash(600);
                 this.audioAvion.play();
                 this.audioLluvia.play();
             }
@@ -64,10 +75,13 @@ class Ivan extends Phaser.Scene {
 
     update() {
         this.personaje.update();
+        //this.pajaroEnemigo.update();
         this.personaje.x += 0.1;
         this.cameras.main.scrollX = this.personaje.x - 400;
         this.cameras.main.scrollY = 0;
         this.bg.tilePositionX = this.personaje.x;
+
+
     }
 }
 export default Ivan;

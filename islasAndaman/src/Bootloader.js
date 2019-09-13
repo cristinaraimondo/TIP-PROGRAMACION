@@ -8,6 +8,8 @@ class Bootloader extends Phaser.Scene {
         this.load.audio('aircraft', ['aircraft.mp3']);
         this.load.image('avion', 'avioneta.png');
         this.load.image(['logo', 'background_text', 'selector']);
+        this.load.image("agua", "agua.png");
+        this.load.image("vohue", "huevo.png");
         this.load.image('SELVA', 'objects/objects.png');
         this.load.audio('lalluvia', ['lalluvia.mp3']);
         this.load.audio('thunder', ['thunder.mp3']);
@@ -19,7 +21,11 @@ class Bootloader extends Phaser.Scene {
         );
         this.load.image('pelota', 'sel.jpg');
         this.load.image('sel', 'sel.png');
+        this.load.image("life", "life.png");
         this.load.image('floor', 'floor.jpg');
+        this.load.atlas("pajaroRojo", "pajaroRojo/pajaro.png", "pajaroRojo/pajaroatlas.json ");
+        this.load.animation("pajarorojo", "pajaroRojo/pajaroanim.json");
+
 
         this.load.image('font', 'font/font.png');
         this.load.json('fontJSON', 'font/font.json');
@@ -65,7 +71,7 @@ class Bootloader extends Phaser.Scene {
                 'font',
                 Phaser.GameObjects.RetroFont.Parse(this, configFont)
             );
-            this.scene.start('Intro');
+            this.scene.start('Anara');
             //this.scene.launch('Lluvia');
         });
     }

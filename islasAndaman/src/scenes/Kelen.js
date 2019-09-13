@@ -18,7 +18,7 @@ class Kelen extends Phaser.Scene {
         this.life = 3;
     }
 
-    update(time, delta) {}
+    update(time, delta) { }
 }
 
 export default Kelen;

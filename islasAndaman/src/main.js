@@ -8,6 +8,7 @@ import Anara from './scenes/Anara.js';
 import Ivan from './scenes/Ivan.js';
 import Kelen from './scenes/Kelen.js';
 import Lluvia from './scenes/Lluvia.js';
+import Vidas from "./scenes/Vidas.js";
 
 const config = {
     title: 'Islas_andaman',
@@ -25,9 +26,10 @@ const config = {
     physics: {
         default: 'arcade',
         arcade: {
-            // debug: true,
+            debug: true,
             gravity: {
-                y: 2000
+                y: 0,
+                x: 0
             }
         }
     },
@@ -39,6 +41,7 @@ const config = {
         Volcanes,
         Anara,
         Ivan,
+        Vidas,
         Kelen,
         Lluvia
     ]

@@ -1,5 +1,12 @@
 import PersonajeDos from '../Player/PersonajeDos.js';
+//import Personaje from '../Player/Personaje.js';
+import PajaroRojo from "../enemigos/PajaroRojo.js";
+
+import Huevos from "../objetos/Huevos.js"
+
+
 class Anara extends Phaser.Scene {
+
     constructor() {
         super('Anara');
     }
@@ -16,28 +23,61 @@ class Anara extends Phaser.Scene {
     }
 
     create() {
+
+
         this.bg = this.add
             .tileSprite(480, 320, 960, 640, 'sel')
             .setScrollFactor(0);
-        this.scene.launch('Lluvia');
+
+
+
+
+        this.scene.launch('Lluvia')
+        this.scene.launch("Vidas")
         this.cameras.main.setSize(960, 640);
         const scenesArray = { scenes: ['Lluvia'] };
 
         this.wall_floor = this.physics.add.staticGroup();
+        this.wall_floor.create(0, 500, 'floor').setOrigin(0)
+        this.wall_floor.create(-1300, 500, 'floor').setOrigin(0);
+        this.wall_floor.create(1500, 500, 'floor').setOrigin(0)
 
-        this.wall_floor.create(0, this.scale.height, 'floor').setOrigin(0, 1);
 
+
+
+        this.wall_floor.create(1400, 620, 'agua').setScale(2)
         this.wall_floor.refresh();
+
+        this.huevosGroup = new Huevos({
+            physicsWorld: this.physics.world,
+            scene: this
+
+        })
+
 
         // Personaje
         this.personajedos = new PersonajeDos({
             scene: this,
             x: 100,
+            y: 350,
+            setScale: 0.5,
+
+        });
+        this.pajaroRojo = new PajaroRojo({
+            scene: this,
+            x: 200,
             y: 100,
-            setScale: 0.5
+            setScale: 0.5,
+
+
         });
 
-        this.physics.add.collider([this.personajedos], this.wall_floor);
+
+        this.physics.add.collider([this.personajedos, this.pajaroRojo, this.huevosGroup], this.wall_floor),
+            this.physics.add.collider(this.personajedos, this.pajaroRojo);
+
+        this.physics.add.overlap(this.personajedos, this.huevosGroup, () => this.personajedos.huevoCollision());
+
         const timeLine = this.tweens.createTimeline();
 
         timeLine.add({
@@ -56,13 +96,20 @@ class Anara extends Phaser.Scene {
         timeLine.play();
     }
 
+
     update() {
         this.personajedos.update();
-
+        this.pajaroRojo.update();
+        this.huevosGroup.update()
         this.cameras.main.scrollX = this.personajedos.x - 400;
-        this.cameras.main.scrollY = 0;
+
+
         this.bg.tilePositionX = this.personajedos.x;
+
+
     }
+
+
 }
 
 export default Anara;

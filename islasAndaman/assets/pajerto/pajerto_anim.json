@@ -1,0 +1,24 @@
+{
+    "anims": [
+        {
+            "key": "volar",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "pajerto",
+                    "frame": "pajaro_0"
+                },
+                {
+                    "key": "pajerto",
+                    "frame": "pajaro_2"
+                },
+                {
+                    "key": "pajerto",
+                    "frame": "pajaro_4"
+                }
+            ]
+        }
+    ]
+}

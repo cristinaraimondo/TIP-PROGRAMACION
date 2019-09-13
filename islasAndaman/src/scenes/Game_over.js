@@ -1,15 +1,19 @@
 class Game_over extends Phaser.Scene {
+
     constructor() {
-        super({ key: 'Game_over' });
+        super({ key: 'finScene' });
+    }
+    preload() {
+        this.load.image('fin', 'img/fin-bueno.jpg');
     }
 
-    init() {
-        console.log('Scene: Game_over');
+    create() {
+        this.add.image(480, 320, 'fin');
     }
-
-    create() {}
-
-    update(time, delta) {}
 }
+
+
+
+
 
 export default Game_over;

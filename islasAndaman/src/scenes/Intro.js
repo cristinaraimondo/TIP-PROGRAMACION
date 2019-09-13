@@ -98,7 +98,7 @@ class Intro extends Phaser.Scene {
         // rubio
         const rubio = this.add
             .sprite(700, -360, 'rubioidle')
-            .setScale(2)
+            .setScale(1.5)
             .setDepth(2)
             .setScrollFactor(0.9)
             .setInteractive();
