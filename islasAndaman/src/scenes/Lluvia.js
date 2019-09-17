@@ -42,7 +42,7 @@ class Lluvia extends Phaser.Scene {
         }
 
 
-        this.physics.add.collider([this.lluvia], this.wall_floor);
+        // this.physics.add.collider([this.lluvia], this.wall_floor);
 
 
     }

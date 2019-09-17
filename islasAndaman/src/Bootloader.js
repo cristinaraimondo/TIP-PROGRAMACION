@@ -13,6 +13,8 @@ class Bootloader extends Phaser.Scene {
         this.load.image('SELVA', 'objects/objects.png');
         this.load.audio('lalluvia', ['lalluvia.mp3']);
         this.load.audio('thunder', ['thunder.mp3']);
+        this.load.image("lateralIzquierdo", "lateralIzquierdo.png")
+        this.load.image("lateralDerecho", "lateralDerecho.png")
 
         this.load.atlas(
             'objects',

@@ -30,7 +30,9 @@ class Anara extends Phaser.Scene {
             .setScrollFactor(0);
 
 
-
+        this.laterales = this.physics.add.staticGroup();
+        this.laterales.create(-600, 0, "lateralIzquierdo").setOrigin(0).setSize(20, 800)
+        this.laterales.create(1900, 0, "lateralDerecho").setOrigin(0).setSize(20, 800)
 
         this.scene.launch('Lluvia')
         this.scene.launch("Vidas")
@@ -41,9 +43,6 @@ class Anara extends Phaser.Scene {
         this.wall_floor.create(0, 500, 'floor').setOrigin(0)
         this.wall_floor.create(-1300, 500, 'floor').setOrigin(0);
         this.wall_floor.create(1500, 500, 'floor').setOrigin(0)
-
-
-
 
         this.wall_floor.create(1400, 620, 'agua').setScale(2)
         this.wall_floor.refresh();
@@ -61,6 +60,7 @@ class Anara extends Phaser.Scene {
             x: 100,
             y: 350,
             setScale: 0.5,
+            collideWorldBounds: true
 
         });
         this.pajaroRojo = new PajaroRojo({
@@ -73,10 +73,15 @@ class Anara extends Phaser.Scene {
         });
 
 
-        this.physics.add.collider([this.personajedos, this.pajaroRojo, this.huevosGroup], this.wall_floor),
-            this.physics.add.collider(this.personajedos, this.pajaroRojo);
+        this.physics.add.collider([this.personajedos, this.pajaroRojo, this.huevosGroup,], this.wall_floor)
+        this.physics.add.collider([this.personajedos, this.pajaroRojo, this.huevosGroup,], this.laterales)
 
-        this.physics.add.overlap(this.personajedos, this.huevosGroup, () => this.personajedos.huevoCollision());
+
+        this.physics.add.collider(this.personajedos, this.pajaroRojo);
+
+
+
+        this.physics.add.overlap(this.personajedos, this.huevosGroup, () => this.personajedos.huevoCollision());//collision y la accion
 
         const timeLine = this.tweens.createTimeline();
 
@@ -102,8 +107,6 @@ class Anara extends Phaser.Scene {
         this.pajaroRojo.update();
         this.huevosGroup.update()
         this.cameras.main.scrollX = this.personajedos.x - 400;
-
-
         this.bg.tilePositionX = this.personajedos.x;
 
 

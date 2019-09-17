@@ -77,7 +77,7 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
             this.life--;
             this.scene.registry.events.emit("remove_life");
             if (this.life === 0) {
-                this.scene.registry.events.emit("game_over");
+                this.scene.registry.events.emit("Ivan");
 
             }
             this.setTint(0x1abc9c);
