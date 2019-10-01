@@ -4,10 +4,19 @@ class Lluvia extends Phaser.Scene {
     }
 
     init() {
-        console.log('Se ha iniciado la escena Play');
+        console.log('Se ha iniciado la escena lluvia');
+        this.camara = this.cameras.main;
+
     }
 
     create() {
+        (this.audioAvion = this.sound.add('thunder', {
+            loop: false
+        })),
+            (this.audioLluvia = this.sound.add('lalluvia', {
+                loop: false
+            }));
+        const scenesArray = { scenes: ["Lluvia"] }
 
         for (var i = 0; i < 2; i++) {
             var lluvia = this.add.particles('lluvia', [
@@ -40,9 +49,27 @@ class Lluvia extends Phaser.Scene {
                 }
             ]);
         }
+        const timeLine = this.tweens.createTimeline();
+
+        timeLine.add({
+            targets: scenesArray,
+            alpha: 0,
+            paused: true,
+            delay: 2000,
 
 
-        // this.physics.add.collider([this.lluvia], this.wall_floor);
+            onComplete: () => {
+                this.cameras.main.flash(500);
+                // this.audioAvion.play();
+                // this.audioLluvia.play();
+            }
+        });
+        timeLine.play();
+
+
+
+
+
 
 
     }

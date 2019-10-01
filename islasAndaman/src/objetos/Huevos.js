@@ -18,6 +18,7 @@ class Huevos extends Phaser.Physics.Arcade.Group {
       .setScale(0.3);
   }
 
+
   update() {
     this.children.iterate(huevo => {
       if (huevo.body.velocity.x < 0) {

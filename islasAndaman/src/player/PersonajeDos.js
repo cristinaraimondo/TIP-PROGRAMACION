@@ -10,7 +10,7 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
         this.body.setSize(64, 128);
         this.body.setOffset(25, 5);
         this.body.setBounce(0.2);
-        this.body.setGravityX(10)
+
         this.body.setGravityY(1000)
 
 
@@ -23,7 +23,8 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
 
         this.cursor = this.scene.input.keyboard.createCursorKeys();
 
-        this.life = 3;
+        this.life = 5;
+        this.actual_points = 0
     }
 
     update() {
@@ -71,16 +72,21 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
         }
     }
 
+
     huevoCollision() {
+
         if (!this.hitDelay) {
+            console.log("Collisiona")
             this.hitDelay = true;
+
             this.life--;
             this.scene.registry.events.emit("remove_life");
             if (this.life === 0) {
-                this.scene.registry.events.emit("Ivan");
+
+                this.scene.registry.events.emit("game_over")
 
             }
-            this.setTint(0x1abc9c);
+            this.setTint(0x1abc9c)
 
             this.scene.time.addEvent({
                 delay: 500,
@@ -88,11 +94,14 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
                     this.hitDelay = false;
                     this.clearTint();
 
+
                 }
             })
 
         }
     }
+
+
 }
 
 export default PersonajeDos;

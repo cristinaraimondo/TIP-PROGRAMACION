@@ -12,7 +12,8 @@ class PajaroRojo extends Phaser.GameObjects.Sprite {
 
     this.body.setGravityX(10)
 
-    this.jumping = false;
+
+
 
 
     this.velocidad = 40;
@@ -21,13 +22,16 @@ class PajaroRojo extends Phaser.GameObjects.Sprite {
     this.hitDelay = false;
 
 
-
-
     this.life = 3;
+
 
 
   }
   update() {
+
+
+
+
 
   }
 }

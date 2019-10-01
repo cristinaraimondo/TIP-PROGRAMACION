@@ -2,7 +2,7 @@ import Bootloader from './Bootloader.js';
 import Play from './scenes/Play.js';
 import Intro from './scenes/Intro.js';
 import Volcanes from './scenes/Volcanes.js';
-import Selva from './scenes/Selva.js';
+import Cocodrilos from './scenes/Cocodrilos.js';
 import Game_over from './scenes/Game_over.js';
 import Anara from './scenes/Anara.js';
 import Ivan from './scenes/Ivan.js';
@@ -36,14 +36,14 @@ const config = {
     scene: [
         Bootloader,
         Intro,
-        Game_over,
-        Selva,
+        Cocodrilos,
         Volcanes,
         Anara,
         Ivan,
         Vidas,
         Kelen,
-        Lluvia
+        Lluvia,
+        Game_over
     ]
 };
 

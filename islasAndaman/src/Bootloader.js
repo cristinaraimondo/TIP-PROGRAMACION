@@ -5,6 +5,7 @@ class Bootloader extends Phaser.Scene {
 
     preload() {
         this.load.setPath('./assets/');
+
         this.load.audio('aircraft', ['aircraft.mp3']);
         this.load.image('avion', 'avioneta.png');
         this.load.image(['logo', 'background_text', 'selector']);
@@ -15,6 +16,7 @@ class Bootloader extends Phaser.Scene {
         this.load.audio('thunder', ['thunder.mp3']);
         this.load.image("lateralIzquierdo", "lateralIzquierdo.png")
         this.load.image("lateralDerecho", "lateralDerecho.png")
+        this.load.image("boton", "boton.png")
 
         this.load.atlas(
             'objects',
@@ -27,6 +29,7 @@ class Bootloader extends Phaser.Scene {
         this.load.image('floor', 'floor.jpg');
         this.load.atlas("pajaroRojo", "pajaroRojo/pajaro.png", "pajaroRojo/pajaroatlas.json ");
         this.load.animation("pajarorojo", "pajaroRojo/pajaroanim.json");
+        this.load.image("food", "food.png")
 
 
         this.load.image('font', 'font/font.png');
@@ -67,13 +70,21 @@ class Bootloader extends Phaser.Scene {
         );
         this.load.animation('chicoidleANIM', 'chicoidle/chicoidle_anim.json');
 
+        this.load.atlas(
+            'coco',
+            'cocoCaminante/coco.png',
+            'cocoCaminante/cocoAtlas.json'
+        );
+        this.load.animation('cocoANIM', 'cocoCaminante/atlasCocoAnim.json');
+
+
         this.load.on('complete', () => {
             const configFont = this.cache.json.get('fontJSON');
             this.cache.bitmapFont.add(
                 'font',
                 Phaser.GameObjects.RetroFont.Parse(this, configFont)
             );
-            this.scene.start('Anara');
+            this.scene.start("Anara");
             //this.scene.launch('Lluvia');
         });
     }
