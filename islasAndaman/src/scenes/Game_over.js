@@ -75,7 +75,4 @@ class Game_over extends Phaser.Scene {
 }
 
 
-
-
-
 export default Game_over;

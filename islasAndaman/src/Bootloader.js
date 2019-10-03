@@ -17,6 +17,7 @@ class Bootloader extends Phaser.Scene {
         this.load.image("lateralIzquierdo", "lateralIzquierdo.png")
         this.load.image("lateralDerecho", "lateralDerecho.png")
         this.load.image("boton", "boton.png")
+        this.load.image("floorCocos", "floorCocos.png")
 
         this.load.atlas(
             'objects',
@@ -27,9 +28,10 @@ class Bootloader extends Phaser.Scene {
         this.load.image('sel', 'sel.png');
         this.load.image("life", "life.png");
         this.load.image('floor', 'floor.jpg');
-        this.load.atlas("pajaroRojo", "pajaroRojo/pajaro.png", "pajaroRojo/pajaroatlas.json ");
-        this.load.animation("pajarorojo", "pajaroRojo/pajaroanim.json");
+        this.load.atlas("pajaroRojo", "pajerto/pajerto.png", "pajerto/pajerto_atlas.json ");
+        this.load.animation("pajarorojo", "pajerto/pajerto_anim.json");
         this.load.image("food", "food.png")
+        this.load.image("pantano", "pant.png")
 
 
         this.load.image('font', 'font/font.png');
@@ -72,10 +74,10 @@ class Bootloader extends Phaser.Scene {
 
         this.load.atlas(
             'coco',
-            'cocoCaminante/coco.png',
-            'cocoCaminante/cocoAtlas.json'
+            'cococam/coco.png',
+            'cococam/coco_atlas.json'
         );
-        this.load.animation('cocoANIM', 'cocoCaminante/atlasCocoAnim.json');
+        this.load.animation("coco", 'cococam/coco_anim.json');
 
 
         this.load.on('complete', () => {
@@ -85,7 +87,7 @@ class Bootloader extends Phaser.Scene {
                 Phaser.GameObjects.RetroFont.Parse(this, configFont)
             );
             this.scene.start("Anara");
-            //this.scene.launch('Lluvia');
+
         });
     }
 }

@@ -38,6 +38,7 @@ class Vidas extends Phaser.Scene {
       this.scene.start("Game_over", { points: this.actual_points })
       this.scene.stop(("Anara"))
       this.scene.stop(("Lluvia"))
+      this.sound.stopAll()
 
     })
 
@@ -47,11 +48,13 @@ class Vidas extends Phaser.Scene {
       console.log("cuanto comio  " + this.actual_points)
 
       this.points.setText(Phaser.Utils.String.Pad(this.actual_points, 6, "0", 1))
-      if (this.actual_points === 150) {
+      if (this.actual_points === 100) {
 
         this.scene.start("Cocos")
         this.scene.stop("Anara")
         this.scene.stop("Lluvia")
+        this.sound.stopAll()
+
 
 
       }

@@ -22,7 +22,6 @@ class PajaroRojo extends Phaser.GameObjects.Sprite {
     this.hitDelay = false;
 
 
-    this.life = 3;
 
 
 

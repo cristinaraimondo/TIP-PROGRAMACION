@@ -14,7 +14,7 @@ class Lluvia extends Phaser.Scene {
             loop: false
         })),
             (this.audioLluvia = this.sound.add('lalluvia', {
-                loop: false
+                loop: true
             }));
         const scenesArray = { scenes: ["Lluvia"] }
 
@@ -28,7 +28,7 @@ class Lluvia extends Phaser.Scene {
                     speed: 500,
                     gravityY: 350,
                     lifespan: 30000,
-                    quantity: 3,
+                    quantity: 2,
                     delay: 3000,
                     completeDelay: 800,
                     scale: { min: 0.5, max: 0.2 }
@@ -42,7 +42,7 @@ class Lluvia extends Phaser.Scene {
                     speed: 700,
                     gravityY: 350,
                     lifespan: 3000,
-                    quantity: 3,
+                    quantity: 1,
                     delay: 3000,
 
                     scale: { min: 0.5, max: 0.2 }
@@ -55,13 +55,12 @@ class Lluvia extends Phaser.Scene {
             targets: scenesArray,
             alpha: 0,
             paused: true,
-            delay: 2000,
-
+            delay: 5000,
 
             onComplete: () => {
                 this.cameras.main.flash(500);
-                // this.audioAvion.play();
-                // this.audioLluvia.play();
+                this.audioAvion.play()
+                this.audioLluvia.play();
             }
         });
         timeLine.play();

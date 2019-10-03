@@ -1,0 +1,36 @@
+{
+    "anims": [
+        {
+            "key": "camina",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "coco",
+                    "frame": "coco_0"
+                },
+                {
+                    "key": "coco",
+                    "frame": "coco_1"
+                },
+                {
+                    "key": "coco",
+                    "frame": "coco_2"
+                },
+                {
+                    "key": "coco",
+                    "frame": "coco_3"
+                },
+                {
+                    "key": "coco",
+                    "frame": "coco_4"
+                },
+                {
+                    "key": "coco",
+                    "frame": "coco_5"
+                }
+            ]
+        }
+    ]
+}

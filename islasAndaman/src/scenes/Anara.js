@@ -42,6 +42,8 @@ class Anara extends Phaser.Scene {
 
         this.wall_floor.create(1400, 620, 'agua').setScale(2)
         this.wall_floor.refresh();
+
+
         // Items
         this.itemsGroup = new Comida({
             physicsWorld: this.physics.world,
@@ -89,14 +91,10 @@ class Anara extends Phaser.Scene {
             this.registry.events.emit('update_points');
             this.itemsGroup.destroyItem();
             this.huevosGroup.addHuevo();
-
-
-
         });
 
 
     }
-
 
     update() {
         this.personajedos.update();
