@@ -11,15 +11,17 @@ class Lluvia extends Phaser.Scene {
 
     create() {
         (this.audioAvion = this.sound.add('thunder', {
-            loop: false
+            loop: false,
+            volume: 0.1
         })),
             (this.audioLluvia = this.sound.add('lalluvia', {
-                loop: true
+                loop: true,
+                volume: 0.2
             }));
         const scenesArray = { scenes: ["Lluvia"] }
 
         for (var i = 0; i < 2; i++) {
-            var lluvia = this.add.particles('lluvia', [
+            this.lluvia = this.add.particles('lluvia', [
                 {
                     frame: 'lluvia',
                     x: 60,
@@ -29,7 +31,8 @@ class Lluvia extends Phaser.Scene {
                     gravityY: 350,
                     lifespan: 30000,
                     quantity: 2,
-                    delay: 3000,
+                    delay: 1000,
+                    duration: 2000,
                     completeDelay: 800,
                     scale: { min: 0.5, max: 0.2 }
                 },
@@ -49,18 +52,19 @@ class Lluvia extends Phaser.Scene {
                 }
             ]);
         }
+
         const timeLine = this.tweens.createTimeline();
 
         timeLine.add({
-            targets: scenesArray,
-            alpha: 0,
+            targets: [scenesArray],
             paused: true,
-            delay: 5000,
+
 
             onComplete: () => {
                 this.cameras.main.flash(500);
                 this.audioAvion.play()
-                this.audioLluvia.play();
+                this.audioLluvia.play()
+
             }
         });
         timeLine.play();

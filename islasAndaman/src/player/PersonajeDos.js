@@ -24,7 +24,8 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
         this.cursor = this.scene.input.keyboard.createCursorKeys();
 
         this.life = 5;
-        this.actual_points = 0
+
+
     }
 
     update() {
@@ -100,6 +101,13 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
 
         }
     }
+
+
+
+
+
+
+
 
 
 }

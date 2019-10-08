@@ -1,12 +1,13 @@
-class Vidas extends Phaser.Scene {
+class EstadoPersonaje extends Phaser.Scene {
   constructor() {
-    super({ key: "Vidas" })
+    super({ key: "EstadoPersonaje" })
   }
 
   init() {
-    console.log("se ha iniciado la escena vidas")
+    console.log("se ha iniciado la escena EstadoPersonaje")
     this.actual_points = 0;
     console.log(this.actual_points)
+    this.actual_life = 5
 
   }
   create() {
@@ -33,9 +34,11 @@ class Vidas extends Phaser.Scene {
       this.groupLife.getChildren()[this.groupLife.getChildren().length - 1].destroy();
 
     })
+
     this.registry.events.on("game_over", () => {
-      this.registry.events.removeAllListeners();
+
       this.scene.start("Game_over", { points: this.actual_points })
+      this.registry.events.removeAllListeners();
       this.scene.stop(("Anara"))
       this.scene.stop(("Lluvia"))
       this.sound.stopAll()
@@ -48,12 +51,12 @@ class Vidas extends Phaser.Scene {
       console.log("cuanto comio  " + this.actual_points)
 
       this.points.setText(Phaser.Utils.String.Pad(this.actual_points, 6, "0", 1))
-      if (this.actual_points === 100) {
-
+      if (this.actual_points >= 100) {
         this.scene.start("Cocos")
         this.scene.stop("Anara")
         this.scene.stop("Lluvia")
         this.sound.stopAll()
+
 
 
 
@@ -62,10 +65,11 @@ class Vidas extends Phaser.Scene {
 
 
   }
+
   update() {
 
 
   }
 
 }
-export default Vidas;
+export default EstadoPersonaje;

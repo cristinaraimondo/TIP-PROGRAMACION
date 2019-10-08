@@ -21,10 +21,7 @@ class Coco extends Phaser.GameObjects.Sprite {
 
     this.hitDelay = false;
 
-    this.cursor = this.scene.input.keyboard.createCursorKeys();
 
-    this.life = 5;
-    this.actual_points = 0
   }
 }
 export default Coco;

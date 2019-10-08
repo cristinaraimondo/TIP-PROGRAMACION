@@ -5,7 +5,7 @@ import PajaroRojo from "../enemigos/PajaroRojo.js";
 import Huevos from "../objetos/Huevos.js"
 
 
-class Anara extends Phaser.Scene {
+class Ataque_huevos extends Phaser.Scene {
 
     constructor() {
         super('Anara');
@@ -13,26 +13,36 @@ class Anara extends Phaser.Scene {
 
     init() {
         console.log('Anara');
-        this.scene.launch("Vidas")
-        this.camara = this.cameras.main;
+        this.scene.launch("EstadoPersonaje")
+        this.camara = this.cameras.main
 
     }
 
     create() {
 
 
+
         this.bg = this.add
             .tileSprite(480, 320, 960, 640, 'sel')
             .setScrollFactor(0);
+        (this.collisioHuevo = this.sound.add('huevo', {
+            loop: false
+        })),
+            (this.comida = this.sound.add('comida', {
+                loop: false
+            })),
+            (this.cuervo = this.sound.add('cuervo', {
+                loop: false
+            })),
 
-
-        this.laterales = this.physics.add.staticGroup();
+            this.laterales = this.physics.add.staticGroup();
         this.laterales.create(-600, 0, "lateralIzquierdo").setOrigin(0).setSize(20, 800)
         this.laterales.create(1900, 0, "lateralDerecho").setOrigin(0).setSize(20, 800)
 
         this.scene.launch('Lluvia')
 
         this.cameras.main.setSize(960, 640);
+        this.apagarLluvia = setTimeout(() => { this.scene.sleep("Lluvia"), this.sound.stopAll(), console.log("se ha detenido la escena lluvia") }, 20000)
 
 
         this.wall_floor = this.physics.add.staticGroup();
@@ -42,6 +52,7 @@ class Anara extends Phaser.Scene {
 
         this.wall_floor.create(1400, 620, 'agua').setScale(2)
         this.wall_floor.refresh();
+
 
 
         // Items
@@ -71,27 +82,42 @@ class Anara extends Phaser.Scene {
             scene: this,
             x: 200,
             y: 100,
-            setScale: 0.5
+            setScale: 0.5,
+            setCollideWorldBounds: true
 
 
         });
 
-
+        //collisions
 
         this.physics.add.collider([this.personajedos, this.huevosGroup], this.wall_floor);
+        this.physics.add.collider(this.personajedos, this.pajaroRojo, () => {
+            console.log("pega al pajaro")
+            this.registry.events.emit('update_points');
+            this.cuervo.play()
+
+
+        });
         this.physics.add.collider([this.personajedos, this.pajaroRojo, this.huevosGroup,], this.laterales)
         this.physics.add.overlap(this.personajedos, this.huevosGroup, () => {
             this.personajedos.huevoCollision();
+            this.collisioHuevo.play()
+
+        });
+        this.physics.add.collider(this.pajaroRojo, this.laterales, () => {
+            this.pajaroRojo.lateralCollision()
+
 
         });
 
         this.physics.add.overlap(this.itemsGroup, this.personajedos, () => {
-
-
             this.registry.events.emit('update_points');
             this.itemsGroup.destroyItem();
             this.huevosGroup.addHuevo();
+            this.comida.play();
+
         });
+
 
 
     }
@@ -111,4 +137,4 @@ class Anara extends Phaser.Scene {
 
 }
 
-export default Anara;
+export default Ataque_huevos;

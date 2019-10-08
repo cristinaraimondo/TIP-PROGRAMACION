@@ -4,11 +4,10 @@ import Intro from './scenes/Intro.js';
 import Volcanes from './scenes/Volcanes.js';
 import Cocodrilos from './scenes/Cocodrilos.js';
 import Game_over from './scenes/Game_over.js';
-import Anara from './scenes/Anara.js';
+import Ataque_huevos from './scenes/Ataque_huevos.js';
 import Ivan from './scenes/Ivan.js';
-import Kelen from './scenes/Kelen.js';
 import Lluvia from './scenes/Lluvia.js';
-import Vidas from "./scenes/Vidas.js";
+import EstadoPersonaje from "./scenes/EstadoPersonaje.js";
 
 const config = {
     title: 'Islas_andaman',
@@ -26,7 +25,7 @@ const config = {
     physics: {
         default: 'arcade',
         arcade: {
-            debug: false,
+            debug: true,
             gravity: {
                 y: 0,
                 x: 0
@@ -38,10 +37,9 @@ const config = {
         Intro,
         Cocodrilos,
         Volcanes,
-        Anara,
+        Ataque_huevos,
         Ivan,
-        Vidas,
-        Kelen,
+        EstadoPersonaje,
         Lluvia,
         Game_over
     ]

@@ -5,23 +5,48 @@ class Cocodrilos extends Phaser.Scene {
         super({ key: 'Cocos' });
     }
 
-    init() {
+    init(data) {
         console.log("se ha iniciado la escena cocos")
-        this.scene.launch("Vidas")
-        this.points = 0;
+        this.scene.launch("EstadoPersonaje")
+
         this.camara = this.cameras.main;
+        this.life = 5
+
+        if (Object.keys(data).length !== 0) {
+            this.life = data.life;
+        }
     }
 
 
 
     create() {
-        this.floor = this.physics.add.staticGroup();
-        this.floor.create(100, 600, 'floorCocos').setOrigin(0).setScale(2)
+
+        const vidasDB = localStorage.getItem("life");
+        this.betsPoints = (vidasDB !== null) ? vidasDB : 0;
+
+
+        if (this.life > this.betsPoints) {
+            localStorage.setItem("life", this.life);
+        }
+
         this.boton = this.add.tileSprite(480, 320, 960, 420, 'pantano').setScale(1.5)
             .setScrollFactor(0)
 
         this.currentScene = this.scene.get(this);
 
+        this.groupFloor = this.physics.add.staticGroup({
+            key: 'floorCocos',
+            repeat: 4,
+            setXY: {
+                x: 50,
+                y: 650,
+                stepX: 800
+            },
+            setScale: {
+                x: 2
+
+            }
+        });
 
         this.personajedos = new PersonajeDos({
             scene: this,
@@ -43,6 +68,7 @@ class Cocodrilos extends Phaser.Scene {
         });
 
         this.physics.add.collider([this.personajedos], this.floor);
+        this.physics.add.collider([this.personajedos], this.groupFloor);
 
 
 
@@ -53,7 +79,10 @@ class Cocodrilos extends Phaser.Scene {
     update(time, delta) {
         this.personajedos.update();
         this.cameras.main.scrollX = this.coco.x - 400,
-            this.boton.tilePositionX = this.coco.x, this.personajedos.x;
+            this.cameras.main.scrollX = this.personajedos.x - 400,
+            this.boton.tilePositionX = this.coco.x
+        this.boton.tilePositionX = this.personajedos.x;
+
 
 
 

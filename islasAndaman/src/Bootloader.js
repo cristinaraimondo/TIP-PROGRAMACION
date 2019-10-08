@@ -7,6 +7,8 @@ class Bootloader extends Phaser.Scene {
         this.load.setPath('./assets/');
 
         this.load.audio('aircraft', ['aircraft.mp3']);
+        this.load.audio('huevo', ['collisionhuevo.mp3']);
+        this.load.audio('cuervo', ['cuervo.mp3']);
         this.load.image('avion', 'avioneta.png');
         this.load.image(['logo', 'background_text', 'selector']);
         this.load.image("agua", "agua.png");
@@ -14,6 +16,7 @@ class Bootloader extends Phaser.Scene {
         this.load.image('SELVA', 'objects/objects.png');
         this.load.audio('lalluvia', ['lalluvia.mp3']);
         this.load.audio('thunder', ['thunder.mp3']);
+        this.load.audio('comida', ['bounce.ogg']);
         this.load.image("lateralIzquierdo", "lateralIzquierdo.png")
         this.load.image("lateralDerecho", "lateralDerecho.png")
         this.load.image("boton", "boton.png")

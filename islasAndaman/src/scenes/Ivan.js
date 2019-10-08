@@ -10,12 +10,7 @@ class Ivan extends Phaser.Scene {
     init() {
         console.log('Se ha iniciado la escena Play');
         this.camara = this.cameras.main;
-        (this.audioAvion = this.sound.add('thunder', {
-            loop: false
-        })),
-            (this.audioLluvia = this.sound.add('lalluvia', {
-                loop: true
-            }));
+
     }
 
     create() {
