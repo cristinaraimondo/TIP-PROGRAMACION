@@ -1,4 +1,5 @@
 import Rocas from '../Rocas/Rocas.js';
+import PersonajeDos from "../player/PersonajeDos.js"
 
 class Intro extends Phaser.Scene {
     constructor() {
@@ -95,6 +96,15 @@ class Intro extends Phaser.Scene {
             .setScrollFactor(0.9);
         avione.anims.play('avionca');
 
+        this.personajedos = new PersonajeDos({
+            scene: this,
+            x: 100,
+            y: 350,
+            setScale: 0.5,
+            collideWorldBounds: true
+
+        });
+
         // rubio
         const rubio = this.add
             .sprite(700, -360, 'rubioidle')
@@ -180,7 +190,8 @@ class Intro extends Phaser.Scene {
     }
     eligeIvan() {
         alert('Ivan es muy veloz, elegiste al mejor');
-        this.scene.start('Ivan');
+        this.scene.start('Anara')
+        this.personajedos.setTexture('rubioidle')
     }
 }
 

@@ -59,7 +59,7 @@ class Cocodrilos extends Phaser.Scene {
             x: 100,
             y: 350,
             setScale: 0.5,
-            collideWorldBounds: true,
+            collideWorldBounds: false,
 
 
         });
@@ -105,15 +105,20 @@ class Cocodrilos extends Phaser.Scene {
 
         this.physics.add.collider([this.personajedos], this.floor);
         this.physics.add.collider([this.personajedos], this.groupFloor);
-        this.physics.add.collider(this.personajedos, this.coco, () => {
+        this.physics.add.overlap(this.personajedos, this.coco, () => {
+            this.personajedos.pierdeVidas();
+
+
+        });
+
+        this.physics.add.overlap(this.personajedos, this.mosca, () => {
             this.personajedos.pierdeVidas();
 
 
         });
 
         this.physics.add.overlap(this.itemsManzanas, this.personajedos, () => {
-            sceneDatos.addPoints()
-
+            this.registry.events.emit("points_other")
             this.itemsManzanas.destroyItem();
             // this.comida.play();
 

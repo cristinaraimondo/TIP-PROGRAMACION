@@ -48,6 +48,7 @@ class EstadoPersonaje extends Phaser.Scene {
 
     })
 
+
     this.registry.events.on("game_over", () => {
 
       this.scene.start("Game_over", { points: this.actual_points })

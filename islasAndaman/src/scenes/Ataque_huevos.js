@@ -115,13 +115,10 @@ class Ataque_huevos extends Phaser.Scene {
         //collisions
 
         this.physics.add.collider([this.personajedos, this.huevosGroup], this.wall_floor);
-        this.physics.add.collider(this.personajedos, this.pajaroRojo, () => {
+        this.physics.add.overlap(this.personajedos, this.pajaroRojo, () => {
             console.log("pega al pajaro")
 
             this.personajedos.pierdeVidas();
-            this.personajedos.setTexture("rubioidle")
-
-
             this.cuervo.play()
 
 
