@@ -5,9 +5,12 @@ class EstadoPersonaje extends Phaser.Scene {
 
   init() {
     console.log("se ha iniciado la escena EstadoPersonaje")
-    this.actual_points = 0;
-    console.log(this.actual_points)
+    this.scene.moveUp();
+
+    this.actual_points = 0
     this.actual_life = 5
+    console.log(this.actual_points)
+
 
   }
   create() {
@@ -25,13 +28,23 @@ class EstadoPersonaje extends Phaser.Scene {
 
       }
     });
+
+
+
     this.points = this.add.bitmapText(
-      this.scale.width - 40, 20, "font",
-      Phaser.Utils.String.Pad("0", 6, "0", 1)).setOrigin(1, 0)
+      this.scale.width - 20, 20, "font",
+      Phaser.Utils.String.Pad('0', 6, '0', 1)
+    ).setOrigin(1, 0)
+
 
     //eventos
     this.registry.events.on("remove_life", () => {
-      this.groupLife.getChildren()[this.groupLife.getChildren().length - 1].destroy();
+      //this.groupLife.getChildren()[this.groupLife.getChildren().length - 1]
+      this.actual_life = this.groupLife.getChildren().length
+      if (this.actual_life >= 1) {
+        this.groupLife.getChildren()[this.groupLife.getChildren().length - 1].destroy()
+      }
+      console.log("vidas" + this.actual_life)
 
     })
 
@@ -41,35 +54,50 @@ class EstadoPersonaje extends Phaser.Scene {
       this.registry.events.removeAllListeners();
       this.scene.stop(("Anara"))
       this.scene.stop(("Lluvia"))
+      this.scene.stop(("Cocos"))
+
       this.sound.stopAll()
 
     })
 
-    this.registry.events.on("update_points", () => {
-
+    this.registry.events.on('update_points', () => {
       this.actual_points += 10;
-      console.log("cuanto comio  " + this.actual_points)
+      this.points.setText(Phaser.Utils.String.Pad(this.actual_points, 6, '0', 1));
 
-      this.points.setText(Phaser.Utils.String.Pad(this.actual_points, 6, "0", 1))
+
+
       if (this.actual_points >= 100) {
-        this.scene.start("Cocos")
+        this.scene.start('Cocos', { points: this.actual_points });
+        this.registry.events.removeAllListeners();
         this.scene.stop("Anara")
         this.scene.stop("Lluvia")
         this.sound.stopAll()
-
-
-
-
+        console.log("vidas personaje    " + this.actual_life)
       }
+
     })
 
+    this.registry.events.on("points_other", () => {
+      this.actual_points += 50
+      console.log("cuanto comio  " + this.actual_points)
+
+      this.points.setText(Phaser.Utils.String.Pad(this.actual_points, 6, '0', 1));
+
+    })
+  }
+
+  addPoints() {
+    this.points.setText(Phaser.Utils.String.Pad(parseInt(this.points.text) + 10, 6, '0', 1))
+  }
+
+
+  update(time, delta) {
+
+
+
 
   }
 
-  update() {
-
-
-  }
 
 }
 export default EstadoPersonaje;

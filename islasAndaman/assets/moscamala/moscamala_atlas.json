@@ -1,0 +1,138 @@
+{
+    "frames": [
+        {
+            "filename": "evil_fly_death_0",
+            "frame": {
+                "x": 1,
+                "y": 1,
+                "w": 31,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "evil_fly_death_1",
+            "frame": {
+                "x": 34,
+                "y": 1,
+                "w": 31,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "evil_fly_death_2",
+            "frame": {
+                "x": 67,
+                "y": 1,
+                "w": 31,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "evil_fly_death_3",
+            "frame": {
+                "x": 100,
+                "y": 1,
+                "w": 31,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "evil_fly_death_4",
+            "frame": {
+                "x": 133,
+                "y": 1,
+                "w": 31,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "evil_fly_death_5",
+            "frame": {
+                "x": 166,
+                "y": 1,
+                "w": 31,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "evil_fly_death_6",
+            "frame": {
+                "x": 199,
+                "y": 1,
+                "w": 31,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "evil_fly_death_7",
+            "frame": {
+                "x": 232,
+                "y": 1,
+                "w": 31,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "evil_fly_death_8",
+            "frame": {
+                "x": 265,
+                "y": 1,
+                "w": 31,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "evil_fly_death_9",
+            "frame": {
+                "x": 298,
+                "y": 1,
+                "w": 31,
+                "h": 32
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Phaser3",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

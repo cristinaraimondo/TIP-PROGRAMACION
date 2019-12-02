@@ -5,7 +5,7 @@ class Game_over extends Phaser.Scene {
     }
     init(data) {
         console.log("se inicia la scena game_over")
-        this.points = 0;
+        //this.points = 0;
 
         if (Object.keys(data).length !== 0) {
             this.points = data.points;

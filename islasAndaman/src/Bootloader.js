@@ -21,6 +21,7 @@ class Bootloader extends Phaser.Scene {
         this.load.image("lateralDerecho", "lateralDerecho.png")
         this.load.image("boton", "boton.png")
         this.load.image("floorCocos", "floorCocos.png")
+        this.load.image("manzana", "apple.png")
 
         this.load.atlas(
             'objects',
@@ -81,6 +82,13 @@ class Bootloader extends Phaser.Scene {
             'cococam/coco_atlas.json'
         );
         this.load.animation("coco", 'cococam/coco_anim.json');
+        /////////////////////////////////////////////////////
+        this.load.atlas(
+            'mosca',
+            'moscamala/moscamala.png',
+            'moscamala/moscamala_atlas.json'
+        );
+        this.load.animation("mosca", 'moscamala/moscamala_anim.json');
 
 
         this.load.on('complete', () => {
@@ -89,7 +97,7 @@ class Bootloader extends Phaser.Scene {
                 'font',
                 Phaser.GameObjects.RetroFont.Parse(this, configFont)
             );
-            this.scene.start("Anara");
+            this.scene.start('Anara');
 
         });
     }

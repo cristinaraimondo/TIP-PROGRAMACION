@@ -1,0 +1,28 @@
+{
+  "section": [
+    {
+      "type": "atlas",
+      "key": "rubioidle_atlas",
+      "atlasURL": "islasAndaman/assets/rubioidle/rubioidle_atlas.json",
+      "format": "TEXTURE_ATLAS_JSON_ARRAY"
+    },
+    {
+      "type": "spritesheet",
+      "key": "rubioidle",
+      "url": "islasAndaman/assets/rubioidle/rubioidle.png",
+      "frameWidth": 0,
+      "frameHeight": 0,
+      "frameMax": -1,
+      "margin": 0,
+      "spacing": 0
+    }
+  ],
+  "coco": [],
+  "meta": {
+    "generated": "1574799815757",
+    "app": "Phaser Editor",
+    "url": "http://phasereditor.boniatillo.com",
+    "version": "1.0",
+    "copyright": "Arian Fornaris (c) 2015,2016"
+  }
+}

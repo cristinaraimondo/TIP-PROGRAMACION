@@ -1,6 +1,7 @@
 import PersonajeDos from '../Player/PersonajeDos.js';
 import Comida from '../objetos/Comida.js';
 import PajaroRojo from "../enemigos/PajaroRojo.js";
+import Manzana from "../objetos/Manzanas.js"
 
 import Huevos from "../objetos/Huevos.js"
 
@@ -25,6 +26,7 @@ class Ataque_huevos extends Phaser.Scene {
         this.bg = this.add
             .tileSprite(480, 320, 960, 640, 'sel')
             .setScrollFactor(0);
+
         (this.collisioHuevo = this.sound.add('huevo', {
             loop: false
         })),
@@ -34,8 +36,8 @@ class Ataque_huevos extends Phaser.Scene {
             (this.cuervo = this.sound.add('cuervo', {
                 loop: false
             })),
-
-            this.laterales = this.physics.add.staticGroup();
+            this.apple = this.add.group("manzana")
+        this.laterales = this.physics.add.staticGroup();
         this.laterales.create(-600, 0, "lateralIzquierdo").setOrigin(0).setSize(20, 800)
         this.laterales.create(1900, 0, "lateralDerecho").setOrigin(0).setSize(20, 800)
 
@@ -55,13 +57,21 @@ class Ataque_huevos extends Phaser.Scene {
 
 
 
+
+
+
         // Items
         this.itemsGroup = new Comida({
             physicsWorld: this.physics.world,
-            scene: this
+            scene: this,
+            setScale: 0.5
+
         });
 
-
+        this.itemsManzanas = new Manzana({
+            physicsWorld: this.physics.world,
+            scene: this
+        })
         this.huevosGroup = new Huevos({
             physicsWorld: this.physics.world,
             scene: this
@@ -78,6 +88,8 @@ class Ataque_huevos extends Phaser.Scene {
             collideWorldBounds: true
 
         });
+        // this.personajedos.body.setCollideWorldBounds(true)
+
         this.pajaroRojo = new PajaroRojo({
             scene: this,
             x: 200,
@@ -88,25 +100,41 @@ class Ataque_huevos extends Phaser.Scene {
 
         });
 
+        this.tweens.add({
+            targets: this.pajaroRojo,
+            props: {
+                x: { value: 500, duration: 2000, flipX: true },
+                y: { value: 500, duration: 10000, },
+            },
+            ease: 'Sine.easeInOut',
+            yoyo: true,
+            repeat: -1
+        });
+
+
         //collisions
 
         this.physics.add.collider([this.personajedos, this.huevosGroup], this.wall_floor);
         this.physics.add.collider(this.personajedos, this.pajaroRojo, () => {
             console.log("pega al pajaro")
-            this.registry.events.emit('update_points');
+
+            this.personajedos.pierdeVidas();
+            this.personajedos.setTexture("rubioidle")
+
+
             this.cuervo.play()
 
 
         });
-        this.physics.add.collider([this.personajedos, this.pajaroRojo, this.huevosGroup,], this.laterales)
+        this.physics.add.collider([this.personajedos, this.pajaroRojo, this.huevosGroup], this.laterales)
         this.physics.add.overlap(this.personajedos, this.huevosGroup, () => {
-            this.personajedos.huevoCollision();
+            this.personajedos.pierdeVidas();
+
+
+
+            this.sound.stopAll()
+
             this.collisioHuevo.play()
-
-        });
-        this.physics.add.collider(this.pajaroRojo, this.laterales, () => {
-            this.pajaroRojo.lateralCollision()
-
 
         });
 
@@ -117,10 +145,19 @@ class Ataque_huevos extends Phaser.Scene {
             this.comida.play();
 
         });
+        this.physics.add.overlap(this.itemsManzanas, this.personajedos, () => {
+            this.registry.events.emit("points_other")
+
+            this.itemsManzanas.destroyItem();
+            this.comida.play();
+
+        });
+
 
 
 
     }
+
 
     update() {
         this.personajedos.update();
@@ -130,10 +167,7 @@ class Ataque_huevos extends Phaser.Scene {
         this.bg.tilePositionX = this.personajedos.x;
 
 
-
-
     }
-
 
 }
 

@@ -1,3 +1,4 @@
+import EstadoPersonaje from "../scenes/EstadoPersonaje.js"
 class PersonajeDos extends Phaser.GameObjects.Sprite {
     constructor(config) {
         super(config.scene, config.x, config.y, 'personajeDos');
@@ -10,6 +11,7 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
         this.body.setSize(64, 128);
         this.body.setOffset(25, 5);
         this.body.setBounce(0.2);
+        //this.body.setCollideWorldBounds(true)
 
         this.body.setGravityY(1000)
 
@@ -23,11 +25,9 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
 
         this.cursor = this.scene.input.keyboard.createCursorKeys();
 
-        this.life = 5;
-
+        this.life = 5
 
     }
-
     update() {
         if (this.cursor.left.isDown) {
             this.body.setVelocityX(-200);
@@ -44,24 +44,17 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
                 this.prevMov = 'right';
                 this.anims.play('chuquider');
             }
-        } else if (this.cursor.down.isDown && !this.jumping) {
-            this.body.setVelocityX(0);
-            this.body.setSize(64, 128);
-            this.body.setOffset(32, 32);
-            if (this.prevMov !== 'down' && !this.jumping) {
-                this.prevMov = 'down';
-                this.anims.play('chuquidle');
-            }
+
         } else {
             this.body.setVelocityX(0);
-            this.body.setSize(64, 128);
-            this.body.setOffset(32, 12);
+            this.body.setSize(50, 128);
             if (this.prevMov !== 'chuquidle' && !this.jumping) {
                 this.prevMov = 'chuquidle';
                 this.anims.play('chuquidle');
             }
         }
-        if (Phaser.Input.Keyboard.JustDown(this.cursor.up) && !this.jumping) {
+        if (Phaser.Input.Keyboard.JustDown(this.cursor.up)
+            && !this.jumping) {
             this.jumping = true;
             this.body.setVelocityY(-800);
             if (this.prevMov !== 'jump') {
@@ -74,7 +67,7 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
     }
 
 
-    huevoCollision() {
+    pierdeVidas() {
 
         if (!this.hitDelay) {
             console.log("Collisiona")

@@ -1,0 +1,32 @@
+{
+    "anims": [
+        {
+            "key": "volar",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "moscamala",
+                    "frame": "evil_fly_death_9"
+                },
+                {
+                    "key": "moscamala",
+                    "frame": "evil_fly_death_8"
+                },
+                {
+                    "key": "moscamala",
+                    "frame": "evil_fly_death_7"
+                },
+                {
+                    "key": "moscamala",
+                    "frame": "evil_fly_death_6"
+                },
+                {
+                    "key": "moscamala",
+                    "frame": "evil_fly_death_5"
+                }
+            ]
+        }
+    ]
+}
