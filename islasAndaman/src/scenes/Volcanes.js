@@ -63,7 +63,7 @@ class Volcanes extends Phaser.Scene {
         this.score = 0;
         this.topScore = localStorage.getItem(this.gameOptions.localStorageName) == null ? 0 : localStorage.getItem(this.gameOptions.localStorageName);
         this.scoreText = this.add.text(10, 10, "");
-        this.textConsejo = this.add.text(500, 20, "si superas el mejor puntaje\n\npodes pasar a la siguiente\n\npantalla, allì podras recoger\n\nel avión y tendras una\n\nagradable compañìa");
+        this.textConsejo = this.add.text(500, 20, "si superas el mejor puntaje\n\npodes pasar a la siguiente\n\npantalla, allì podras recoger\n\nel avión y tendras una\n\nagradable compañìa\n\nUtiliza el click del mouse para\n\nsaltar de una plataforma a otra. ");
         this.updateScore(this.score);
 
 
@@ -73,7 +73,7 @@ class Volcanes extends Phaser.Scene {
     updateScore(inc) {
         this.score += inc;
         this.scoreText.text = "Puntos: " + this.score + "\nMejor puntaje: " + this.topScore;
-        if (this.score > this.topScore) {
+        if (this.score > 20 || this.score > this.topScore) {
 
             this.scene.sleep('Volcanes')
             this.scene.start('sobrevolandoVolcan', { points: this.actual_points, });

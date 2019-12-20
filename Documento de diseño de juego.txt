@@ -1,0 +1,40 @@
+El nombre del juego es: "Aventura en las Islas de Andamán"
+Es un juego 2d, en el cual interviene un personaje que debe rescatar a sus compañeros, tras la caída del avión en el que viajaban hacia la India.
+
+Tipo de juego
+
+juego de plataformas web realizado con Phaser 3 y javascript.
+
+UI/ control del jugador
+Mouse Click
+teclas de flechas
+Barra espaciadora
+
+Mecánica del juego
+
+personaje se mueve por las escenas hacia la izquierda y hacia la derecha
+En la primera escena está la introducción al juego.Se cuenta la historia.
+En la segunda escena, el jugador se mueve por el escenario en busca de alimento para poder aumentar el puntaje para pasar al siguiente nivel. Cada vez que come se crean huevos que le quitan a vida si colisionan con el. Tambien es amenazado por un pajaro, el cual al igual que los huevos le va quitando la vida.
+
+En la tercera escena ingresa al pantano donde hay cocodrilos que lo acechan y le quitan la vida si lo tocan, pero si el personaje les salta encima mueren y generan puntaje para el jugador. Hay una mosca que si lo pica le va quitando vida, pero el personaje posee proyectiles que le dispara, si acierta, le da 50 pts. que le sirven para pasar a la siguiente escena.
+
+En la cuarta pantalla el jugador se desliza por una plataforma movil. Debe saltar sobre ellas con el click del mouse y pasa a la siguiente pantalla si supera el mejor puntaje obtenido anteriormente, continua a la quinta escena donde debe juntar una determinada cantidad de cristales y plantas para conseguir un avión que lo ayudará a pasar la zona de volcanes donde bolas de fuego y rios de lava lo amenazan. debe mantenerse en el aire para no perder. Tambien en esta escena tendrá una compañera, que rescatará y la llevará en el avión con él.
+
+En la sexta pantalla, en la isla de nativos salvajes deberá rescatar uno a uno a sus compañeros y llevarlos al barco que finalmente los llevará a la India. En esta pantalla recogerá armas con las cuales defenderse de los nativos. En el rescate deberá esquivar los obstaculos para llegar al barco.
+
+Assets:
+estilo pixel art
+
+sprites:
+Background
+jugador
+enemigos
+obstaculos
+plataformas
+recompensas
+comida
+particulas
+cuadros de texto
+
+
+

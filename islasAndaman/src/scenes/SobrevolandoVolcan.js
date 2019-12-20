@@ -24,10 +24,10 @@ class SobrevolandoVolcan extends Phaser.Scene {
     create() {
         this.backg = this.add.tileSprite(400, 300, 800, 600, "bg")
             .setScrollFactor(0)
-        this.cristal = this.add.image(600, 450, "cristal")
+        this.cristal = this.physics.add.image(600, 450, "cristal").setSize(64, 64).setOffset(18, 70)
         this.planta = this.add.image(10, 650, "planta").setSize(30, 1)
 
-        this.particles = this.add.particles('flares');
+        this.particles = this.physics.add.particles('flares');
 
         this.particles.createEmitter({
             frame: 'yellow',
@@ -38,7 +38,7 @@ class SobrevolandoVolcan extends Phaser.Scene {
             speedX: { min: 200, max: 400 },
             quantity: 4,
             gravityY: -50,
-            scale: { start: 0.6, end: 0, ease: 'Power3' },
+            scale: { start: 0.4, end: 0, ease: 'Power3' },
             blendMode: 'ADD'
         });
         this.particles.createEmitter({
