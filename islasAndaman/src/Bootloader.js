@@ -23,6 +23,10 @@ class Bootloader extends Phaser.Scene {
         this.load.image("floorCocos", "floorCocos.png")
         this.load.image("manzana", "apple.png")
         this.load.image("bullet", "laser.png")
+        this.load.image("arbol", "arboles/arboljunto.png")
+        this.load.image("rama", "arboles/rama.png")
+        this.load.image("ramados", "arboles/ramados.png")
+        this.load.image("llave", "arboles/llave.png")
         this.load.atlas(
             'objects',
             'objects/objects.png',
@@ -107,7 +111,7 @@ class Bootloader extends Phaser.Scene {
                 'font',
                 Phaser.GameObjects.RetroFont.Parse(this, configFont)
             );
-            this.scene.start('Anara');
+            this.scene.start('Cocos');
 
         });
     }

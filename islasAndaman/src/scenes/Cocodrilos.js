@@ -63,6 +63,16 @@ class Cocodrilos extends Phaser.Scene {
 
 
         });
+        this.ramas = this.physics.add.staticGroup();
+        this.ramas.create(910, 550, "rama").setOrigin(1).setScale(0.2).setSize(200, 70).setOffset(200, 200)
+        this.ramas.create(1150, 500, "ramados").setOrigin(1).setScale(0.2).setSize(100, 40).setOffset(180, 170)
+
+
+        this.arbol = this.add.image(1200, 650, "arbol").setOrigin(1).setScale(0.2)
+
+        this.llave = this.physics.add.image(1130, 100, "llave").setOrigin(1).setScale(0.1).setSize(200, 100).setOffset(8, 50)
+        this.llave1 = this.physics.add.image(800, 80, "llave").setOrigin(1).setScale(0.1).setSize(200, 100).setOffset(10, 50)
+        this.llave2 = this.physics.add.image(900, 150, "llave").setOrigin(1).setScale(0.1).setSize(200, 100).setOffset(10, 50)
         this.coco = new Coco({
             scene: this,
             x: 400,
@@ -106,6 +116,7 @@ class Cocodrilos extends Phaser.Scene {
 
         this.physics.add.collider([this.personajedos], this.floor);
         this.physics.add.collider([this.personajedos], this.groupFloor);
+        this.physics.add.collider([this.personajedos], this.ramas);
         this.physics.add.overlap(this.personajedos, this.coco, () => {
             this.personajedos.pierdeVidas();
 
@@ -129,12 +140,24 @@ class Cocodrilos extends Phaser.Scene {
         this.physics.add.overlap(this.itemsManzanas, this.personajedos, () => {
             this.registry.events.emit("points_other")
             this.registry.events.emit('cambioVolcanes')
-            'cambioVolcanes'
+
 
             this.itemsManzanas.destroyItem();
             // this.comida.play();
 
         });
+        this.physics.add.overlap(this.llave, this.personajedos, () => {
+            this.registry.events.emit("super_points")
+        });
+        this.physics.add.overlap(this.llave1, this.personajedos, () => {
+            this.registry.events.emit("super_points")
+        });
+        this.physics.add.overlap(this.llave2, this.personajedos, () => {
+            this.registry.events.emit("super_points")
+
+        });
+
+
 
 
     }

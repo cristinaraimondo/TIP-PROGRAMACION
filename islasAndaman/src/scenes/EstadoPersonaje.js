@@ -9,6 +9,7 @@ class EstadoPersonaje extends Phaser.Scene {
 
     this.actual_points = 0
     this.actual_life = 5
+    this.cantLlave = 0
     console.log(this.actual_points)
 
 
@@ -31,6 +32,7 @@ class EstadoPersonaje extends Phaser.Scene {
 
 
 
+
     this.points = this.add.bitmapText(
       this.scale.width - 20, 20, "font",
       Phaser.Utils.String.Pad('0', 6, '0', 1)
@@ -47,8 +49,6 @@ class EstadoPersonaje extends Phaser.Scene {
       console.log("vidas" + this.actual_life)
 
     })
-
-
 
     this.registry.events.on("game_over", () => {
 
@@ -86,12 +86,19 @@ class EstadoPersonaje extends Phaser.Scene {
       this.points.setText(Phaser.Utils.String.Pad(this.actual_points, 6, '0', 1));
 
     })
+    this.registry.events.on("super_points", () => {
+      this.actual_points += 500
+      console.log("cuanto comio  " + this.actual_points)
+
+      this.points.setText(Phaser.Utils.String.Pad(this.actual_points, 6, '0', 1));
+
+    })
 
     this.registry.events.on('cambioVolcanes', () => {
 
 
 
-      if (this.actual_points >= 500) {
+      if (this.actual_points >= 1800) {
         this.scene.start('Volcanes', { points: this.actual_points, });
 
 
@@ -102,6 +109,9 @@ class EstadoPersonaje extends Phaser.Scene {
       }
 
     })
+
+
+
 
   }
 
