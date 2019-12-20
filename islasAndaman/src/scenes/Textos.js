@@ -8,6 +8,7 @@ class Textos extends Phaser.Scene {
 
     create() {
         this.textConsejo = this.add.text(500, 100, "Recoger:\n\ncristales: 10\n\nplantas de vida: 5\n\ncuando tengas todo\n\npodrás subirte al avión");
+        this.textConsejo.setVisible(true)
     }
 
 

@@ -27,7 +27,7 @@ class SobrevolandoVolcan extends Phaser.Scene {
         this.cristal = this.physics.add.image(600, 450, "cristal").setSize(64, 64).setOffset(18, 70)
         this.planta = this.add.image(10, 650, "planta").setSize(30, 1)
 
-        this.particles = this.physics.add.particles('flares');
+        this.particles = this.add.particles('flares');
 
         this.particles.createEmitter({
             frame: 'yellow',
@@ -55,13 +55,17 @@ class SobrevolandoVolcan extends Phaser.Scene {
             blendMode: 'ADD'
         });
 
+
+
         this.personaje = new PersonajeDos({
             scene: this,
             x: 100,
-            y: 100,
+            y: 300,
             gravityY: 0
 
         });
+
+
         this.tweens.add({
             targets: this.personaje,
             props: {
