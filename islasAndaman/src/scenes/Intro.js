@@ -191,7 +191,7 @@ class Intro extends Phaser.Scene {
     eligeIvan() {
         alert('Ivan es muy veloz, elegiste al mejor');
         this.scene.start('Anara')
-        this.personajedos.setTexture('rubioidle')
+        this.personajedos.setTexture()
     }
 }
 

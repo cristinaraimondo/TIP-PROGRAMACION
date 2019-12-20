@@ -1,0 +1,28 @@
+{
+    "anims": [
+        {
+            "key": "volcan3",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "volcan3",
+                    "frame": "volcan3_2"
+                },
+                {
+                    "key": "volcan3",
+                    "frame": "volcan3_2"
+                },
+                {
+                    "key": "volcan3",
+                    "frame": "volcan3_1"
+                },
+                {
+                    "key": "volcan3",
+                    "frame": "volcan3_0"
+                }
+            ]
+        }
+    ]
+}

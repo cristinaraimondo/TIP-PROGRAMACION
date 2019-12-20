@@ -22,7 +22,7 @@ class Bootloader extends Phaser.Scene {
         this.load.image("boton", "boton.png")
         this.load.image("floorCocos", "floorCocos.png")
         this.load.image("manzana", "apple.png")
-
+        this.load.image("bullet", "laser.png")
         this.load.atlas(
             'objects',
             'objects/objects.png',
@@ -36,6 +36,7 @@ class Bootloader extends Phaser.Scene {
         this.load.animation("pajarorojo", "pajerto/pajerto_anim.json");
         this.load.image("food", "food.png")
         this.load.image("pantano", "pant.png")
+        this.load.image("bgVolcan", "bgVolcan.png")
 
 
         this.load.image('font', 'font/font.png');
@@ -89,6 +90,15 @@ class Bootloader extends Phaser.Scene {
             'moscamala/moscamala_atlas.json'
         );
         this.load.animation("mosca", 'moscamala/moscamala_anim.json');
+        /////////////////////////////////////////////////////////////////////
+
+        this.load.atlas(
+            'volcan',
+            'volcan/volcan3.png',
+            'volcan/volcan3_atlas.json'
+        );
+        this.load.animation('volcan', 'volcan/volcan3_anim.json');
+        //////////////////////////////////////////////////////////
 
 
         this.load.on('complete', () => {

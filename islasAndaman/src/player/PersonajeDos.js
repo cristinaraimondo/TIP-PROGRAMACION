@@ -67,6 +67,7 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
     }
 
 
+
     pierdeVidas() {
 
         if (!this.hitDelay) {

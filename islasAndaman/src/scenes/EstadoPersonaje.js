@@ -49,6 +49,7 @@ class EstadoPersonaje extends Phaser.Scene {
     })
 
 
+
     this.registry.events.on("game_over", () => {
 
       this.scene.start("Game_over", { points: this.actual_points })
@@ -85,6 +86,23 @@ class EstadoPersonaje extends Phaser.Scene {
       this.points.setText(Phaser.Utils.String.Pad(this.actual_points, 6, '0', 1));
 
     })
+
+    this.registry.events.on('cambioVolcanes', () => {
+
+
+
+      if (this.actual_points >= 500) {
+        this.scene.start('Volcanes', { points: this.actual_points, });
+
+
+
+        this.scene.stop("Cocos")
+
+        console.log("vidas personaje    " + this.actual_life)
+      }
+
+    })
+
   }
 
   addPoints() {

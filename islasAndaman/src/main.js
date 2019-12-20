@@ -1,13 +1,13 @@
 import Bootloader from './Bootloader.js';
-import Play from './scenes/Play.js';
 import Intro from './scenes/Intro.js';
 import Volcanes from './scenes/Volcanes.js';
 import Cocodrilos from './scenes/Cocodrilos.js';
 import Game_over from './scenes/Game_over.js';
 import Ataque_huevos from './scenes/Ataque_huevos.js';
-import Ivan from './scenes/Ivan.js';
+import SobrevolandoVolcan from './scenes/SobrevolandoVolcan.js';
 import Lluvia from './scenes/Lluvia.js';
 import EstadoPersonaje from "./scenes/EstadoPersonaje.js";
+import Textos from "./scenes/Textos.js"
 
 const config = {
     title: 'Islas_andaman',
@@ -38,7 +38,8 @@ const config = {
         Cocodrilos,
         Volcanes,
         Ataque_huevos,
-        Ivan,
+        Textos,
+        SobrevolandoVolcan,
         EstadoPersonaje,
         Lluvia,
         Game_over

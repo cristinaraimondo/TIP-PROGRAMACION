@@ -1,0 +1,47 @@
+{
+    "frames": [
+        {
+            "filename": "volcan3_0",
+            "frame": {
+                "x": 1,
+                "y": 1,
+                "w": 102,
+                "h": 81
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "volcan3_1",
+            "frame": {
+                "x": 105,
+                "y": 1,
+                "w": 102,
+                "h": 81
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "volcan3_2",
+            "frame": {
+                "x": 209,
+                "y": 1,
+                "w": 102,
+                "h": 81
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Phaser3",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}
