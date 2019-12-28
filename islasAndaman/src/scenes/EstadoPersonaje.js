@@ -57,6 +57,7 @@ class EstadoPersonaje extends Phaser.Scene {
       this.scene.stop(("Anara"))
       this.scene.stop(("Lluvia"))
       this.scene.stop(("Cocos"))
+      this.scene.stop(("Textos"))
 
       this.sound.stopAll()
 
@@ -68,8 +69,10 @@ class EstadoPersonaje extends Phaser.Scene {
 
 
 
-      if (this.actual_points >= 100) {
+      if (this.actual_points >= 500) {
         this.scene.start('Cocos', { points: this.actual_points });
+        this.registry.events.emit("mostrarTexto")
+
         this.registry.events.removeAllListeners();
         this.scene.stop("Anara")
         this.scene.stop("Lluvia")
@@ -94,15 +97,11 @@ class EstadoPersonaje extends Phaser.Scene {
 
     })
 
-    this.registry.events.on('cambioVolcanes', () => {
-
-
+    this.registry.events.on('cambioVolcanes', () => {//registra el evento de cambio de escena
 
       if (this.actual_points >= 1800) {
         this.scene.start('Volcanes', { points: this.actual_points, });
-
-
-
+        this.scene.stop("Textos")
         this.scene.stop("Cocos")
 
         console.log("vidas personaje    " + this.actual_life)

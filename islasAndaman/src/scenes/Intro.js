@@ -96,15 +96,6 @@ class Intro extends Phaser.Scene {
             .setScrollFactor(0.9);
         avione.anims.play('avionca');
 
-        this.personajedos = new PersonajeDos({
-            scene: this,
-            x: 100,
-            y: 350,
-            setScale: 0.5,
-            collideWorldBounds: true
-
-        });
-
         // rubio
         const rubio = this.add
             .sprite(700, -360, 'rubioidle')

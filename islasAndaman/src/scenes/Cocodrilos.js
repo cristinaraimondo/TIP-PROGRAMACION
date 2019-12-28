@@ -18,6 +18,7 @@ class Cocodrilos extends Phaser.Scene {
         this.actual_points = 0
 
         this.actual_life = data
+        this.texto = "texto"
     }
 
 
@@ -25,6 +26,9 @@ class Cocodrilos extends Phaser.Scene {
     create() {
 
         this.scene.launch("EstadoPersonaje")
+        this.registry.events.emit("mostrarTexto")
+        this.physics.world.setBounds(480, 320, 500, 550, true)
+
 
         this.cursors = this.input.keyboard.createCursorKeys();
         this.spaceKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
@@ -54,29 +58,40 @@ class Cocodrilos extends Phaser.Scene {
             scene: this
         })
 
-        this.personajedos = new PersonajeDos({
+
+        this.ramas = this.physics.add.staticGroup();
+        this.ramas.create(910, 550, "rama").setOrigin(1).setScale(0.2).setSize(100, 50).setOffset(300, 300)
+        this.ramas.create(1150, 500, "ramados").setOrigin(1).setScale(0.2).setSize(100, 40).setOffset(400, 350)
+
+
+        this.arbol = this.add.image(1200, 650, "arbol").setOrigin(1).setScale(0.2)
+
+        this.ramas2 = this.physics.add.staticGroup();
+        this.ramas2.create(1510, 550, "rama").setOrigin(1).setScale(0.2).setSize(100, 50).setOffset(300, 300)
+        this.ramas2.create(1750, 500, "ramados").setOrigin(1).setScale(0.2).setSize(100, 40).setOffset(400, 350)
+
+
+        this.arbol2 = this.add.image(1800, 650, "arbol").setOrigin(1).setScale(0.2)
+
+
+        this.llave = this.physics.add.image(1130, 100, "llave").setOrigin(1).setScale(0.1).setSize(200, 100).setOffset(8, 50)
+        this.llave1 = this.physics.add.image(800, 80, "llave").setOrigin(1).setScale(0.1).setSize(200, 100).setOffset(10, 50)
+        this.llave2 = this.physics.add.image(900, 150, "llave").setOrigin(1).setScale(0.1).setSize(200, 100).setOffset(10, 50)
+
+
+        this.coco = new Coco({
             scene: this,
-            x: 100,
-            y: 350,
+            x: 400,
+            y: 550,
             setScale: 0.5,
             collideWorldBounds: true,
 
 
         });
-        this.ramas = this.physics.add.staticGroup();
-        this.ramas.create(910, 550, "rama").setOrigin(1).setScale(0.2).setSize(200, 70).setOffset(200, 200)
-        this.ramas.create(1150, 500, "ramados").setOrigin(1).setScale(0.2).setSize(100, 40).setOffset(180, 170)
-
-
-        this.arbol = this.add.image(1200, 650, "arbol").setOrigin(1).setScale(0.2)
-
-        this.llave = this.physics.add.image(1130, 100, "llave").setOrigin(1).setScale(0.1).setSize(200, 100).setOffset(8, 50)
-        this.llave1 = this.physics.add.image(800, 80, "llave").setOrigin(1).setScale(0.1).setSize(200, 100).setOffset(10, 50)
-        this.llave2 = this.physics.add.image(900, 150, "llave").setOrigin(1).setScale(0.1).setSize(200, 100).setOffset(10, 50)
-        this.coco = new Coco({
+        this.personajedos = new PersonajeDos({
             scene: this,
-            x: 400,
-            y: 550,
+            x: 100,
+            y: 350,
             setScale: 0.5,
             collideWorldBounds: true,
 
@@ -114,7 +129,7 @@ class Cocodrilos extends Phaser.Scene {
         });
         /////Collision
 
-        this.physics.add.collider([this.personajedos], this.floor);
+        this.physics.add.collider([this.personajedos, this.coco], this.floor);
         this.physics.add.collider([this.personajedos], this.groupFloor);
         this.physics.add.collider([this.personajedos], this.ramas);
         this.physics.add.overlap(this.personajedos, this.coco, () => {
@@ -125,7 +140,8 @@ class Cocodrilos extends Phaser.Scene {
         this.physics.add.collider(this.personajedos, this.coco, () => {
 
             this.registry.events.emit("points_other")
-            this.coco.setPosition(1200, 550)
+            this.coco.setPosition(500, 550, 300, 550)
+
 
         });
 
@@ -148,12 +164,15 @@ class Cocodrilos extends Phaser.Scene {
         });
         this.physics.add.overlap(this.llave, this.personajedos, () => {
             this.registry.events.emit("super_points")
+            this.llave.destroy()
         });
         this.physics.add.overlap(this.llave1, this.personajedos, () => {
             this.registry.events.emit("super_points")
+            this.llave1.destroy()
         });
         this.physics.add.overlap(this.llave2, this.personajedos, () => {
             this.registry.events.emit("super_points")
+            this.llave2.destroy()
 
         });
 
@@ -169,10 +188,12 @@ class Cocodrilos extends Phaser.Scene {
             this.personajedos.setPosition(400, 100)
             this.personajedos.pierdeVidas()
         }
+
         this.personajedos.update(this.cursors);
 
         if (Phaser.Input.Keyboard.JustDown(this.spaceKey)) {
             this.bullets.fireBullet(this.personajedos.x, this.personajedos.y, this.personajedos.prevMov);
+
         }
 
 

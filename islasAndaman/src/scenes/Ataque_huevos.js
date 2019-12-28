@@ -24,8 +24,10 @@ class Ataque_huevos extends Phaser.Scene {
 
 
         this.bg = this.add
-            .tileSprite(480, 320, 960, 640, 'sel')
+            .tileSprite(480, 320, 1960, 640, 'sel')
             .setScrollFactor(0);
+
+
 
         (this.collisioHuevo = this.sound.add('huevo', {
             loop: false
@@ -39,13 +41,16 @@ class Ataque_huevos extends Phaser.Scene {
             this.apple = this.add.group("manzana")
         this.laterales = this.physics.add.staticGroup();
         this.laterales.create(-600, 0, "lateralIzquierdo").setOrigin(0).setSize(20, 800)
-        this.laterales.create(1900, 0, "lateralDerecho").setOrigin(0).setSize(20, 800)
+        // this.laterales.create(1900, 0, "lateralDerecho").setOrigin(0).setSize(20, 800)
 
         this.scene.launch('Lluvia')
 
         this.cameras.main.setSize(960, 640);
         this.apagarLluvia = setTimeout(() => { this.scene.sleep("Lluvia"), this.sound.stopAll(), console.log("se ha detenido la escena lluvia") }, 20000)
 
+        if (typeof world !== 'undefined') {
+            this.scene.world.setBounds(0, 0, 300, 600, true)
+        }
 
         this.wall_floor = this.physics.add.staticGroup();
         this.wall_floor.create(0, 500, 'floor').setOrigin(0)
@@ -88,7 +93,7 @@ class Ataque_huevos extends Phaser.Scene {
             collideWorldBounds: true
 
         });
-        // this.personajedos.body.setCollideWorldBounds(true)
+
 
         this.pajaroRojo = new PajaroRojo({
             scene: this,
@@ -99,12 +104,31 @@ class Ataque_huevos extends Phaser.Scene {
 
 
         });
+        this.pajaroRojo2 = new PajaroRojo({
+            scene: this,
+            x: 800,
+            y: 100,
+            setScale: 0.5,
+            setCollideWorldBounds: true
+
+
+        });
 
         this.tweens.add({
-            targets: this.pajaroRojo,
+            targets: [this.pajaroRojo],
             props: {
                 x: { value: 500, duration: 2000, flipX: true },
                 y: { value: 500, duration: 10000, },
+            },
+            ease: 'Sine.easeInOut',
+            yoyo: true,
+            repeat: -1
+        });
+        this.tweens.add({
+            targets: [this.pajaroRojo2],
+            props: {
+                x: { value: 2000, duration: 3000, flipX: true },
+                y: { value: 300, duration: 10000, },
             },
             ease: 'Sine.easeInOut',
             yoyo: true,
@@ -157,6 +181,11 @@ class Ataque_huevos extends Phaser.Scene {
 
 
     update() {
+        if (this.personajedos.y > this.game.config.height) {
+
+            this.personajedos.setPosition(400, 100)
+            this.personajedos.pierdeVidas()
+        }
         this.personajedos.update();
         this.pajaroRojo.update();
         this.huevosGroup.update()

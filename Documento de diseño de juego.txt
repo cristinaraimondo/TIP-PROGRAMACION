@@ -14,7 +14,7 @@ Barra espaciadora
 Mecanica del juego
 
 personaje se mueve por las escenas hacia la izquierda y hacia la derecha
-En la primera escena est� la introducci�n al juego.Se cuenta la historia.
+En la primera escena esta la introducci�n al juego.Se cuenta la historia.
 En la segunda escena, el jugador se mueve por el escenario en busca de alimento 
 para poder aumentar el puntaje para pasar al siguiente nivel. Cada vez que come
 se crean huevos que le quitan a vida si colisionan con el. Tambien es amenazado

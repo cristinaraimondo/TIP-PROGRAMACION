@@ -4,13 +4,14 @@ import PersonajeDos from '../Player/PersonajeDos.js';
 class SobrevolandoVolcan extends Phaser.Scene {
     constructor() {
         super('sobrevolandoVolcan');
+        this.texto = "texto"
 
     }
 
     init() {
         this.scene.moveUp();
         this.scene.launch("EstadoPersonaje")
-        this.scene.launch("Textos")
+        // this.scene.launch("Textos")
         this.camara = this.cameras.main
 
     }
@@ -22,8 +23,11 @@ class SobrevolandoVolcan extends Phaser.Scene {
     }
 
     create() {
+        this.registry.events.emit("mostrarTextoSobrevol")
         this.backg = this.add.tileSprite(400, 300, 800, 600, "bg")
             .setScrollFactor(0)
+
+
         this.cristal = this.physics.add.image(600, 450, "cristal").setSize(64, 64).setOffset(18, 70)
         this.planta = this.add.image(10, 650, "planta").setSize(30, 1)
 

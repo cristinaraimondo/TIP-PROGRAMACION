@@ -7,8 +7,8 @@ class Coco extends Phaser.GameObjects.Sprite {
     this.scene.physics.world.enable(this);
 
     this.setScale(2);
-    this.body.setSize(64, 128);
-    this.body.setOffset(25, 5);
+    this.body.setSize(64, 32);
+    this.body.setOffset(15, 5);
     this.body.setBounce(0.2);
 
     this.body.setGravityY(0)

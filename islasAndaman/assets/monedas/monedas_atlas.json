@@ -1,0 +1,216 @@
+{
+    "frames": [
+        {
+            "filename": "monedas2_0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 13,
+                "h": 18
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "monedas2_1",
+            "frame": {
+                "x": 13,
+                "y": 0,
+                "w": 13,
+                "h": 18
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "monedas2_2",
+            "frame": {
+                "x": 26,
+                "y": 0,
+                "w": 13,
+                "h": 18
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "monedas2_3",
+            "frame": {
+                "x": 39,
+                "y": 0,
+                "w": 13,
+                "h": 18
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "monedas2_4",
+            "frame": {
+                "x": 52,
+                "y": 0,
+                "w": 13,
+                "h": 18
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "monedas2_5",
+            "frame": {
+                "x": 65,
+                "y": 0,
+                "w": 13,
+                "h": 18
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "monedas2_6",
+            "frame": {
+                "x": 78,
+                "y": 0,
+                "w": 13,
+                "h": 18
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "monedas2_7",
+            "frame": {
+                "x": 91,
+                "y": 0,
+                "w": 13,
+                "h": 18
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "monedas2_8",
+            "frame": {
+                "x": 104,
+                "y": 0,
+                "w": 13,
+                "h": 18
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "monedas2_9",
+            "frame": {
+                "x": 117,
+                "y": 0,
+                "w": 13,
+                "h": 18
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "monedas2_10",
+            "frame": {
+                "x": 130,
+                "y": 0,
+                "w": 13,
+                "h": 18
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "monedas2_11",
+            "frame": {
+                "x": 143,
+                "y": 0,
+                "w": 13,
+                "h": 18
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "monedas2_12",
+            "frame": {
+                "x": 156,
+                "y": 0,
+                "w": 13,
+                "h": 18
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "monedas2_13",
+            "frame": {
+                "x": 169,
+                "y": 0,
+                "w": 13,
+                "h": 18
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "monedas2_14",
+            "frame": {
+                "x": 182,
+                "y": 0,
+                "w": 13,
+                "h": 18
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "monedas2_15",
+            "frame": {
+                "x": 195,
+                "y": 0,
+                "w": 13,
+                "h": 18
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Phaser3",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}
