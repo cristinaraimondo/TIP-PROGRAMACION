@@ -1,7 +1,7 @@
 class PajaroRojo extends Phaser.GameObjects.Sprite {
   constructor(config) {
     super(config.scene, config.x, config.y, 'pajaroRojo');
-    this.play("pajarorojo")
+    //this.play("pajarorojo")
     this.scene = config.scene;
     this.scene.add.existing(this);
     this.scene.physics.world.enable(this);
