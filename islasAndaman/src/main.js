@@ -7,7 +7,9 @@ import Ataque_huevos from './scenes/Ataque_huevos.js';
 import SobrevolandoVolcan from './scenes/SobrevolandoVolcan.js';
 import Lluvia from './scenes/Lluvia.js';
 import EstadoPersonaje from "./scenes/EstadoPersonaje.js";
-import Textos from "./scenes/Textos.js"
+import textroll from "./scenes/textroll.js"
+import SalvandoCompas from './scenes/SalvandoCompas.js';
+
 
 const config = {
     title: 'Islas_andaman',
@@ -38,11 +40,13 @@ const config = {
         Cocodrilos,
         Volcanes,
         Ataque_huevos,
-        Textos,
+        SalvandoCompas,
+        textroll,
         SobrevolandoVolcan,
         EstadoPersonaje,
         Lluvia,
-        Game_over
+        Game_over,
+        
     ]
 };
 

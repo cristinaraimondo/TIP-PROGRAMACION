@@ -1,5 +1,5 @@
 import Rocas from '../Rocas/Rocas.js';
-import PersonajeDos from "../player/PersonajeDos.js"
+
 
 class Intro extends Phaser.Scene {
     constructor() {
@@ -12,6 +12,7 @@ class Intro extends Phaser.Scene {
         this.audioAvion = this.sound.add('aircraft', {
             loop: false
         });
+        this.audioScena= this.sound.add('islaMusic', {loop:true})
     }
 
     create() {
@@ -71,14 +72,8 @@ class Intro extends Phaser.Scene {
             historyText,
             this.add.zone(0, -40, 580, 580).setOrigin(0)
         );
-
-        const background_text = this.add
-            .image(0, this.scale.height, 'background_text')
-            .setOrigin(0, 0.7)
-            .setScrollFactor(0.7)
-
-            .setDepth(1);
-
+       
+       
         // Fondo
         const background = this.add
             .image(0, -50, 'objects')
@@ -138,15 +133,32 @@ class Intro extends Phaser.Scene {
             onComplete: () => {
                 this.cameras.main.flash(500);
                 this.audioAvion.play();
+                
             }
         });
 
         timeLine.add({
             targets: [background, ...rocas.getChildren()],
             alpha: 1,
-            duration: 1000
+           
+            duration: 1000,
+           
+           
         });
-
+        timeLine.add({
+            targets: this.audioScena,
+            delay: 11000,
+            duration: 500,
+           
+               
+                onComplete: () => {
+                   
+                   this.audioScena.play()
+                    
+                }
+            });
+           
+          
         timeLine.add({
             targets: [historyText],
             alpha: 1,
@@ -178,11 +190,12 @@ class Intro extends Phaser.Scene {
     chicoPulsado() {
         alert('elegiste al mejor');
         this.scene.start('Anara');
+        this.sound.stopAll()
     }
     eligeIvan() {
         alert('Ivan es muy veloz, elegiste al mejor');
         this.scene.start('Anara')
-        this.personajedos.setTexture()
+        this.sound.stopAll()
     }
 }
 

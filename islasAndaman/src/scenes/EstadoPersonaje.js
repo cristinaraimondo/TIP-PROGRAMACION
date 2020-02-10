@@ -1,3 +1,4 @@
+
 class EstadoPersonaje extends Phaser.Scene {
   constructor() {
     super({ key: "EstadoPersonaje" })
@@ -10,11 +11,21 @@ class EstadoPersonaje extends Phaser.Scene {
     this.actual_points = 0
     this.actual_life = 5
     this.cantLlave = 0
+    this.cristalCollected = 0
+    this.plantaCollected = 0
+
     console.log(this.actual_points)
 
 
   }
   create() {
+    //textos
+    this.scoreText = this.add.text(12, 12, `Plantas: ${this.plantaCollected}`, { fontSize: '32px', fill: '#21767f', fontFamily: 'rockwell, symbol' });
+    this.scoreText.visible = false
+    this.cristalText = this.add.text(12, 40, `Cristales: ${this.cristalCollected}`, { fontSize: '32px', fill: '#21767f', fontFamily: 'rockwell, symbol' });
+    this.cristalText.visible = false
+    this.winTxt = this.add.text(125, 130, `\n *****  ¡Aca se sube al avion!  ***** \n `, { fontSize: '30px', fill: '#21767f', fontFamily: 'rockwell, symbol', backgroundColor: 'pink', align: 'center' });
+    this.winTxt.visible = false;
 
     this.groupLife = this.add.group({
       key: "life",
@@ -37,6 +48,8 @@ class EstadoPersonaje extends Phaser.Scene {
       this.scale.width - 20, 20, "font",
       Phaser.Utils.String.Pad('0', 6, '0', 1)
     ).setOrigin(1, 0)
+
+
 
 
     //eventos
@@ -70,9 +83,8 @@ class EstadoPersonaje extends Phaser.Scene {
 
 
       if (this.actual_points >= 500) {
-        this.scene.start('Cocos', { points: this.actual_points });
-        this.registry.events.emit("mostrarTexto")
 
+        this.scene.start('Cocos', { points: this.actual_points });
         this.registry.events.removeAllListeners();
         this.scene.stop("Anara")
         this.scene.stop("Lluvia")
@@ -81,6 +93,71 @@ class EstadoPersonaje extends Phaser.Scene {
       }
 
     })
+    // referencia a la escena del juego
+    this.gameScene = this.scene.get('sobrevolandoVolcan');
+
+    // eventos desde la escena
+    this.registry.events.on('plantaCollected', () => {
+      this.scoreText.visible = true
+
+      this.plantaCollected++;
+      this.scoreText.setText(`Plantas: ${this.plantaCollected}`);
+
+
+      // if (this.plantaCollected === 5 && this.cristalCollected === 10) {
+      //   this.winTxt.visible = true;
+
+      //   this.gameScene = this.scene.pause('sobrevolandoVolcan');
+      //   // paro la música , muestro el texto de victoria y reinicio el juego
+
+
+
+
+      // }
+
+
+    });
+
+    this.registry.events.on('cristalCollected', () => {
+
+      this.cristalText.visible = true
+      this.cristalCollected++;
+      this.cristalText.setText(`Cristales: ${this.cristalCollected}`);
+    })
+
+    this.registry.events.on('resume', () => {
+      if (this.plantaCollected === 5 && this.cristalCollected === 10) {
+        this.winTxt.visible = true;
+
+        this.gameScene = this.scene.pause('sobrevolandoVolcan');
+        // paro la música , muestro el texto de victoria y reinicio el juego
+
+
+
+
+
+        const timeLine = this.tweens.createTimeline();
+
+        timeLine.add({
+          targets: this.gameScene,
+          alpha: 0,
+          delay: 3000,
+          duration: 500,
+          onComplete: () => {
+            this.cameras.main.flash(500);
+            this.scene.resume('sobrevolandoVolcan')
+            this.winTxt.visible = false
+
+
+
+          }
+        });
+        timeLine.play();
+      }
+
+    })
+
+
 
     this.registry.events.on("points_other", () => {
       this.actual_points += 50
@@ -108,23 +185,23 @@ class EstadoPersonaje extends Phaser.Scene {
       }
 
     })
+    this.registry.events.on('sobrevolando', () => {//registra el evento y vuelvo a la misma escena
 
+      if (this.actual_life == 0) {
+        this.registry.events.removeAllListeners();
+        this.scene.start('sobrevolandoVolcan', { points: this.actual_points, });
+        //limpio para que no se acumule
 
+        console.log("vidas personaje    " + this.actual_life)
+      }
 
-
-  }
-
-  addPoints() {
-    this.points.setText(Phaser.Utils.String.Pad(parseInt(this.points.text) + 10, 6, '0', 1))
-  }
-
-
-  update(time, delta) {
-
-
-
+    })
 
   }
+
+
+
+  update(time, delta) { }
 
 
 }

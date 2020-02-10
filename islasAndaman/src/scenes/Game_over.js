@@ -16,9 +16,7 @@ class Game_over extends Phaser.Scene {
     create() {
         this.game_overText = this.add.bitmapText(10, 100, "font", 'SI ESTAS ACA ES PORQUE PERDISTE,\n\nDE TODAS MANERAS PODES VER CUANTOS PUNTOS HICISTE \n\nTENDRAS QUE MEJORAR PARA PODER PASAR DE PANTALLA.\n\nDALEEEEE!!!!...  QUE TUS AMIGOS TE ESPERAN.',
 
-            ''
-
-        )
+            '' )
 
         const pointsDB = localStorage.getItem('best_points');
         this.betsPoints = (pointsDB !== null) ? pointsDB : 0;

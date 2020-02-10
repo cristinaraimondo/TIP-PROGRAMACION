@@ -15,6 +15,7 @@ class Ataque_huevos extends Phaser.Scene {
     init() {
         console.log('Anara');
         this.scene.launch("EstadoPersonaje")
+        this.scene.launch('textroll')
         this.camara = this.cameras.main
 
     }
@@ -144,12 +145,14 @@ class Ataque_huevos extends Phaser.Scene {
 
             this.personajedos.pierdeVidas();
             this.cuervo.play()
+            this.personajedos.pierdeJuego()
 
 
         });
         this.physics.add.collider([this.personajedos, this.pajaroRojo, this.huevosGroup], this.laterales)
         this.physics.add.overlap(this.personajedos, this.huevosGroup, () => {
             this.personajedos.pierdeVidas();
+            this.personajedos.pierdeJuego()
 
 
 
@@ -173,6 +176,7 @@ class Ataque_huevos extends Phaser.Scene {
             this.comida.play();
 
         });
+
 
 
 

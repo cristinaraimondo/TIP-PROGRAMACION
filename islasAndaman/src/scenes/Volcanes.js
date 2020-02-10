@@ -33,6 +33,7 @@ class Volcanes extends Phaser.Scene {
 
         });
 
+
         this.platformGroup = this.physics.add.group();
         this.play.body.gravity.y = this.gameOptions.personajeGravity;
 
@@ -73,10 +74,12 @@ class Volcanes extends Phaser.Scene {
     updateScore(inc) {
         this.score += inc;
         this.scoreText.text = "Puntos: " + this.score + "\nMejor puntaje: " + this.topScore;
-        if (this.score > 20 || this.score > this.topScore) {
+        if (this.score > 20) {
+
 
             this.scene.sleep('Volcanes')
             this.scene.start('sobrevolandoVolcan', { points: this.actual_points, });
+
         }
     }
     movePlatforms() {

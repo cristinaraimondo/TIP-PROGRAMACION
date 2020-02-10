@@ -7,6 +7,7 @@ class Bootloader extends Phaser.Scene {
         this.load.setPath('./assets/');
 
         this.load.audio('aircraft', ['aircraft.mp3']);
+        this.load.audio('islaMusic', ['islandMusic.mp3'])
         this.load.audio('huevo', ['collisionhuevo.mp3']);
         this.load.audio('cuervo', ['cuervo.mp3']);
         this.load.image('avion', 'avioneta.png');
@@ -33,6 +34,7 @@ class Bootloader extends Phaser.Scene {
             'objects/objects_atlas.json'
         );
         this.load.image('pelota', 'sel.jpg');
+        this.load.image("flor", "plantaFlor.png");
         this.load.image('sel', 'sel.png');
         this.load.image("life", "life.png");
         this.load.image('floor', 'floor.jpg');
@@ -40,7 +42,7 @@ class Bootloader extends Phaser.Scene {
         this.load.animation("pajarorojo", "pajerto/pajerto_anim.json");
         this.load.image("food", "food.png")
         this.load.image("pantano", "pant.png")
-        this.load.image("bgVolcan", "bgVolcan.png")
+        //this.load.image("bgVolcan", "bgVolcan.png")
 
 
         this.load.image('font', 'font/font.png');
@@ -111,9 +113,97 @@ class Bootloader extends Phaser.Scene {
                 'font',
                 Phaser.GameObjects.RetroFont.Parse(this, configFont)
             );
-            this.scene.start('Cocos');
+
 
         });
+        var progressBar = this.add.graphics();
+        var progressBox = this.add.graphics();
+        progressBox.fillStyle(0x222222, 0.8);
+        progressBox.fillRect(240, 270, 320, 50);
+
+        var width = this.cameras.main.width;
+        var height = this.cameras.main.height;
+        var loadingText = this.make.text({
+            x: width / 2,
+            y: height / 2 - 50,
+            text: 'Cargando...',
+            style: {
+                font: '20px monospace',
+                fill: '#ffffff'
+            }
+        });
+        loadingText.setOrigin(0.5, 0.5);
+
+        var percentText = this.make.text({
+            x: width / 2,
+            y: height / 2 - 5,
+            text: '0%',
+            style: {
+                font: '18px monospace',
+                fill: '#ffffff'
+            }
+        });
+        percentText.setOrigin(0.5, 0.5);
+
+        var assetText = this.make.text({
+            x: width / 2,
+            y: height / 2 + 50,
+            text: '',
+            style: {
+                font: '18px monospace',
+                fill: '#ffffff'
+            }
+        });
+        assetText.setOrigin(0.5, 0.5);
+
+        this.load.on('progress', function (value) {
+            percentText.setText(parseInt(value * 100) + '%');
+            progressBar.clear();
+            progressBar.fillStyle(0xffffff, 1);
+            progressBar.fillRect(250, 280, 300 * value, 30);
+        });
+
+        this.load.on('fileprogress', function (file) {
+            assetText.setText('Loading asset: ' + file.key);
+        });
+
+        this.load.on('complete', function () {
+            progressBar.destroy();
+            progressBox.destroy();
+            loadingText.destroy();
+            percentText.destroy();
+            assetText.destroy();
+        });
+        this.load.image('aven', 'titulo.png');
+        for (var i = 0; i < 5; i++) {
+            this.load.image('aven' + i, 'titulo.png');
+        }
+    }
+    create() {
+        const aven = this.add.image(400, 300, 'aven');
+
+        const timeLine = this.tweens.createTimeline();
+
+        timeLine.add({
+            targets: aven,
+            alpha: 0,
+            delay: 3000,
+            duration: 500,
+            onComplete: () => {
+                this.scene.start('sobrevolandoVolcan');
+
+
+            }
+
+
+        });
+        timeLine.play();
+
+
+
+
+
+
     }
 }
 export default Bootloader;

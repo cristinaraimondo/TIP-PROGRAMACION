@@ -1,0 +1,36 @@
+{
+    "anims": [
+        {
+            "key": "caminamecoco",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "atlas_name",
+                    "frame": "cococamina3_0"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "cococamina3_1"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "cococamina3_2"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "cococamina3_3"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "cococamina3_4"
+                },
+                {
+                    "key": "atlas_name",
+                    "frame": "cococamina3_5"
+                }
+            ]
+        }
+    ]
+}

@@ -8,7 +8,7 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
         this.scene.physics.world.enable(this);
 
         this.setScale();
-        this.body.setSize(64, 128);
+        this.body.setSize(16, 128);
         this.body.setOffset(25, 5);
         this.body.setBounce(0.2);
         //this.body.setCollideWorldBounds(true)
@@ -47,7 +47,7 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
 
         } else {
             this.body.setVelocityX(0);
-            this.body.setSize(50, 128);
+            this.body.setSize(16, 110);
             if (this.prevMov !== 'chuquidle' && !this.jumping) {
                 this.prevMov = 'chuquidle';
                 this.anims.play('chuquidle');
@@ -76,11 +76,7 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
 
             this.life--;
             this.scene.registry.events.emit("remove_life");
-            if (this.life === 0) {
 
-                this.scene.registry.events.emit("game_over")
-
-            }
             this.setTint(0x1abc9c)
 
             this.scene.time.addEvent({
@@ -95,7 +91,14 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
 
         }
     }
+    pierdeJuego() {
 
+        if (this.life === 0) {
+
+            this.scene.registry.events.emit("game_over")
+
+        }
+    }
 
 
 
