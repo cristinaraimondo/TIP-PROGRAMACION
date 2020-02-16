@@ -32,6 +32,9 @@ const config = {
                 y: 0,
                 x: 0
             }
+        },
+        audio: {
+            disableWebAudio: true
         }
     },
     scene: [
@@ -48,6 +51,9 @@ const config = {
         Game_over,
         
     ]
+
+    
 };
+
 
 new Phaser.Game(config);

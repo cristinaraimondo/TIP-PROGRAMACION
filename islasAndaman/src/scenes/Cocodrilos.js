@@ -19,18 +19,16 @@ class Cocodrilos extends Phaser.Scene {
 
         this.actual_life = data
         this.texto = "texto"
-
     }
-    preload() {
-        this.load.image('tv', 'assets/tv.png');
-    }
-
-
+    preload (){
+    this.load.image('tv', 'assets/tv.png');
+      }
+   
 
     create() {
 
-        this.scene.start("EstadoPersonaje")
-
+        this.scene.launch("EstadoPersonaje")
+        this.registry.events.emit("mostrarTexto")
         this.physics.world.setBounds(480, 320, 500, 550, true)
 
 
@@ -46,11 +44,11 @@ class Cocodrilos extends Phaser.Scene {
         //plataformas
         this.groupFloor = this.physics.add.staticGroup({
             key: 'floorCocos',
-            repeat: 4,
+            repeat: 8,
             setXY: {
                 x: 50,
                 y: 650,
-                stepX: 800
+                stepX: 500
             },
             setScale: {
                 x: 2
@@ -83,23 +81,23 @@ class Cocodrilos extends Phaser.Scene {
         this.llave2 = this.physics.add.image(900, 150, "llave").setOrigin(1).setScale(0.1).setSize(200, 100).setOffset(10, 50)
 
         const content = ["Para matar al coco debes saltar encima sino el coco te mata",
-            "CUIDADO con la mosca...si te toca pierdes vidas pero si le disparas con la barra ESPACIADORA la puedes matar",
-            "junta puntos para pasar de nivel, alimentandote con manzanas ,pero tambien tienes",
-            "llaves que te darán 500 puntos cada una.solo puedes pasar de nivel con las manzanas.",
-            "Con 1800 puntos pasas de nivel", "VAMOS QUE TUS AMIGOS ESPERAN...!!!"
+        "CUIDADO con la mosca...si te toca pierdes vidas pero si le disparas con la barra ESPACIADORA la puedes matar",
+        "junta puntos para pasar de nivel, alimentandote con manzanas ,pero tambien tienes", 
+        "llaves que te darán 500 puntos cada una.solo puedes pasar de nivel con las manzanas.",
+        "Con 1800 puntos pasas de nivel", "VAMOS QUE TUS AMIGOS ESPERAN...!!!"
 
-        ];
-        const cuadro = this.add.image(10, 300, 'tv').setOrigin(0).setAlpha(0.6).setScale(1.5).setScrollFactor(0)
+     ];
+        const cuadro=this.add.image(10, 300, 'tv').setOrigin(0).setAlpha(0.6).setScale(1.5) .setScrollFactor(0)
         const text = this.add.text(30, 320, content, { fontFamily: 'Arial', color: '#ffffff', fontSize: 12, wordWrap: { width: 220 } }).setOrigin(0).setScrollFactor(0)
 
-        const timeLine = this.tweens.createTimeline();
-        timeLine.add({
-            targets: [text, cuadro],
-            alpha: 0,
-            delay: 25000,
-            duration: 3000
+         const timeLine = this.tweens.createTimeline();
+         timeLine.add({
+         targets:[text, cuadro],
+         alpha: 0,
+         delay: 25000,
+         duration: 3000
         });
-
+    
         timeLine.play();
 
 
@@ -115,7 +113,7 @@ class Cocodrilos extends Phaser.Scene {
         this.personajedos = new PersonajeDos({
             scene: this,
             x: 100,
-            y: 500,
+            y: 350,
             setScale: 0.5,
             collideWorldBounds: true,
 
@@ -176,7 +174,7 @@ class Cocodrilos extends Phaser.Scene {
         });
         this.physics.add.overlap(this.personajedos, this.mosca, () => {
             this.personajedos.pierdeVidas();
-            this.personajedos.pierdeJuego()
+             this.personajedos.pierdeJuego()
         });
 
         this.physics.add.overlap(this.itemsManzanas, this.personajedos, () => {
@@ -210,9 +208,11 @@ class Cocodrilos extends Phaser.Scene {
     update(time, delta) {
 
         if (this.personajedos.y > this.game.config.height) {
-            //this.scene.start(this);
-            this.personajedos.setPosition(400, 100)
+           
+            this.personajedos.setPosition(10, 100)
             this.personajedos.pierdeVidas()
+            this.personajedos.pierdeJuego()
+           
         }
 
         this.personajedos.update(this.cursors);

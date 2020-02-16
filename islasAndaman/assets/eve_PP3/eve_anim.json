@@ -1,0 +1,148 @@
+{
+    "anims": [
+        {
+            "key": "frente",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "eve",
+                    "frame": "eve_0"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_1"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_2"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_3"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_4"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_5"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_6"
+                }
+            ]
+        },
+        {
+            "key": "atras",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "eve",
+                    "frame": "eve_7"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_8"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_9"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_10"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_11"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_12"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_13"
+                }
+            ]
+        },
+        {
+            "key": "derecha",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "eve",
+                    "frame": "eve_14"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_15"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_16"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_17"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_18"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_19"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_20"
+                }
+            ]
+        },
+        {
+            "key": "izquierda",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "eve",
+                    "frame": "eve_21"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_22"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_23"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_24"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_25"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_26"
+                },
+                {
+                    "key": "eve",
+                    "frame": "eve_27"
+                }
+            ]
+        }
+    ]
+}

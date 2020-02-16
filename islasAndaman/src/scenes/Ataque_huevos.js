@@ -61,12 +61,7 @@ class Ataque_huevos extends Phaser.Scene {
         this.wall_floor.create(1400, 620, 'agua').setScale(2)
         this.wall_floor.refresh();
 
-
-
-
-
-
-        // Items
+      // Items
         this.itemsGroup = new Comida({
             physicsWorld: this.physics.world,
             scene: this,
@@ -140,7 +135,7 @@ class Ataque_huevos extends Phaser.Scene {
         //collisions
 
         this.physics.add.collider([this.personajedos, this.huevosGroup], this.wall_floor);
-        this.physics.add.overlap(this.personajedos, this.pajaroRojo, () => {
+        this.physics.add.overlap([this.pajaroRojo, this.pajaroRojo2],this.personajedos,  () => {
             console.log("pega al pajaro")
 
             this.personajedos.pierdeVidas();
@@ -189,6 +184,7 @@ class Ataque_huevos extends Phaser.Scene {
 
             this.personajedos.setPosition(400, 100)
             this.personajedos.pierdeVidas()
+            this.personajedos.pierdeJuego()
         }
         this.personajedos.update();
         this.pajaroRojo.update();

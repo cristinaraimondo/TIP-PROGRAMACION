@@ -7,9 +7,13 @@ class Volcan extends Phaser.GameObjects.Sprite {
     this.scene.physics.world.enable(this);
 
     this.setScale(2)
-    this.setSize(16, 16);
+    this.body.setSize(16, 16);
+    this.body.setOffset(40, 40)
+    this.body.setImmovable(true)
+
     this.anims.play('volcan');
     this.hitDelay = false;
+
 
 
   }

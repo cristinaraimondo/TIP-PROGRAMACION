@@ -12,11 +12,11 @@ class Lluvia extends Phaser.Scene {
     create() {
         (this.audioAvion = this.sound.add('thunder', {
             loop: false,
-            volume: 0.1
+            volume: 0.3
         })),
             (this.audioLluvia = this.sound.add('lalluvia', {
                 loop: true,
-                volume: 0.2
+                volume: 0.4
             }));
         const scenesArray = { scenes: ["Lluvia"] }
 

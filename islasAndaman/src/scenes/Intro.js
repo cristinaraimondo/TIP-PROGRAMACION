@@ -12,7 +12,7 @@ class Intro extends Phaser.Scene {
         this.audioAvion = this.sound.add('aircraft', {
             loop: false
         });
-        this.audioScena= this.sound.add('islaMusic', {loop:true})
+       // this.audioScena= this.sound.add('islaMusic', {loop:true})
     }
 
     create() {
@@ -145,18 +145,7 @@ class Intro extends Phaser.Scene {
            
            
         });
-        timeLine.add({
-            targets: this.audioScena,
-            delay: 11000,
-            duration: 500,
-           
-               
-                onComplete: () => {
-                   
-                   this.audioScena.play()
-                    
-                }
-            });
+        
            
           
         timeLine.add({
@@ -190,12 +179,18 @@ class Intro extends Phaser.Scene {
     chicoPulsado() {
         alert('elegiste al mejor');
         this.scene.start('Anara');
-        this.sound.stopAll()
+        this.sound.stop("lluvia")
+        this.sound.stop("huevo")
+        this.sound.stop("comida")
+        this.sound.stop("cuervo")
     }
     eligeIvan() {
         alert('Ivan es muy veloz, elegiste al mejor');
         this.scene.start('Anara')
-        this.sound.stopAll()
+        this.sound.stop("lluvia")
+        this.sound.stop("huevo")
+        this.sound.stop("comida")
+        this.sound.stop("cuervo")
     }
 }
 

@@ -74,7 +74,7 @@ class Volcanes extends Phaser.Scene {
     updateScore(inc) {
         this.score += inc;
         this.scoreText.text = "Puntos: " + this.score + "\nMejor puntaje: " + this.topScore;
-        if (this.score > 20) {
+        if (this.score > 2) {
 
 
             this.scene.sleep('Volcanes')

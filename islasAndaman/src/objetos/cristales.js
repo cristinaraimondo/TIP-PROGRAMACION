@@ -1,6 +1,7 @@
 class Cristales extends Phaser.Physics.Arcade.StaticGroup {
   constructor(config) {
     super(config.physicsWorld, config.scene);
+    this.addCristalItem()
 
   }
 
@@ -13,7 +14,7 @@ class Cristales extends Phaser.Physics.Arcade.StaticGroup {
         Phaser.Math.Between(300, this.scene.scale.height - 60, ),
         "cristal", ""
 
-      ).setScale(0.5).setSize(10, 10).setOffset(50, 60).setDepth(2)
+      ).setScale(0.5).setSize(10, 10).setOffset(50, 60)
 
 
     }

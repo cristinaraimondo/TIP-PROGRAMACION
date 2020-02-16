@@ -7,11 +7,13 @@ class Bootloader extends Phaser.Scene {
         this.load.setPath('./assets/');
 
         this.load.audio('aircraft', ['aircraft.mp3']);
+        this.load.audio('audioJuego', ['sonidoJuego.mp3']);
         this.load.audio('islaMusic', ['islandMusic.mp3'])
         this.load.audio('huevo', ['collisionhuevo.mp3']);
         this.load.audio('cuervo', ['cuervo.mp3']);
         this.load.image('avion', 'avioneta.png');
-        this.load.image(['logo', 'background_text', 'selector']);
+        this.load.image("avioncito", "Dead.png")
+        this.load.image(['background_text']);
         this.load.image("agua", "agua.png");
         this.load.image("vohue", "huevo.png");
         this.load.image('SELVA', 'objects/objects.png');
@@ -106,7 +108,16 @@ class Bootloader extends Phaser.Scene {
         this.load.animation('volcan', 'volcan/volcan3_anim.json');
         //////////////////////////////////////////////////////////
 
-
+        this.load.atlas(
+            'eve',
+            'eve_PP3/eve.png',
+            'eve_PP3/eve_atlas.json'
+        );
+        this.load.animation("eve", 'eve_PP3/eve_anim.json');
+       
+       ///////////////////////////////////////////////////////////////
+       
+       
         this.load.on('complete', () => {
             const configFont = this.cache.json.get('fontJSON');
             this.cache.bitmapFont.add(
@@ -116,16 +127,20 @@ class Bootloader extends Phaser.Scene {
 
 
         });
+        // con GameObject.Graphics creo la barra de progreso
+        // 2 rectangulos separados, uno dentro de otro
         var progressBar = this.add.graphics();
         var progressBox = this.add.graphics();
         progressBox.fillStyle(0x222222, 0.8);
         progressBox.fillRect(240, 270, 320, 50);
+        // creo ancho y alto para obtener el área visible del juego actual
 
         var width = this.cameras.main.width;
         var height = this.cameras.main.height;
         var loadingText = this.make.text({
             x: width / 2,
             y: height / 2 - 50,
+            // incluyo texto para decir que se está cargando el juego
             text: 'Cargando...',
             style: {
                 font: '20px monospace',
@@ -133,7 +148,7 @@ class Bootloader extends Phaser.Scene {
             }
         });
         loadingText.setOrigin(0.5, 0.5);
-
+        // texto para poner el porcentaje de carga
         var percentText = this.make.text({
             x: width / 2,
             y: height / 2 - 5,
@@ -144,7 +159,7 @@ class Bootloader extends Phaser.Scene {
             }
         });
         percentText.setOrigin(0.5, 0.5);
-
+        // creo el texto con las "imágenes" que se cargan
         var assetText = this.make.text({
             x: width / 2,
             y: height / 2 + 50,
@@ -155,32 +170,37 @@ class Bootloader extends Phaser.Scene {
             }
         });
         assetText.setOrigin(0.5, 0.5);
-
+        // creo el progreso y cargo el archivo
+        // el evento progreso recibirá un valor entre 0 y 1 que sirve para ver el progreso de carga
         this.load.on('progress', function (value) {
+            // añado el porcentaje de carga multiplicado por 100 porque el valor emitido era entre 0 y 1
             percentText.setText(parseInt(value * 100) + '%');
             progressBar.clear();
             progressBar.fillStyle(0xffffff, 1);
             progressBar.fillRect(250, 280, 300 * value, 30);
         });
-
+        // con fileprogress se recibe un objeto que recibe informacion sobre el archivo que se ha cargado        
         this.load.on('fileprogress', function (file) {
+            // cargo el nombre de archivo generado para el logo
             assetText.setText('Loading asset: ' + file.key);
         });
-
+        // se completará cuando se hayan cargado todos los archivos
         this.load.on('complete', function () {
+
+            // destruyo las barras y el texto, cuando haya terminado de cargar y solo se ve el logo  
             progressBar.destroy();
             progressBox.destroy();
             loadingText.destroy();
             percentText.destroy();
             assetText.destroy();
         });
-        this.load.image('aven', 'titulo.png');
-        for (var i = 0; i < 5; i++) {
-            this.load.image('aven' + i, 'titulo.png');
+        this.load.image('aven', 'mapaCompleto.png');
+        for (var i = 0; i < 50; i++) {
+            this.load.image('aven' + i, 'mapaCompleto.png');
         }
     }
     create() {
-        const aven = this.add.image(400, 300, 'aven');
+        const aven = this.add.image(400, 300, 'aven')
 
         const timeLine = this.tweens.createTimeline();
 
@@ -194,16 +214,10 @@ class Bootloader extends Phaser.Scene {
 
 
             }
-
-
         });
         timeLine.play();
 
-
-
-
-
-
     }
+
 }
 export default Bootloader;

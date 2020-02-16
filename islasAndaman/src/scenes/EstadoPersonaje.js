@@ -18,14 +18,18 @@ class EstadoPersonaje extends Phaser.Scene {
 
 
   }
+ 
+
   create() {
     //textos
     this.scoreText = this.add.text(12, 12, `Plantas: ${this.plantaCollected}`, { fontSize: '32px', fill: '#21767f', fontFamily: 'rockwell, symbol' });
     this.scoreText.visible = false
     this.cristalText = this.add.text(12, 40, `Cristales: ${this.cristalCollected}`, { fontSize: '32px', fill: '#21767f', fontFamily: 'rockwell, symbol' });
     this.cristalText.visible = false
-    this.winTxt = this.add.text(125, 130, `\n *****  ¡Aca se sube al avion!  ***** \n `, { fontSize: '30px', fill: '#21767f', fontFamily: 'rockwell, symbol', backgroundColor: 'pink', align: 'center' });
+    this.winTxt = this.add.text(125, 130, `\n *****  ¡Anda a buscar a EVE...!  ***** \n `, { fontSize: '30px', fill: '#21767f', fontFamily: 'rockwell, symbol', backgroundColor: 'pink', align: 'center' });
     this.winTxt.visible = false;
+
+
 
     this.groupLife = this.add.group({
       key: "life",
@@ -72,6 +76,7 @@ class EstadoPersonaje extends Phaser.Scene {
       this.scene.stop(("Cocos"))
       this.scene.stop(("Textos"))
 
+
       this.sound.stopAll()
 
     })
@@ -84,17 +89,22 @@ class EstadoPersonaje extends Phaser.Scene {
 
       if (this.actual_points >= 500) {
 
-        this.scene.start('Cocos', { points: this.actual_points });
+        this.scene.start("Cocos")
         this.registry.events.removeAllListeners();
         this.scene.stop("Anara")
         this.scene.stop("Lluvia")
+        // this.scene.pause
         this.sound.stopAll()
+
         console.log("vidas personaje    " + this.actual_life)
       }
 
     })
     // referencia a la escena del juego
     this.gameScene = this.scene.get('sobrevolandoVolcan');
+    this.gameSceneCoco = this.scene.get("Cocos")
+
+
 
     // eventos desde la escena
     this.registry.events.on('plantaCollected', () => {
@@ -102,19 +112,6 @@ class EstadoPersonaje extends Phaser.Scene {
 
       this.plantaCollected++;
       this.scoreText.setText(`Plantas: ${this.plantaCollected}`);
-
-
-      // if (this.plantaCollected === 5 && this.cristalCollected === 10) {
-      //   this.winTxt.visible = true;
-
-      //   this.gameScene = this.scene.pause('sobrevolandoVolcan');
-      //   // paro la música , muestro el texto de victoria y reinicio el juego
-
-
-
-
-      // }
-
 
     });
 
@@ -129,13 +126,17 @@ class EstadoPersonaje extends Phaser.Scene {
       if (this.plantaCollected === 5 && this.cristalCollected === 10) {
         this.winTxt.visible = true;
 
+       this.eve= this.gameScene.physics.add.sprite(800, 500, "eve").play("frente")
+       this.eve.setScale(1.5)
+       this.eve.body.setSize(32,32)
+       this.eve.body.setOffset(10,10)
+      
+        
+      
         this.gameScene = this.scene.pause('sobrevolandoVolcan');
-        // paro la música , muestro el texto de victoria y reinicio el juego
+        //this.eve.visible=true
 
-
-
-
-
+        // paro la música , muestro el texto para buscar a Eve y reinicio el juego
         const timeLine = this.tweens.createTimeline();
 
         timeLine.add({
@@ -157,7 +158,7 @@ class EstadoPersonaje extends Phaser.Scene {
 
     })
 
-
+  
 
     this.registry.events.on("points_other", () => {
       this.actual_points += 50
@@ -178,7 +179,7 @@ class EstadoPersonaje extends Phaser.Scene {
 
       if (this.actual_points >= 1800) {
         this.scene.start('Volcanes', { points: this.actual_points, });
-        this.scene.stop("Textos")
+        //this.scene.stop("Textos")
         this.scene.stop("Cocos")
 
         console.log("vidas personaje    " + this.actual_life)
@@ -188,10 +189,10 @@ class EstadoPersonaje extends Phaser.Scene {
     this.registry.events.on('sobrevolando', () => {//registra el evento y vuelvo a la misma escena
 
       if (this.actual_life == 0) {
-        this.registry.events.removeAllListeners();
+
         this.scene.start('sobrevolandoVolcan', { points: this.actual_points, });
         //limpio para que no se acumule
-
+        this.registry.events.removeAllListeners();
         console.log("vidas personaje    " + this.actual_life)
       }
 
@@ -199,7 +200,9 @@ class EstadoPersonaje extends Phaser.Scene {
 
   }
 
-
+  llevarVidas(vidas) {
+    this.scene.start("Cocos", { vidas })
+  }
 
   update(time, delta) { }
 

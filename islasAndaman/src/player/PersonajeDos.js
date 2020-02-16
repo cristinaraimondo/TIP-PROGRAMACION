@@ -1,4 +1,4 @@
-import EstadoPersonaje from "../scenes/EstadoPersonaje.js"
+
 class PersonajeDos extends Phaser.GameObjects.Sprite {
     constructor(config) {
         super(config.scene, config.x, config.y, 'personajeDos');
@@ -26,7 +26,7 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
         this.cursor = this.scene.input.keyboard.createCursorKeys();
 
         this.life = 5
-
+       
     }
     update() {
         if (this.cursor.left.isDown) {
@@ -84,7 +84,7 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
                 callback: () => {
                     this.hitDelay = false;
                     this.clearTint();
-
+         //  this.pierdeJuego()
 
                 }
             })
@@ -92,17 +92,16 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
         }
     }
     pierdeJuego() {
-
+        
         if (this.life === 0) {
-
+           
             this.scene.registry.events.emit("game_over")
 
         }
     }
 
 
-
-
+   
 
 
 
