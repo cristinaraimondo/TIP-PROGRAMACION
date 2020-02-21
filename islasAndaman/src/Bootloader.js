@@ -10,12 +10,18 @@ class Bootloader extends Phaser.Scene {
         this.load.audio('audioJuego', ['sonidoJuego.mp3']);
         this.load.audio('islaMusic', ['islandMusic.mp3'])
         this.load.audio('huevo', ['collisionhuevo.mp3']);
+        this.load.audio('heli', ['heli.mp3']);
         this.load.audio('cuervo', ['cuervo.mp3']);
         this.load.image('avion', 'avioneta.png');
+        this.load.image("bolafuego", "energia.png")
+        this.load.image("corazon", "corazon.png")
         this.load.image("avioncito", "Dead.png")
         this.load.image(['background_text']);
         this.load.image("agua", "agua.png");
-        this.load.image("vohue", "huevo.png");
+        this.load.image("vohue", "huevo.png")
+        this.load.image("sobrevolandoVol", "sobrevol.png")
+        this.load.image("lavaVertical", "lavaVertical.png")
+        this.load.image("lavaVertical2", "lavaVertical2.png")
         this.load.image('SELVA', 'objects/objects.png');
         this.load.audio('lalluvia', ['lalluvia.mp3']);
         this.load.audio('thunder', ['thunder.mp3']);
@@ -26,6 +32,7 @@ class Bootloader extends Phaser.Scene {
         this.load.image("floorCocos", "floorCocos.png")
         this.load.image("manzana", "apple.png")
         this.load.image("bullet", "laser.png")
+        this.load.image("volvol", "volvol.png")
         this.load.image("arbol", "arboles/arboljunto.png")
         this.load.image("rama", "arboles/rama.png")
         this.load.image("ramados", "arboles/ramados.png")
@@ -116,6 +123,23 @@ class Bootloader extends Phaser.Scene {
         this.load.animation("eve", 'eve_PP3/eve_anim.json');
        
        ///////////////////////////////////////////////////////////////
+
+
+       this.load.atlas(
+        "chicorub",
+        'chicorub_PP3/chicorub.png',
+        'chicorub_PP3/chicorub_atlas.json'
+    );
+        this.load.animation("chicorub", 'chicorub_PP3/chicorub_anim.json');
+    //////////////////////////////////////////////////////////////////
+
+    this.load.atlas(
+        "volar",
+        'volar_PP3/volar.png',
+        'volar_PP3/volar_atlas.json'
+    );
+        this.load.animation("volar", 'volar_PP3/volar_anim.json');
+    //////////////////////////////////////////////////////////////////
        
        
         this.load.on('complete', () => {
@@ -210,7 +234,7 @@ class Bootloader extends Phaser.Scene {
             delay: 3000,
             duration: 500,
             onComplete: () => {
-                this.scene.start('sobrevolandoVolcan');
+                this.scene.start('Avion');
 
 
             }

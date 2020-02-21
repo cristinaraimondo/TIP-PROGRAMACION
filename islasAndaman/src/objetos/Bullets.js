@@ -46,7 +46,7 @@ export default class Bullets extends Phaser.Physics.Arcade.Group {
             bullet.setVelocityX(650);
             break;
           default:
-            bullet.setVelocityY(-300);
+            bullet.setVelocityX(-300);
             
         }
      

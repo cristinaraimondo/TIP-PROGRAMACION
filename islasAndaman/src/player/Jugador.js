@@ -1,19 +1,25 @@
-class Jugador extends Phaser.Physics.Arcade.Sprite {
-  constructor(scene, x, y, sprite) {
-    super(scene, x, y, sprite);
-    scene.physics.add.collider(this, scene.collisionLayer);
-    scene.add.existing(this);
-    this.velocidad = 100;
-    this.direccion = 1;
-  }
-  update() {
-    this.body.setVelocityX(this.direccion * this.velocidad);
+import Player from "../player/player.js"
+class Jugador extends Player {
+  constructor(config) {
+    super(config.scene, config.x, config.y, "volar");
 
-    if (this.direccion > 0) {
-      this.flipX = true;
-    } else {
-      this.flipX = false;
-    }
-  }
+    this.scene = config.scene;
+    this.scene.add.existing(this);
+    this.scene.physics.world.enable(this)
+
+this.setScale(2);
+
+this.body.setOffset(20, 10)
+this.body.setGravityY(800)
+this.body.setCircle(10)
+this.life = 5
+
+this.anims.play("saltar");
+this.prevMov = "saltar"
+this.hitDelay = false;
+
+}
+
+
 }
 export default Jugador;

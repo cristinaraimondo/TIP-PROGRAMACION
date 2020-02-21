@@ -26,12 +26,12 @@ class EstadoPersonaje extends Phaser.Scene {
     this.scoreText.visible = false
     this.cristalText = this.add.text(12, 40, `Cristales: ${this.cristalCollected}`, { fontSize: '32px', fill: '#21767f', fontFamily: 'rockwell, symbol' });
     this.cristalText.visible = false
-    this.winTxt = this.add.text(125, 130, `\n *****  ¡Anda a buscar a EVE...!  ***** \n `, { fontSize: '30px', fill: '#21767f', fontFamily: 'rockwell, symbol', backgroundColor: 'pink', align: 'center' });
+    this.winTxt = this.add.text(125, 130, `\n *****  ¡Anda a buscar a EVE...y al helicoptero!  ***** \n `, { fontSize: '30px', fill: '#21767f', fontFamily: 'rockwell, symbol', backgroundColor: 'pink', align: 'center' });
     this.winTxt.visible = false;
 
+    
 
-
-    this.groupLife = this.add.group({
+    var groupLife = this.add.group({
       key: "life",
       repeat: 4,
       setXY: {
@@ -46,7 +46,7 @@ class EstadoPersonaje extends Phaser.Scene {
     });
 
 
-
+   
 
     this.points = this.add.bitmapText(
       this.scale.width - 20, 20, "font",
@@ -59,11 +59,12 @@ class EstadoPersonaje extends Phaser.Scene {
     //eventos
     this.registry.events.on("remove_life", () => {
       //this.groupLife.getChildren()[this.groupLife.getChildren().length - 1]
-      this.actual_life = this.groupLife.getChildren().length
+      this.actual_life = groupLife.getChildren().length
       if (this.actual_life >= 1) {
-        this.groupLife.getChildren()[this.groupLife.getChildren().length - 1].destroy()
+        groupLife.getChildren()[groupLife.getChildren().length - 1].destroy()
       }
       console.log("vidas" + this.actual_life)
+      
 
     })
 
@@ -95,7 +96,8 @@ class EstadoPersonaje extends Phaser.Scene {
         this.scene.stop("Lluvia")
         // this.scene.pause
         this.sound.stopAll()
-
+      
+       
         console.log("vidas personaje    " + this.actual_life)
       }
 
@@ -126,17 +128,27 @@ class EstadoPersonaje extends Phaser.Scene {
       if (this.plantaCollected === 5 && this.cristalCollected === 10) {
         this.winTxt.visible = true;
 
-       this.eve= this.gameScene.physics.add.sprite(800, 500, "eve").play("frente")
+      this.eve= this.gameScene.physics.add.sprite(300, 530, "eve",).play("izquierda",)
        this.eve.setScale(1.5)
        this.eve.body.setSize(32,32)
        this.eve.body.setOffset(10,10)
       
-        
-      
-        this.gameScene = this.scene.pause('sobrevolandoVolcan');
-        //this.eve.visible=true
+       this.tweens.add({
+        targets: [this.eve],
+        props: {
+            x: { value: 20, duration: 7000, flipX: true },
 
-        // paro la música , muestro el texto para buscar a Eve y reinicio el juego
+        },
+
+        yoyo: true,
+        repeat: -1
+    });
+  
+      
+        this.gameScene = this.scene.pause('sobrevolandoVolcan', { eve: this.eve, });
+       
+
+        // muestro el texto para buscar a Eve y reinicio el juego
         const timeLine = this.tweens.createTimeline();
 
         timeLine.add({
@@ -145,16 +157,22 @@ class EstadoPersonaje extends Phaser.Scene {
           delay: 3000,
           duration: 500,
           onComplete: () => {
+            
             this.cameras.main.flash(500);
             this.scene.resume('sobrevolandoVolcan')
             this.winTxt.visible = false
+           
 
+
+
+          
 
 
           }
         });
         timeLine.play();
       }
+     
 
     })
 
@@ -179,7 +197,6 @@ class EstadoPersonaje extends Phaser.Scene {
 
       if (this.actual_points >= 1800) {
         this.scene.start('Volcanes', { points: this.actual_points, });
-        //this.scene.stop("Textos")
         this.scene.stop("Cocos")
 
         console.log("vidas personaje    " + this.actual_life)
@@ -199,11 +216,8 @@ class EstadoPersonaje extends Phaser.Scene {
     })
 
   }
-
-  llevarVidas(vidas) {
-    this.scene.start("Cocos", { vidas })
-  }
-
+ 
+ 
   update(time, delta) { }
 
 

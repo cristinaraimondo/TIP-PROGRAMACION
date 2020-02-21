@@ -1,0 +1,112 @@
+{
+    "frames": [
+        {
+            "filename": "helicopuno_0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 56,
+                "h": 34
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "helicopuno_1",
+            "frame": {
+                "x": 56,
+                "y": 0,
+                "w": 56,
+                "h": 34
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "helicopuno_2",
+            "frame": {
+                "x": 112,
+                "y": 0,
+                "w": 56,
+                "h": 34
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "helicopuno_3",
+            "frame": {
+                "x": 168,
+                "y": 0,
+                "w": 56,
+                "h": 34
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "helicopuno_4",
+            "frame": {
+                "x": 224,
+                "y": 0,
+                "w": 56,
+                "h": 34
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "helicopuno_5",
+            "frame": {
+                "x": 280,
+                "y": 0,
+                "w": 56,
+                "h": 34
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "helicopuno_6",
+            "frame": {
+                "x": 336,
+                "y": 0,
+                "w": 56,
+                "h": 34
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "helicopuno_7",
+            "frame": {
+                "x": 392,
+                "y": 0,
+                "w": 56,
+                "h": 34
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Phaser3",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

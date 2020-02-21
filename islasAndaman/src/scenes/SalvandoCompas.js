@@ -1,4 +1,4 @@
-import PersonajeDos from '../Player/PersonajeDos.js';
+import PersonajesinGrav from '../Player/PersonajesinGrav.js';
 class SalvandoCompas extends Phaser.Scene {
     constructor() {
         super('final');
@@ -8,39 +8,40 @@ class SalvandoCompas extends Phaser.Scene {
         console.log('final');
         
     }
+    preload(){
+        this.load.image("playa", "assets/playa11.png");
+        this.load.image("playa2", "assets/selsel81.png");
+    }
 
     create() {
-        this.bg = this.add
-            .tileSprite(480, 320, 960, 640, 'sel')
+        this.bg = this.add.tileSprite(400, 300, 800, 600,'playa2')
             .setScrollFactor(0);
        
-        this.cameras.main.setSize(960, 640);
-      
+        
+            this.cursors = this.input.keyboard.createCursorKeys();
 
-        this.wall_floor = this.physics.add.staticGroup();
-
-        this.wall_floor.create(0, this.scale.height, 'floor').setOrigin(0, 1);
-
-        this.wall_floor.refresh();
-
+        
         // Personaje
-        this.personajedos = new PersonajeDos({
+       
+        this.personajen= new PersonajesinGrav({
             scene: this,
-            x: 100,
-            y: 100,
-            setScale: 0.5
-        });
-
-        this.physics.add.collider([this.personajedos], this.wall_floor);
-        const timeLine = this.tweens.createTimeline();
+            x: 180,
+            y: this.game.config.height / 2,
+            setScale:3,
+            collideWorldBounds: true,
+            })
+            this.personajen.setScale(2)
+        
 
     }
     update() {
-        this.personajedos.update();
-
-        this.cameras.main.scrollX = this.personajedos.x - 400;
-        this.cameras.main.scrollY = 0;
-        this.bg.tilePositionX = this.personajedos.x;
+        this.personajen.update()
+        this.personajen.update(this.cursors);
+       
+        this.cameras.main.scrollX = this.personajen.x - 100;
+        this.bg.tilePositionX = this.personajen.x;
+        
+        
     }
 }
 

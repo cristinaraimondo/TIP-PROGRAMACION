@@ -9,6 +9,8 @@ import Lluvia from './scenes/Lluvia.js';
 import EstadoPersonaje from "./scenes/EstadoPersonaje.js";
 import textroll from "./scenes/textroll.js"
 import SalvandoCompas from './scenes/SalvandoCompas.js';
+import Selva from './scenes/Selva.js';
+import VolandoLava from './scenes/volandoLava.js';
 
 
 const config = {
@@ -46,6 +48,8 @@ const config = {
         SalvandoCompas,
         textroll,
         SobrevolandoVolcan,
+        Selva,
+        VolandoLava,
         EstadoPersonaje,
         Lluvia,
         Game_over,

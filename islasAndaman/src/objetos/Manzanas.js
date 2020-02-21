@@ -8,9 +8,7 @@ class Manzana extends Phaser.Physics.Arcade.StaticGroup {
     this.create(
       Phaser.Math.Between(350, this.scene.scale.width - 50),
       Phaser.Math.Between(150, this.scene.scale.height - 150),
-      'manzana'
-
-    ).setScale(0.7)
+      'manzana' ).setScale(0.7)
 
 
   }

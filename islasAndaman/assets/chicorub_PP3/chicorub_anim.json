@@ -1,0 +1,84 @@
+{
+    "anims": [
+        {
+            "key": "frente",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 6,
+            "frames": [
+                {
+                    "key": "chicorub",
+                    "frame": "chicorew_0"
+                },
+                {
+                    "key": "chicorub",
+                    "frame": "chicorew_1"
+                },
+                {
+                    "key": "chicorub",
+                    "frame": "chicorew_2"
+                }
+            ]
+        },
+        {
+            "key": "izq",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "chicorub",
+                    "frame": "chicorew_3"
+                },
+                {
+                    "key": "chicorub",
+                    "frame": "chicorew_4"
+                },
+                {
+                    "key": "chicorub",
+                    "frame": "chicorew_5"
+                }
+            ]
+        },
+        {
+            "key": "der",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "chicorub",
+                    "frame": "chicorew_6"
+                },
+                {
+                    "key": "chicorub",
+                    "frame": "chicorew_7"
+                },
+                {
+                    "key": "chicorub",
+                    "frame": "chicorew_8"
+                }
+            ]
+        },
+        {
+            "key": "tras",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 9,
+            "frames": [
+                {
+                    "key": "chicorub",
+                    "frame": "chicorew_9"
+                },
+                {
+                    "key": "chicorub",
+                    "frame": "chicorew_10"
+                },
+                {
+                    "key": "chicorub",
+                    "frame": "chicorew_11"
+                }
+            ]
+        }
+    ]
+}

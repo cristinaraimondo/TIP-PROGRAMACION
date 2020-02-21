@@ -1,5 +1,6 @@
 
-class PersonajeDos extends Phaser.GameObjects.Sprite {
+import Player from "../player/player.js"
+class PersonajeDos extends Player {
     constructor(config) {
         super(config.scene, config.x, config.y, 'personajeDos');
 
@@ -8,7 +9,7 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
         this.scene.physics.world.enable(this);
 
         this.setScale();
-        this.body.setSize(16, 128);
+        this.body.setSize(32, 128);
         this.body.setOffset(25, 5);
         this.body.setBounce(0.2);
         //this.body.setCollideWorldBounds(true)
@@ -47,7 +48,7 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
 
         } else {
             this.body.setVelocityX(0);
-            this.body.setSize(16, 110);
+            this.body.setSize(32, 110);
             if (this.prevMov !== 'chuquidle' && !this.jumping) {
                 this.prevMov = 'chuquidle';
                 this.anims.play('chuquidle');
@@ -68,37 +69,8 @@ class PersonajeDos extends Phaser.GameObjects.Sprite {
 
 
 
-    pierdeVidas() {
-
-        if (!this.hitDelay) {
-            console.log("Collisiona")
-            this.hitDelay = true;
-
-            this.life--;
-            this.scene.registry.events.emit("remove_life");
-
-            this.setTint(0x1abc9c)
-
-            this.scene.time.addEvent({
-                delay: 500,
-                callback: () => {
-                    this.hitDelay = false;
-                    this.clearTint();
-         //  this.pierdeJuego()
-
-                }
-            })
-
-        }
-    }
-    pierdeJuego() {
-        
-        if (this.life === 0) {
-           
-            this.scene.registry.events.emit("game_over")
-
-        }
-    }
+    
+    
 
 
    

@@ -17,7 +17,7 @@ class Personaje extends Phaser.GameObjects.Sprite {
     this.jumping = false;
 
     this.anims.play('izquierda');
-    this.prevMov = 'frente';
+    this.prevMov = 'frent';
 
     this.hitDelay = false;
 

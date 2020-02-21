@@ -18,7 +18,7 @@ class Cocodrilos extends Phaser.Scene {
         this.actual_points = 0
 
         this.actual_life = data
-        this.texto = "texto"
+       
     }
     preload (){
     this.load.image('tv', 'assets/tv.png');
@@ -34,12 +34,11 @@ class Cocodrilos extends Phaser.Scene {
 
         this.cursors = this.input.keyboard.createCursorKeys();
         this.spaceKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-        this.boton = this.add.tileSprite(480, 320, 960, 420, 'pantano').setScale(1.5)
+        this.boton = this.add.tileSprite(400, 300, 800, 600, 'pantano')
             .setScrollFactor(0)
 
 
-        this.currentScene = this.scene.get(this);
-        this.bullets = new Bullets(this.physics.world, this, []);
+        
 
         //plataformas
         this.groupFloor = this.physics.add.staticGroup({
@@ -79,7 +78,8 @@ class Cocodrilos extends Phaser.Scene {
         this.llave = this.physics.add.image(1130, 100, "llave").setOrigin(1).setScale(0.1).setSize(200, 100).setOffset(8, 50)
         this.llave1 = this.physics.add.image(800, 80, "llave").setOrigin(1).setScale(0.1).setSize(200, 100).setOffset(10, 50)
         this.llave2 = this.physics.add.image(900, 150, "llave").setOrigin(1).setScale(0.1).setSize(200, 100).setOffset(10, 50)
-
+        this.currentScene = this.scene.get(this);
+        this.bullets = new Bullets(this.physics.world, this, []);
         const content = ["Para matar al coco debes saltar encima sino el coco te mata",
         "CUIDADO con la mosca...si te toca pierdes vidas pero si le disparas con la barra ESPACIADORA la puedes matar",
         "junta puntos para pasar de nivel, alimentandote con manzanas ,pero tambien tienes", 
@@ -107,6 +107,18 @@ class Cocodrilos extends Phaser.Scene {
             y: 550,
             setScale: 0.5,
             collideWorldBounds: true,
+            velocityX: -10
+
+
+
+        });
+        this.coco2 = new Coco({
+            scene: this,
+            x: 800,
+            y: 550,
+            setScale: 0.5,
+            collideWorldBounds: true,
+            velocityX: -10
 
 
         });
@@ -120,9 +132,19 @@ class Cocodrilos extends Phaser.Scene {
 
         });
         this.tweens.add({
-            targets: this.coco,
+            targets: [this.coco],
             props: {
                 x: { value: 20, duration: 2000, flipX: true },
+
+            },
+
+            yoyo: true,
+            repeat: -1
+        });
+        this.tweens.add({
+            targets: [this.coco2],
+            props: {
+                x: { value: 120, duration: 6000, flipX: true },
 
             },
 
@@ -154,7 +176,7 @@ class Cocodrilos extends Phaser.Scene {
         this.physics.add.collider([this.personajedos, this.coco], this.floor);
         this.physics.add.collider([this.personajedos], this.groupFloor);
         this.physics.add.collider([this.personajedos], this.ramas);
-        this.physics.add.overlap(this.personajedos, this.coco, () => {
+        this.physics.add.overlap([this.coco2, this.coco],this.personajedos,  () => {
             this.personajedos.pierdeVidas();
             this.personajedos.pierdeJuego()
 
@@ -163,7 +185,7 @@ class Cocodrilos extends Phaser.Scene {
         this.physics.add.collider(this.personajedos, this.coco, () => {
 
             this.registry.events.emit("points_other")
-            this.coco.setPosition(500, 550, 300, 550)
+           
 
 
         });

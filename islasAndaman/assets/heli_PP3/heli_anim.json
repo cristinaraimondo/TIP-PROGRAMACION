@@ -1,0 +1,44 @@
+{
+    "anims": [
+        {
+            "key": "volar",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "heli",
+                    "frame": "helicopuno_0"
+                },
+                {
+                    "key": "heli",
+                    "frame": "helicopuno_1"
+                },
+                {
+                    "key": "heli",
+                    "frame": "helicopuno_2"
+                },
+                {
+                    "key": "heli",
+                    "frame": "helicopuno_3"
+                },
+                {
+                    "key": "heli",
+                    "frame": "helicopuno_4"
+                },
+                {
+                    "key": "heli",
+                    "frame": "helicopuno_5"
+                },
+                {
+                    "key": "heli",
+                    "frame": "helicopuno_6"
+                },
+                {
+                    "key": "heli",
+                    "frame": "helicopuno_7"
+                }
+            ]
+        }
+    ]
+}

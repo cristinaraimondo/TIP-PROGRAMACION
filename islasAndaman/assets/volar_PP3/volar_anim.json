@@ -1,0 +1,84 @@
+{
+    "anims": [
+        {
+            "key": "volar",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "volar",
+                    "frame": "helicopuno_0"
+                },
+                {
+                    "key": "volar",
+                    "frame": "helicopuno_1"
+                },
+                {
+                    "key": "volar",
+                    "frame": "helicopuno_2"
+                },
+                {
+                    "key": "volar",
+                    "frame": "helicopuno_3"
+                },
+                {
+                    "key": "volar",
+                    "frame": "helicopuno_4"
+                },
+                {
+                    "key": "volar",
+                    "frame": "helicopuno_5"
+                },
+                {
+                    "key": "volar",
+                    "frame": "helicopuno_6"
+                },
+                {
+                    "key": "volar",
+                    "frame": "helicopuno_7"
+                }
+            ]
+        },
+        {
+            "key": "saltar",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "volar",
+                    "frame": "helicopuno_0"
+                },
+                {
+                    "key": "volar",
+                    "frame": "helicopuno_1"
+                },
+                {
+                    "key": "volar",
+                    "frame": "helicopuno_2"
+                },
+                {
+                    "key": "volar",
+                    "frame": "helicopuno_3"
+                },
+                {
+                    "key": "volar",
+                    "frame": "helicopuno_4"
+                },
+                {
+                    "key": "volar",
+                    "frame": "helicopuno_5"
+                },
+                {
+                    "key": "volar",
+                    "frame": "helicopuno_6"
+                },
+                {
+                    "key": "volar",
+                    "frame": "helicopuno_7"
+                }
+            ]
+        }
+    ]
+}

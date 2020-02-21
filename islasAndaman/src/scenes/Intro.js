@@ -179,18 +179,14 @@ class Intro extends Phaser.Scene {
     chicoPulsado() {
         alert('elegiste al mejor');
         this.scene.start('Anara');
-        this.sound.stop("lluvia")
-        this.sound.stop("huevo")
-        this.sound.stop("comida")
-        this.sound.stop("cuervo")
+        this.sound.stopAll()
+       
     }
     eligeIvan() {
         alert('Ivan es muy veloz, elegiste al mejor');
         this.scene.start('Anara')
-        this.sound.stop("lluvia")
-        this.sound.stop("huevo")
-        this.sound.stop("comida")
-        this.sound.stop("cuervo")
+        this.sound.stopAll()
+        
     }
 }
 

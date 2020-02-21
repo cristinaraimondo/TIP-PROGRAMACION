@@ -10,7 +10,7 @@ class PlantaFlor extends Phaser.Physics.Arcade.StaticGroup {
     for (var i = 0; i < 5; i++) {
 
       this.create(
-        Phaser.Math.Between(50, 2700),
+        Phaser.Math.Between(500, 2700),
         Phaser.Math.Between(300, this.scene.scale.height - 30, ),
         "flor", ""
 

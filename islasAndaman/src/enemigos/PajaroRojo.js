@@ -7,7 +7,7 @@ class PajaroRojo extends Phaser.GameObjects.Sprite {
     this.scene.physics.world.enable(this);
 
     this.setScale(0.5);
-    this.body.setSize(64, 64);
+    this.body.setCircle(5);
     this.body.setOffset(25, 5);
 
     this.body.setGravityX(10)
