@@ -1,15 +1,15 @@
 import Bootloader from './Bootloader.js';
 import Intro from './scenes/Intro.js';
-import Volcanes from './scenes/Volcanes.js';
+import SaltandoLava from './scenes/SaltandoLava.js';
 import Cocodrilos from './scenes/Cocodrilos.js';
 import Game_over from './scenes/Game_over.js';
 import Ataque_huevos from './scenes/Ataque_huevos.js';
-import SobrevolandoVolcan from './scenes/SobrevolandoVolcan.js';
+import BuscandoHelicoptero from './scenes/BuscandoHelicoptero.js';
 import Lluvia from './scenes/Lluvia.js';
-import EstadoPersonaje from "./scenes/EstadoPersonaje.js";
+import UI from "./scenes/UI.js";
 import textroll from "./scenes/textroll.js"
 import SalvandoCompas from './scenes/SalvandoCompas.js';
-import Selva from './scenes/Selva.js';
+import PantallaLava from './scenes/PantallaLava.js';
 import VolandoLava from './scenes/volandoLava.js';
 
 
@@ -43,14 +43,14 @@ const config = {
         Bootloader,
         Intro,
         Cocodrilos,
-        Volcanes,
+        SaltandoLava,
         Ataque_huevos,
         SalvandoCompas,
         textroll,
-        SobrevolandoVolcan,
-        Selva,
+        BuscandoHelicoptero,
+        PantallaLava,
         VolandoLava,
-        EstadoPersonaje,
+        UI,
         Lluvia,
         Game_over,
         

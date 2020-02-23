@@ -1,5 +1,6 @@
 import Volcan from "../enemigos/Volcan.js"
-import Jugador from "../player/Jugador.js";
+import Jugador from "../player/Helicoptero.js";
+
 
 class SobrevolandoVolcan extends Phaser.Scene {
     constructor(){
@@ -8,11 +9,8 @@ class SobrevolandoVolcan extends Phaser.Scene {
     init(data) {
        
         this.camara = this.cameras.main;
-        this.life=5
        
-        
-        
-    }
+         }
     
     create(){
         
@@ -35,8 +33,10 @@ class SobrevolandoVolcan extends Phaser.Scene {
         };
         this.bg= this.add
         .tileSprite(480, 320, 1960, 640, 'sobrevolandoVol')
-        .setScrollFactor(0);
-       
+        //evento quitar puntos
+        this.registry.events.on("restarPuntos", () => {
+            if(this.score >=1){this.score--}
+             });
         this.bolaFuego = this.physics.add.image(1507, 550, "bolafuego").setScale(0.7).setGravityX(-20).setCircle(5)
         this.volcan = new Volcan({
             scene: this,
@@ -47,7 +47,7 @@ class SobrevolandoVolcan extends Phaser.Scene {
             stepX: 800
 
         });
-
+    
         this.bolaFuego2 = this.physics.add.image(2007, 550, "bolafuego").setScale(0.7).setGravityX(-20)
         this.bolaFuego4 = this.physics.add.image(9007, 550, "bolafuego").setScale(0.7).setGravityX(-10).setAngle(-45)
         this.bolaFuego5 = this.physics.add.image(6507, 550, "bolafuego").setScale(0.7).setGravityX(-10).setAngle(-45)
@@ -57,24 +57,16 @@ class SobrevolandoVolcan extends Phaser.Scene {
             x: 1000,
             y: 500,
            setGravityX:-20,
-          
-           
-
-        });
+            });
         this.bolaFuego3 = this.physics.add.image(2807, 550, "bolafuego").setScale(0.7).setGravityX(-20) .setCircle(5)
         this.volcan3 = new Volcan({
             scene: this,
             x: 2800,
             y: 500,
            setGravityX:-120,
-           
-           
-
-        });
+            });
        
-
-        
-        this.group = this.physics.add.group();
+          this.group = this.physics.add.group();
           //800 pixeles en 3 segundos
           this.speed = Phaser.Math.GetSpeed(-800, 3)
           this.speed2 = Phaser.Math.GetSpeed(-1200, 3)
@@ -105,15 +97,9 @@ class SobrevolandoVolcan extends Phaser.Scene {
         this.scoreText = this.add.text(10, 10, '');
         this.updateScore(this.score);
         //collision
-        this.physics.add.overlap([this.bolaFuego, this.bolaFuego2, this.bolaFuego3,this.bolaFuego4,this.bolaFuego5], this.avion, () => {
-            this.avion.pierdeVidas()
-            if(this.score >=1){this.score--}
-            
-            
-           
-            
-
-        });
+        this.physics.add.overlap([this.bolaFuego,this.bolaFuego2,this.bolaFuego3,this.bolaFuego4,this.bolaFuego5,this.bolaFuego6], this.avion, () => {
+           this.avion.pierdePuntos()
+             });
       ;
        
      }
@@ -148,7 +134,7 @@ class SobrevolandoVolcan extends Phaser.Scene {
         return rightmostlava;
     }
     cambioEscena(){
-        if(this.score === 10){
+        if(this.score === 20){
             this.scene.start('final')
         }
     }

@@ -1,5 +1,5 @@
 import Coco from "../enemigos/coco.js"
-import PersonajeDos from "../player/PersonajeDos.js"
+import PersonajeDos from "../player/PersonajePrincipal.js"
 import MoscaMala from "../enemigos/MoscaMala.js";
 import Manzana from "../objetos/Manzanas.js"
 import Bullets from "../objetos/Bullets.js"

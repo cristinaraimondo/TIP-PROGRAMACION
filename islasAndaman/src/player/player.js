@@ -3,27 +3,20 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         super(scene, x, y, sprite);
         scene.physics.add.collider(this, scene.collisionLayer);
         scene.add.existing(this);
-        this.velocidad = 100;
-        this.direccion = 1;
+        
     }
     pierdeVidas() {
 
-        if (!this.hitDelay) {
-            console.log("Collisiona")
+        if(!this.hitDelay) {
             this.hitDelay = true;
-      
             this.life--;
-            this.scene.registry.events.emit("remove_life");
-      
-            this.setTint(0x1abc9c)
-      
+            this.scene.registry.events.emit('remove_life')
+            this.setTint(0x1abc9c);
             this.scene.time.addEvent({
-                delay: 500,
+                delay: 600,
                 callback: () => {
                     this.hitDelay = false;
                     this.clearTint();
-         //  this.pierdeJuego()
-      
                 }
             })
       
@@ -32,10 +25,30 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
       pierdeJuego() {
         
         if (this.life === 0) {
-           
             this.scene.registry.events.emit("game_over")
       
         }
+      }
+      pierdePuntos(){
+        if (!this.hitDelay) {
+            console.log("Collisiona")
+            this.hitDelay = true;
+            this.puntos--;
+            this.scene.registry.events.emit("restarPuntos");
+            this.setTint(0x1abc9c)
+      
+            this.scene.time.addEvent({
+                delay: 500,
+                callback: () => {
+                    this.hitDelay = false;
+                    this.clearTint();
+        
+      
+                }
+            })
+      
+        }
+
       }
       
     

@@ -94,7 +94,6 @@ class EstadoPersonaje extends Phaser.Scene {
         this.registry.events.removeAllListeners();
         this.scene.stop("Anara")
         this.scene.stop("Lluvia")
-        // this.scene.pause
         this.sound.stopAll()
       
        
@@ -112,15 +111,16 @@ class EstadoPersonaje extends Phaser.Scene {
     this.registry.events.on('plantaCollected', () => {
       this.scoreText.visible = true
 
-      this.plantaCollected++;
+      this.plantaCollected+= 1;
       this.scoreText.setText(`Plantas: ${this.plantaCollected}`);
+      console.log('plantaCollected' + this.plantaCollected)
 
     });
 
     this.registry.events.on('cristalCollected', () => {
 
       this.cristalText.visible = true
-      this.cristalCollected++;
+      this.cristalCollected+= 1;
       this.cristalText.setText(`Cristales: ${this.cristalCollected}`);
     })
 
@@ -128,24 +128,9 @@ class EstadoPersonaje extends Phaser.Scene {
       if (this.plantaCollected === 5 && this.cristalCollected === 10) {
         this.winTxt.visible = true;
 
-      this.eve= this.gameScene.physics.add.sprite(300, 530, "eve",).play("izquierda",)
-       this.eve.setScale(1.5)
-       this.eve.body.setSize(32,32)
-       this.eve.body.setOffset(10,10)
       
-       this.tweens.add({
-        targets: [this.eve],
-        props: {
-            x: { value: 20, duration: 7000, flipX: true },
-
-        },
-
-        yoyo: true,
-        repeat: -1
-    });
-  
-      
-        this.gameScene = this.scene.pause('sobrevolandoVolcan', { eve: this.eve, });
+   
+        this.gameScene = this.scene.pause('sobrevolandoVolcan');
        
 
         // muestro el texto para buscar a Eve y reinicio el juego
@@ -214,9 +199,18 @@ class EstadoPersonaje extends Phaser.Scene {
       }
 
     })
+    this.registry.events.on('cambioAvion', () => {//registra el evento y cambia a volandoLava
 
+      if (this.plantaCollected === 5 && this.cristalCollected === 10) {
+        this.scene.resume('sobrevolandoVolcan')
+       
+      }
+
+    })
+
+
+  
   }
- 
  
   update(time, delta) { }
 

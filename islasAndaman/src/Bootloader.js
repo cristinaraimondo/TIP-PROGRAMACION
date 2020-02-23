@@ -5,7 +5,7 @@ class Bootloader extends Phaser.Scene {
 
     preload() {
         this.load.setPath('./assets/');
-
+       
         this.load.audio('aircraft', ['aircraft.mp3']);
         this.load.audio('audioJuego', ['sonidoJuego.mp3']);
         this.load.audio('islaMusic', ['islandMusic.mp3'])
@@ -13,6 +13,7 @@ class Bootloader extends Phaser.Scene {
         this.load.audio('heli', ['heli.mp3']);
         this.load.audio('cuervo', ['cuervo.mp3']);
         this.load.image('avion', 'avioneta.png');
+        this.load.image('carcel', 'carcel.png');
         this.load.image("bolafuego", "energia.png")
         this.load.image("corazon", "corazon.png")
         this.load.image("avioncito", "Dead.png")
@@ -234,7 +235,7 @@ class Bootloader extends Phaser.Scene {
             delay: 3000,
             duration: 500,
             onComplete: () => {
-                this.scene.start('Avion');
+                this.scene.start('sobrevolandoVolcan');
 
 
             }

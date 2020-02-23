@@ -1,9 +1,10 @@
-import PersonajeDos from '../Player/PersonajeDos.js';
+import PersonajeDos from '../player/PersonajePrincipal.js';
 import PlantaFlor from '../objetos/plantaFlor.js';
 import Cristales from "../objetos/Cristales.js"
 import Volcan from "../enemigos/Volcan.js"
 import GroupVolcan from "../objetos/GroupVolcan.js"
-import Jugador from '../player/Jugador.js';
+import Jugador from '../player/Helicoptero.js';
+import Personaje from "../player/Eve.js"
 
 
 class SobrevolandoVolcan extends Phaser.Scene {
@@ -37,13 +38,17 @@ class SobrevolandoVolcan extends Phaser.Scene {
 
     create() {
 
-        this.backg = this.add.tileSprite(400, 300, 800, 600, "bg")
+        this.backg = this.add
+        .tileSprite(480, 320, 1960, 640, 'sobrevolandoVol')
+        .setScrollFactor(0);
+        
             
         this.registry.events.on('update_cristales', () => {
             this.actual_cristales++;
         })
        
      
+
         this.textConsejo = this.add.text(500, 100, "Recoger:\n\ncristales: 10\n\nplantas de vida: 5\n\ncuando tengas todo\n\npodrás subirte al avión").setScrollFactor(0)
 
 
@@ -104,7 +109,6 @@ class SobrevolandoVolcan extends Phaser.Scene {
 
         });
         
-        this.estadoPersonaje = this.scene.get( "EstadoPersonaje");
      
         this.group = this.physics.add.staticGroup({//lo pongo antes del personaje para que este este por delante
             Key: 'volcan',
@@ -121,6 +125,7 @@ class SobrevolandoVolcan extends Phaser.Scene {
 
 
         });
+      
         this.algo = new GroupVolcan({
             physicsWorld: this.physics.world,
             scene: this,
@@ -173,7 +178,7 @@ class SobrevolandoVolcan extends Phaser.Scene {
 
 
         });
-
+        
         this.personaje = new PersonajeDos({
             scene: this,
             x: 600,
@@ -189,22 +194,31 @@ class SobrevolandoVolcan extends Phaser.Scene {
             setVelocityX:0
     
          })
+         this.crearAEve()
+        
+         this.carcel = this.physics.add.staticImage(100,400,"carcel").setScale(1.5).setSize(100).setOffset(250,2)
+         //this.eve.setActive(false)
+        
          this.heli.setScale(4)
          this.heli.setVelocityX(0)
+         
          
        
 
         //collision
-        this.physics.add.collider([this.personaje, this.heli], this.groupFloor);
+        this.physics.add.collider([this.personaje, this.heli,], this.groupFloor);
+        this.physics.add.collider(this.carcel, this.personaje)
         this.physics.add.collider([this.volcan, this.volcan2, this.volcan3], this.personaje);
+       // this.physics.add.overlap([this.eve], this.personaje, () => {this.scene.start("Avion")});
+
 
         this.physics.add.overlap(this.itemsGroup, this.personaje, () => {
 
             this.registry.events.emit('plantaCollected');
             this.itemsGroup.destroyItem();
-            
-            this.registry.events.emit('resume'),() =>{ }
-            this.registry.events.emit("cambioAvion"),() =>{}
+           
+            this.registry.events.emit('resume'),() =>{
+                 this.carcel.setOffset(-200,50)}
            
 
         });
@@ -218,9 +232,13 @@ class SobrevolandoVolcan extends Phaser.Scene {
            
             this.registry.events.emit('cristalCollected');
             this.itemsGroupCristales.destroyItem();
+           
             
-            this.registry.events.emit('resume')
-            this.registry.events.emit("cambioAvion"),() =>{} 
+            this.registry.events.emit('resume'),( ) =>{ 
+                this.carcel.setOffset(-200,50)
+              }
+           
+              
             
            
            // this.personaje.setAlpha(0)
@@ -232,20 +250,31 @@ class SobrevolandoVolcan extends Phaser.Scene {
             this.personaje.pierdeVidas()
             this.registry.events.emit('sobrevolando')
            
-            
-
-        });
-
-        this.physics.add.overlap([this.volcan], this.personaje, () => {
-
-
-        });
-
-
+         });
 
     }
     
-    
+    crearAEve(){
+        const eve= this.physics.add.sprite(300, 530, "eve",)
+       eve.setScale(1.5)
+       eve.body.setSize(32,32)
+       eve.body.setOffset(10,10)
+       eve.play("izquierda")
+       eve.setGravityY(0)
+       
+      
+       this.tweens.add({
+        targets: [eve],
+        props: {
+            x: { value: 20, duration: 7000, flipX: true },
+
+        },
+
+        yoyo: true,
+        repeat: -1
+    });
+  
+    }
 
     update(time, delta) {
         // La función de actualización pasa 2 valores:
@@ -274,8 +303,8 @@ class SobrevolandoVolcan extends Phaser.Scene {
 
         }
         this.personaje.update();
-        this.cameras.main.scrollX = this.personaje.x - 100;
-        this.backg.tilePositionX = this.personaje.x;
+        this.cameras.main.scrollX = this.personaje.x - 500;
+       // this.backg.tilePositionX = this.personaje.x;
         this.backg.tilePositionx = this.planta.x
 
 

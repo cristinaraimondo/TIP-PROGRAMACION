@@ -1,4 +1,4 @@
-import Player from "../player/player.js"
+import Player from "./player.js"
 class Jugador extends Player {
   constructor(config) {
     super(config.scene, config.x, config.y, "volar");
@@ -17,6 +17,7 @@ this.life = 5
 this.anims.play("saltar");
 this.prevMov = "saltar"
 this.hitDelay = false;
+
 
 }
 

@@ -1,11 +1,11 @@
 
-import Player from "../player/player.js"
+import Player from "./player.js"
 class PersonajeDos extends Player {
     constructor(config) {
         super(config.scene, config.x, config.y, 'personajeDos');
 
         this.scene = config.scene;
-        this.scene.add.existing(this);
+       
         this.scene.physics.world.enable(this);
 
         this.setScale();
@@ -66,18 +66,6 @@ class PersonajeDos extends Player {
             this.jumping = false;
         }
     }
-
-
-
-    
-    
-
-
-   
-
-
-
-
 }
 
 export default PersonajeDos;

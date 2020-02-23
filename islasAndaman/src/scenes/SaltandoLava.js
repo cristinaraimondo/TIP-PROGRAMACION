@@ -1,4 +1,4 @@
-import PersonajeDos from '../Player/PersonajeDos.js';
+import PersonajeDos from '../player/PersonajePrincipal.js';
 class Volcanes extends Phaser.Scene {
     constructor() {
         super({ key: 'Volcanes' });

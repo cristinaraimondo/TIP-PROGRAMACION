@@ -13,6 +13,8 @@ class Personaje extends Phaser.GameObjects.Sprite {
 
     this.body.setGravityY(0)
     this.body.setVelocityX(-10)
+    
+    
 
     this.jumping = false;
 
