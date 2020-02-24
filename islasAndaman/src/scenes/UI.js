@@ -107,60 +107,7 @@ class EstadoPersonaje extends Phaser.Scene {
 
 
 
-    // eventos desde la escena
-    this.registry.events.on('plantaCollected', () => {
-      this.scoreText.visible = true
-
-      this.plantaCollected+= 1;
-      this.scoreText.setText(`Plantas: ${this.plantaCollected}`);
-      console.log('plantaCollected' + this.plantaCollected)
-
-    });
-
-    this.registry.events.on('cristalCollected', () => {
-
-      this.cristalText.visible = true
-      this.cristalCollected+= 1;
-      this.cristalText.setText(`Cristales: ${this.cristalCollected}`);
-    })
-
-    this.registry.events.on('resume', () => {
-      if (this.plantaCollected === 5 && this.cristalCollected === 10) {
-        this.winTxt.visible = true;
-
-      
-   
-        this.gameScene = this.scene.pause('sobrevolandoVolcan');
-       
-
-        // muestro el texto para buscar a Eve y reinicio el juego
-        const timeLine = this.tweens.createTimeline();
-
-        timeLine.add({
-          targets: this.gameScene,
-          alpha: 0,
-          delay: 3000,
-          duration: 500,
-          onComplete: () => {
-            
-            this.cameras.main.flash(500);
-            this.scene.resume('sobrevolandoVolcan')
-            this.winTxt.visible = false
-           
-
-
-
-          
-
-
-          }
-        });
-        timeLine.play();
-      }
-     
-
-    })
-
+  
   
 
     this.registry.events.on("points_other", () => {
@@ -199,14 +146,7 @@ class EstadoPersonaje extends Phaser.Scene {
       }
 
     })
-    this.registry.events.on('cambioAvion', () => {//registra el evento y cambia a volandoLava
-
-      if (this.plantaCollected === 5 && this.cristalCollected === 10) {
-        this.scene.resume('sobrevolandoVolcan')
-       
-      }
-
-    })
+   
 
 
   

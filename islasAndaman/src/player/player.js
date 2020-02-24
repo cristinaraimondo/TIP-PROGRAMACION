@@ -50,6 +50,25 @@ export default class Player extends Phaser.Physics.Arcade.Sprite{
         }
 
       }
+     sumaPuntos(){
+        if (!this.hitDelay) {
+            console.log("Collisiona")
+            this.hitDelay = true;
+            this.puntos++;
+            this.scene.registry.events.emit("sumarPuntos");
+            this.setTint(0x1abc9c)
+      
+            this.scene.time.addEvent({
+                delay: 500,
+                callback: () => {
+                    this.hitDelay = false;
+                    this.clearTint();
+        
+      
+                }
+            })
+      
+        }
       
     
-}
+    }}
