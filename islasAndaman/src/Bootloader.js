@@ -5,7 +5,7 @@ class Bootloader extends Phaser.Scene {
 
     preload() {
         this.load.setPath('./assets/');
-       
+
         this.load.audio('aircraft', ['aircraft.mp3']);
         this.load.audio('audioJuego', ['sonidoJuego.mp3']);
         this.load.audio('islaMusic', ['islandMusic.mp3'])
@@ -122,27 +122,27 @@ class Bootloader extends Phaser.Scene {
             'eve_PP3/eve_atlas.json'
         );
         this.load.animation("eve", 'eve_PP3/eve_anim.json');
-       
-       ///////////////////////////////////////////////////////////////
+
+        ///////////////////////////////////////////////////////////////
 
 
-       this.load.atlas(
-        "chicorub",
-        'chicorub_PP3/chicorub.png',
-        'chicorub_PP3/chicorub_atlas.json'
-    );
+        this.load.atlas(
+            "chicorub",
+            'chicorub_PP3/chicorub.png',
+            'chicorub_PP3/chicorub_atlas.json'
+        );
         this.load.animation("chicorub", 'chicorub_PP3/chicorub_anim.json');
-    //////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////
 
-    this.load.atlas(
-        "volar",
-        'volar_PP3/volar.png',
-        'volar_PP3/volar_atlas.json'
-    );
+        this.load.atlas(
+            "volar",
+            'volar_PP3/volar.png',
+            'volar_PP3/volar_atlas.json'
+        );
         this.load.animation("volar", 'volar_PP3/volar_anim.json');
-    //////////////////////////////////////////////////////////////////
-       
-       
+        //////////////////////////////////////////////////////////////////
+
+
         this.load.on('complete', () => {
             const configFont = this.cache.json.get('fontJSON');
             this.cache.bitmapFont.add(

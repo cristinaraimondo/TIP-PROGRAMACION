@@ -4,7 +4,7 @@ import Cristales from "../objetos/Cristales.js"
 import Volcan from "../enemigos/Volcan.js"
 import GroupVolcan from "../objetos/GroupVolcan.js"
 import Jugador from '../player/Helicoptero.js';
-import Personaje from "../player/Eve.js"
+//import Personaje from "../player/Eve.js"
 
 
 class SobrevolandoVolcan extends Phaser.Scene {
@@ -38,21 +38,21 @@ class SobrevolandoVolcan extends Phaser.Scene {
     create() {
 
         this.backg = this.add
-        .tileSprite(480, 320, 1960, 640, 'sobrevolandoVol')
-        .setScrollFactor(0);
-        
-            
+            .tileSprite(480, 320, 1960, 640, 'sobrevolandoVol')
+            .setScrollFactor(0);
+
+
         this.registry.events.on('update_cristales', () => {
             this.actual_cristales++;
         })
         //textos
-    this.scoreText = this.add.text(12, 12, `Plantas: ${this.plantaCollected}`, { fontSize: '32px', fill: '#21767f', fontFamily: 'rockwell, symbol' }).setScrollFactor(0);
-    this.scoreText.visible = false
-    this.cristalText = this.add.text(12, 40, `Cristales: ${this.cristalCollected}`, { fontSize: '32px', fill: '#21767f', fontFamily: 'rockwell, symbol' }).setScrollFactor(0);
-    this.cristalText.visible = false
-    this.winTxt = this.add.text(125, 130, `\n *****  ¡Anda a buscar a EVE...y al helicoptero!  ***** \n `, { fontSize: '30px', fill: '#21767f', fontFamily: 'rockwell, symbol', backgroundColor: 'pink', align: 'center' }).setScrollFactor(0);
-    this.winTxt.visible = false;
-    this.textConsejo = this.add.text(500, 100, "Recoger:\n\ncristales: 10\n\nplantas de vida: 5\n\ncuando tengas todo\n\npodrás subirte al avión").setScrollFactor(0)
+        this.scoreText = this.add.text(12, 12, `Plantas: ${this.plantaCollected}`, { fontSize: '32px', fill: '#21767f', fontFamily: 'rockwell, symbol' }).setScrollFactor(0);
+        this.scoreText.visible = false
+        this.cristalText = this.add.text(12, 40, `Cristales: ${this.cristalCollected}`, { fontSize: '32px', fill: '#21767f', fontFamily: 'rockwell, symbol' }).setScrollFactor(0);
+        this.cristalText.visible = false
+        this.winTxt = this.add.text(125, 130, `\n *****  ¡Anda a buscar a EVE...y al helicoptero!  ***** \n `, { fontSize: '30px', fill: '#21767f', fontFamily: 'rockwell, symbol', backgroundColor: 'pink', align: 'center' }).setScrollFactor(0);
+        this.winTxt.visible = false;
+        this.textConsejo = this.add.text(500, 100, "Recoger:\n\ncristales: 10\n\nplantas de vida: 5\n\ncuando tengas todo\n\npodrás subirte al avión").setScrollFactor(0)
 
 
         this.planta = this.add.image(10, 650, "planta").setSize(30, 1)
@@ -111,8 +111,8 @@ class SobrevolandoVolcan extends Phaser.Scene {
             }
 
         });
-        
-      this.group = this.physics.add.staticGroup({//lo pongo antes del personaje para que este este por delante
+
+        this.group = this.physics.add.staticGroup({//lo pongo antes del personaje para que este este por delante
             Key: 'volcan',
             repeat: 10,
             setXY: {
@@ -124,8 +124,8 @@ class SobrevolandoVolcan extends Phaser.Scene {
                 x: 2
 
             }
- });
-      
+        });
+
         this.volc = new GroupVolcan({ //son parte del escenario, no tienen colision
             physicsWorld: this.physics.world,
             scene: this,
@@ -133,43 +133,43 @@ class SobrevolandoVolcan extends Phaser.Scene {
 
         })
         // eventos desde la escena
-    this.registry.events.on('plantaCollected', () => {
-        this.scoreText.visible = true
-  
-        this.plantaCollected+= 1;
-        this.scoreText.setText(`Plantas: ${this.plantaCollected}`);
-        console.log('plantaCollected' + this.plantaCollected)
-  
-      });
-  
-      this.registry.events.on('cristalCollected', () => {
-  
-        this.cristalText.visible = true
-        this.cristalCollected+= 1;
-        this.cristalText.setText(`Cristales: ${this.cristalCollected}`);
-      })
-  
-      this.registry.events.on('resume', () => {
-        if (this.plantaCollected === 5 && this.cristalCollected === 10) {
-          this.winTxt.visible = true;
-  
-      // muestro el texto para buscar a Eve  y luego lo desvanezco
-          const timeLine = this.tweens.createTimeline();
-  
-          timeLine.add({
-            targets: this.winTxt,
-            alpha: 0,
-            delay: 3000,
-            duration: 500,
-            onComplete: () => {
-              this.winTxt.visible = false
-              }
-          });
-          timeLine.play();
-        }
-      })
-       //volcanes y bolas de fuego con colision
-       this.bolaFuego = this.physics.add.image(507, 550, "bolafuego").setScale(0.7)
+        this.registry.events.on('plantaCollected', () => {
+            this.scoreText.visible = true
+
+            this.plantaCollected += 1;
+            this.scoreText.setText(`Plantas: ${this.plantaCollected}`);
+            console.log('plantaCollected' + this.plantaCollected)
+
+        });
+
+        this.registry.events.on('cristalCollected', () => {
+
+            this.cristalText.visible = true
+            this.cristalCollected += 1;
+            this.cristalText.setText(`Cristales: ${this.cristalCollected}`);
+        })
+
+        this.registry.events.on('resume', () => {
+            if (this.plantaCollected === 5 && this.cristalCollected === 10) {
+                this.winTxt.visible = true;
+
+                // muestro el texto para buscar a Eve  y luego lo desvanezco
+                const timeLine = this.tweens.createTimeline();
+
+                timeLine.add({
+                    targets: this.winTxt,
+                    alpha: 0,
+                    delay: 3000,
+                    duration: 500,
+                    onComplete: () => {
+                        this.winTxt.visible = false
+                    }
+                });
+                timeLine.play();
+            }
+        })
+        //volcanes y bolas de fuego con colision
+        this.bolaFuego = this.physics.add.image(507, 550, "bolafuego").setScale(0.7)
         this.volcan = new Volcan({
             scene: this,
             x: 500,
@@ -214,7 +214,7 @@ class SobrevolandoVolcan extends Phaser.Scene {
 
         });
         //los creo en capas 
-        
+
         this.personaje = new PersonajeDos({
             scene: this,
             x: 600,
@@ -227,17 +227,17 @@ class SobrevolandoVolcan extends Phaser.Scene {
             x: -100,
             y: 300,
             gravityX: 0,
-            setVelocityX:0
-    
-         })
-         this.crearAEve()
-        
-         this.carcel = this.physics.add.staticImage(100,400,"carcel").setScale(1.5).setSize(100).setOffset(250,2)//con offset creo la entrada a la carcel
-         this.heli.setScale(4)
-         this.heli.setVelocityX(0)
-         
-         
-       
+            setVelocityX: 0
+
+        })
+        this.crearAEve()
+
+        this.carcel = this.physics.add.staticImage(100, 400, "carcel").setScale(1.5).setSize(100).setOffset(250, 2)//con offset creo la entrada a la carcel
+        this.heli.setScale(4)
+        this.heli.setVelocityX(0)
+
+
+
 
         //colisiones
         this.physics.add.collider([this.personaje, this.heli,], this.groupFloor);
@@ -252,57 +252,58 @@ class SobrevolandoVolcan extends Phaser.Scene {
         });
         this.physics.add.overlap(this.heli, this.personaje, () => {
 
-           this.scene.start('Avion')
-           this.scene.stop( "EstadoPersonaje")
+            this.scene.start('Avion')
+            this.scene.stop("EstadoPersonaje")
 
         });
         this.physics.add.overlap([this.itemsGroupCristales], this.personaje, () => {
-           
+
             this.registry.events.emit('cristalCollected');
             this.itemsGroupCristales.destroyItem();
             this.registry.events.emit('resume')
             this.abrirCarcel()
         });
-       
+
 
         this.physics.add.overlap([this.bolaFuego, this.bolaFuego2, this.bolaFuego3], this.personaje, () => {
             this.personaje.pierdeVidas()
             this.registry.events.emit('sobrevolando')
-           
-         });
-        
+
+        });
+
         this.physics.add.overlap([this.eve], this.personaje, () => {
-            
-         
-         });
-        }
-    abrirCarcel(){
-        if(this.cristalCollected===10 && this.plantaCollected===5){
-            this.carcel.setSize(50,50)
+            this.corazon = this.add.image(125, 430, "corazon")
+
+
+        });
+    }
+    abrirCarcel() {
+        if (this.cristalCollected === 10 && this.plantaCollected === 5) {
+            this.carcel.setSize(50, 50)
 
         }
     }
-    
-    crearAEve(){
-        const eve= this.physics.add.sprite(300, 530, "eve",)
-       eve.setScale(1.5)
-       eve.body.setSize(32,32)
-       eve.body.setOffset(10,10)
-       eve.play("izquierda")
-       eve.setGravityY(0)
 
-       //creo interpolaciones para que Eve vaya de izquierda a derecha indefinidamente con (-1)
-       
+    crearAEve() {
+        this.eve = this.physics.add.sprite(300, 530, "eve", )
+        this.eve.setScale(1.5)
+        this.eve.body.setSize(32, 32)
+        this.eve.body.setOffset(10, 10)
+        this.eve.play("izquierda")
+        this.eve.setGravityY(0)
+
+        //creo interpolaciones para que Eve vaya de izquierda a derecha indefinidamente con (-1)
+
         this.tweens.add({
-        targets: [eve],
-        props: {
-            x: { value: 20, duration: 7000, flipX: true },
+            targets: [this.eve],
+            props: {
+                x: { value: 20, duration: 7000, flipX: true },
 
-        },
-        yoyo: true,
-        repeat: -1
-    });
-  
+            },
+            yoyo: true,
+            repeat: -1
+        });
+
     }
 
     update(time, delta) {
@@ -328,10 +329,10 @@ class SobrevolandoVolcan extends Phaser.Scene {
             this.personaje.setPosition(400, 100)
             this.personaje.pierdeVidas()
             this.registry.events.emit('sobrevolando')
-     }
+        }
         this.personaje.update();
         this.cameras.main.scrollX = this.personaje.x - 500;
-       // this.backg.tilePositionX = this.personaje.x;
+        // this.backg.tilePositionX = this.personaje.x;
         this.backg.tilePositionx = this.planta.x
 
 
