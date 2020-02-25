@@ -10,7 +10,7 @@ class Cristales extends Phaser.Physics.Arcade.StaticGroup {
     for (var i = 0; i < 10; i++) {
 
       this.create(
-        Phaser.Math.Between(50, 2700),
+        Phaser.Math.Between(350, 2700),
        
         Phaser.Math.Between(300, this.scene.scale.height - 60, ),
         "cristal", ""

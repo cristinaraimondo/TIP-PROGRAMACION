@@ -42,9 +42,7 @@ class SobrevolandoVolcan extends Phaser.Scene {
             .setScrollFactor(0);
 
 
-        this.registry.events.on('update_cristales', () => {
-            this.actual_cristales++;
-        })
+        
         //textos
         this.scoreText = this.add.text(12, 12, `Plantas: ${this.plantaCollected}`, { fontSize: '32px', fill: '#21767f', fontFamily: 'rockwell, symbol' }).setScrollFactor(0);
         this.scoreText.visible = false
@@ -53,7 +51,7 @@ class SobrevolandoVolcan extends Phaser.Scene {
         this.winTxt = this.add.text(125, 130, `\n *****  ¡Anda a buscar a EVE...y al helicoptero!  ***** \n `, { fontSize: '30px', fill: '#21767f', fontFamily: 'rockwell, symbol', backgroundColor: 'pink', align: 'center' }).setScrollFactor(0);
         this.winTxt.visible = false;
         this.textConsejo = this.add.text(500, 100, "Recoger:\n\ncristales: 10\n\nplantas de vida: 5\n\ncuando tengas todo\n\npodrás subirte al avión").setScrollFactor(0)
-
+        
 
         this.planta = this.add.image(10, 650, "planta").setSize(30, 1)
 
@@ -91,8 +89,8 @@ class SobrevolandoVolcan extends Phaser.Scene {
         timeLine.add({
             targets: [this.textConsejo],
             alpha: 0,
-            delay: 25000,
-            duration: 3000
+            delay: 2500,
+            duration: 500
         });
 
         timeLine.play();
@@ -232,7 +230,7 @@ class SobrevolandoVolcan extends Phaser.Scene {
         })
         this.crearAEve()
 
-        this.carcel = this.physics.add.staticImage(100, 400, "carcel").setScale(1.5).setSize(100).setOffset(250, 2)//con offset creo la entrada a la carcel
+        this.carcel = this.physics.add.staticImage(100, 400, "carcel").setScale(1.5).setSize(40).setOffset(300, -2)//con offset creo la entrada a la carcel
         this.heli.setScale(4)
         this.heli.setVelocityX(0)
 
@@ -242,6 +240,7 @@ class SobrevolandoVolcan extends Phaser.Scene {
         //colisiones
         this.physics.add.collider([this.personaje, this.heli,], this.groupFloor);
         this.physics.add.collider(this.carcel, this.personaje)
+        this.physics.add.collider(this.eve, this.carcel);
         this.physics.add.collider([this.volcan, this.volcan2, this.volcan3], this.personaje);
         this.physics.add.overlap(this.itemsGroup, this.personaje, () => {
             this.registry.events.emit('plantaCollected');
@@ -273,6 +272,13 @@ class SobrevolandoVolcan extends Phaser.Scene {
 
         this.physics.add.overlap([this.eve], this.personaje, () => {
             this.corazon = this.add.image(125, 430, "corazon")
+            this.corazon=this.cameras.main.setZoom(2);
+            
+       
+           
+
+            
+            
 
 
         });
@@ -285,10 +291,10 @@ class SobrevolandoVolcan extends Phaser.Scene {
     }
 
     crearAEve() {
-        this.eve = this.physics.add.sprite(300, 530, "eve", )
+        this.eve = this.physics.add.sprite(200, 530, "eve", )
         this.eve.setScale(1.5)
-        this.eve.body.setSize(32, 32)
-        this.eve.body.setOffset(10, 10)
+        this.eve.body.setSize(16,16)
+        this.eve.body.setOffset(25, 10)
         this.eve.play("izquierda")
         this.eve.setGravityY(0)
 
@@ -297,7 +303,7 @@ class SobrevolandoVolcan extends Phaser.Scene {
         this.tweens.add({
             targets: [this.eve],
             props: {
-                x: { value: 20, duration: 7000, flipX: true },
+                x: { value: 10, duration: 7000, flipX: true },
 
             },
             yoyo: true,

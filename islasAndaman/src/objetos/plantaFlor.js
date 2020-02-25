@@ -11,7 +11,7 @@ class PlantaFlor extends Phaser.Physics.Arcade.StaticGroup {
 
       this.create(
         Phaser.Math.Between(500, 2700),
-        Phaser.Math.Between(300, this.scene.scale.height - 30, ),
+        Phaser.Math.Between(280, this.scene.scale.height - 30, ),
         "flor", ""
 
       ).setScale(0.5).setSize(10, 10).setOffset(50, 50)
