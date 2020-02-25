@@ -272,15 +272,8 @@ class SobrevolandoVolcan extends Phaser.Scene {
 
         this.physics.add.overlap([this.eve], this.personaje, () => {
             this.corazon = this.add.image(125, 430, "corazon")
-            this.corazon=this.cameras.main.setZoom(2);
+           // this.corazon=this.cameras.main.setZoom(1.4);
             
-       
-           
-
-            
-            
-
-
         });
     }
     abrirCarcel() {

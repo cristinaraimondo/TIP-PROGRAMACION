@@ -235,7 +235,7 @@ class Bootloader extends Phaser.Scene {
             delay: 3000,
             duration: 500,
             onComplete: () => {
-                this.scene.start('sobrevolandoVolcan');
+                this.scene.start('Intro');
 
 
             }
